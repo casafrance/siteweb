@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript">var _rollbarConfig = {"accessToken":"6809c5dd9a7e4efd865a7018826726b4","payload":{"environment":"production"}};</script>
+<script type="text/javascript">!function(r){function e(n){if(o[n])return o[n].exports;var t=o[n]={exports:{},id:n,loaded:!1};return r[n].call(t.exports,t,t.exports,e),t.loaded=!0,t.exports}var o={};return e.m=r,e.c=o,e.p="",e(0)}([function(r,e,o){"use strict";var n=o(1),t=o(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.3.8/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,e,o){"use strict";function n(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}function t(r,e){this.options=r,this._rollbarOldOnError=null;var o=s++;this.shimId=function(){return o},"undefined"!=typeof window&&window._rollbarShims&&(window._rollbarShims[o]={handler:e,messages:[]})}function a(r,e){if(r){var o=e.globalAlias||"Rollbar";if("object"==typeof r[o])return r[o];r._rollbarShims={},r._rollbarWrappedError=null;var t=new p(e);return n(function(){e.captureUncaught&&(t._rollbarOldOnError=r.onerror,i.captureUncaughtExceptions(r,t,!0),i.wrapGlobals(r,t,!0)),e.captureUnhandledRejections&&i.captureUnhandledRejections(r,t,!0);var n=e.autoInstrument;return e.enabled!==!1&&(void 0===n||n===!0||"object"==typeof n&&n.network)&&r.addEventListener&&(r.addEventListener("load",t.captureLoad.bind(t)),r.addEventListener("DOMContentLoaded",t.captureDomContentLoaded.bind(t))),r[o]=t,t})()}}function l(r){return n(function(){var e=this,o=Array.prototype.slice.call(arguments,0),n={shim:e,method:r,args:o,ts:new Date};window._rollbarShims[this.shimId()].messages.push(n)})}var i=o(2),s=0,d=o(3),c=function(r,e){return new t(r,e)},p=d.bind(null,c);t.prototype.loadFull=function(r,e,o,t,a){var l=function(){var e;if(void 0===r._rollbarDidLoad){e=new Error("rollbar.js did not load");for(var o,n,t,l,i=0;o=r._rollbarShims[i++];)for(o=o.messages||[];n=o.shift();)for(t=n.args||[],i=0;i<t.length;++i)if(l=t[i],"function"==typeof l){l(e);break}}"function"==typeof a&&a(e)},i=!1,s=e.createElement("script"),d=e.getElementsByTagName("script")[0],c=d.parentNode;s.crossOrigin="",s.src=t.rollbarJsUrl,o||(s.async=!0),s.onload=s.onreadystatechange=n(function(){if(!(i||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){s.onload=s.onreadystatechange=null;try{c.removeChild(s)}catch(r){}i=!0,l()}}),c.insertBefore(s,d)},t.prototype.wrap=function(r,e,o){try{var n;if(n="function"==typeof e?e:function(){return e||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){o&&"function"==typeof o&&o.apply(this,arguments);try{return r.apply(this,arguments)}catch(o){var e=o;throw"string"==typeof e&&(e=new String(e)),e._rollbarContext=n()||{},e._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=e,e}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(e){return r}};for(var u="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),f=0;f<u.length;++f)t.prototype[u[f]]=l(u[f]);r.exports={setupShim:a,Rollbar:p}},function(r,e){"use strict";function o(r,e,o){if(r){var t;"function"==typeof e._rollbarOldOnError?t=e._rollbarOldOnError:r.onerror&&!r.onerror.belongsToShim&&(t=r.onerror,e._rollbarOldOnError=t);var a=function(){var o=Array.prototype.slice.call(arguments,0);n(r,e,t,o)};a.belongsToShim=o,r.onerror=a}}function n(r,e,o,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null),e.handleUncaughtException.apply(e,n),o&&o.apply(r,n)}function t(r,e,o){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var o,n,t;try{o=r.reason}catch(r){o=void 0}try{n=r.promise}catch(r){n="[unhandledrejection] error getting `promise` from event"}try{t=r.detail,!o&&t&&(o=t.reason,n=t.promise)}catch(r){t="[unhandledrejection] error getting `detail` from event"}o||(o="[unhandledrejection] error getting `reason` from event"),e&&e.handleUnhandledRejection&&e.handleUnhandledRejection(o,n)};n.belongsToShim=o,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}}function a(r,e,o){if(r){var n,t,a="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(n=0;n<a.length;++n)t=a[n],r[t]&&r[t].prototype&&l(e,r[t].prototype,o)}}function l(r,e,o){if(e.hasOwnProperty&&e.hasOwnProperty("addEventListener")){for(var n=e.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(e,o,t){n.call(this,e,r.wrap(o),t)};t._rollbarOldAdd=n,t.belongsToShim=o,e.addEventListener=t;for(var a=e.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,e,o){a.call(this,r,e&&e._rollbar_wrapped||e,o)};l._rollbarOldRemove=a,l.belongsToShim=o,e.removeEventListener=l}}r.exports={captureUncaughtExceptions:o,captureUnhandledRejections:t,wrapGlobals:a}},function(r,e){"use strict";function o(r,e){this.impl=r(e,this),this.options=e,n(o.prototype)}function n(r){for(var e=function(r){return function(){var e=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,e)}},o="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<o.length;n++)r[o[n]]=e(o[n])}o.prototype._swapAndProcessMessages=function(r,e){this.impl=r(this.options);for(var o,n,t;o=e.shift();)n=o.method,t=o.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],o.ts]):this[n].apply(this,t));return this},r.exports=o},function(r,e){"use strict";r.exports=function(r){return function(e){if(!e&&!window._rollbarInitialized){r=r||{};for(var o,n,t=r.globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;o=window._rollbarShims[i++];)n||(n=o.handler),o.handler._swapAndProcessMessages(l,o.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);</script>
+<script src="//try.abtasty.com/bba074ca42eadef24be24e646a5ae24b.js" type="text/javascript">
+//<![CDATA[
+
+//]]>
+</script>
+
+<script>
+  Rollbar.configure({
+    captureUncaught: true,
+    // ignoredMessages: ["Script error", "j is null", "Cannot read property 'abort' of null"],
+    checkIgnore: function(isUncaught, callerArgs, payload) {
+      var environment = payload.data.environment;
+      if (environment == "development" || environment == "staging") {
+        return false;
+      }
+  
+      var body = payload && payload.data && payload.data.body;
+      var frames =  body && body.trace && body.trace.frames;
+      // Ignore all error in production by default to avoid flooding our account
+      var ignoreError = true;
+      var filename;
+      for (var i = 0; i < frames.length; i++) {
+        filename = frames[i].filename;
+  
+        // For now, ignore errors related to faye.js
+        if (filename.indexOf("faye.js")) {
+          return false;
+        }
+  
+        // Send error in case the stack contains a file or a url in quellenergie.fr
+        if (filename.indexOf("quelleenergie.fr") > -1) {
+          ignoreError = false;
+        }
+      }
+      return ignoreError;
+    }
+  });
+</script>
+
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"90e8bfacb7","applicationID":"173959","transactionName":"IA0LRhEOWQkDQEsQEQwWAG0RBEQQA0EQEksNBxI=","queueTime":0,"applicationTime":88,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={xpid:"UAcDUVFACQQDXVRb"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(16),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(17),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,v="fn"+h,w="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(v,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(19)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(19)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(19)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(19)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(19)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,v=l.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(w,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(16),s=t(17),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,n])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],16:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],17:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],18:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],19:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(17),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([b,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},b={on:p,addEventListener:p,removeEventListener:h,emit:e,get:v,listeners:m,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(16),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=x.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+x.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-x.offset}var s=(new Date).getTime(),c=t("handle"),f=t(16),u=t("ee"),d=t(15),l=window,p=l.document,h="addEventListener",m="attachEvent",v=l.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:v,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1118.min.js"},b=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:b,userAgent:d};t(12),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(18)},{}]},{},["loader",2,10,4,3]);</script>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0' name='viewport'>
+<meta content='fr-FR' name='language'>
+<meta content='Quelle Energie' name='author'>
+<meta content='Quelle Energie vous conseille sur vos travaux d&#39;économies d&#39;énergie et vous met en relation avec des installateurs sérieux près de chez vous.' name='description'>
+<meta content='Demander un devis gratuit' property='og:title'>
+<meta content='website' property='og:type'>
+<meta content='https://www.quelleenergie.fr/demande-devis/formulaire' property='og:url'>
+<meta content='https://static2.quelleenergie.net/images/home/logo-quelleenergie.jpg' property='og:image'>
+<meta content='Quelle Energie vous conseille sur vos travaux d&#39;économies d&#39;énergie et vous met en relation avec des installateurs sérieux près de chez vous.' property='og:description'>
+<meta content='QuelleEnergie' property='og:site_name'>
+<meta content='summary' name='twitter:card'>
+<meta content='@quelleenergie' name='twitter:site'>
+<meta content='Demander un devis gratuit' name='twitter:title'>
+<meta content='Quelle Energie vous conseille sur vos travaux d&#39;économies d&#39;énergie et vous met en relation avec des installateurs sérieux près de chez vous.' name='twitter:description'>
+<meta content='@quelleenergie' name='twitter:creator'>
+<meta content='https://static2.quelleenergie.net/images/home/logo-quelleenergie.jpg' name='twitter:image'>
+<meta itemscope='' itemtype='http://schema.org/Article'>
+<meta content='Demander un devis gratuit' itemprop='headline'>
+<meta content='Quelle Energie vous conseille sur vos travaux d&#39;économies d&#39;énergie et vous met en relation avec des installateurs sérieux près de chez vous.' itemprop='description'>
+<meta content='https://static2.quelleenergie.net/images/home/logo-quelleenergie.jpg' itemprop='image'>
+
+<title>Demander un devis gratuit</title>
+
+<link href='https://plus.google.com/100637584327411911215' rel='publisher'>
+<link href='/images/layouts/principal/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<!--[if IE]> <link rel="icon" type="image/vnd.microsoft.icon" href="/images/layouts/principal/favicon.ico" /> <![endif]-->
+<link href='http://feeds.feedburner.com/QuelleEnergie' rel='alternate' title='Demander un devis gratuit' type='application/rss+xml'>
+<!--[if IE]><link rel="stylesheet" media="screen" href="//static3.quelleenergie.net/assets/front_v3_bootstrap-15cccb4809f1b3470a3060e0149ed0c1.css" /><link rel="stylesheet" media="screen" href="//static2.quelleenergie.net/assets/front_v3_lib-839a01adc0c18a06cafbe23ffce24144.css" /><link rel="stylesheet" media="screen" href="//static2.quelleenergie.net/assets/front_v3_partials-3eb8ee9879caa261f971a5b8c9b2ed68.css" /><![endif]--><!--[if !IE]><!--><link rel="stylesheet" media="screen" href="//static2.quelleenergie.net/assets/front_v3-e121fac2c9ce94e88b969650ce1cbc31.css" /><!--<![endif]-->
+<link rel="stylesheet" media="screen" href="//static0.quelleenergie.net/stylesheets/jquery-ui.custom.css" />
+<style>
+  #existing-user input#password {
+    float: left;
+    margin-right: 10px; }
+  #existing-user small {
+    line-height:22px;
+    font-size:90%; }
+</style>
+
+<script src="//static1.quelleenergie.net/assets/jquery-2.0.3.min-46e729f0b1f1d159ee810e7eb901e1de.js"></script>
+<script src="//static2.quelleenergie.net/assets/front_v3-11e198a3c606ef673acaef7fbfc81f30.js"></script>
+
+</head>
+<body class='quote_requests_controller v3  ' onload=''>
+<script type="text/javascript">var _gaq = _gaq || [];</script>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-7WF6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>document.addEventListener('turbolinks:load', function(event) {
+  var url = event.data.url;
+  dataLayer.push({
+    'event':'pageView',
+    'virtualUrl': url
+  });
+});(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-7WF6');</script>
+
+<div itemscope='' itemtype='http://schema.org/Organization' style='display:none;'>
+<a itemprop="url" href="https://www.quelleenergie.fr/">www.quelleenergie.fr</a>
+<span itemprop="description">Conseiller en économies d&#39;énergies : panneau solaire, pompe à chaleur, isolation, chaudière</span>
+<span itemprop="name">Quelle Energie</span>
+<span itemprop="founders">Antoine Chatelain, Julien Lestavel</span>
+<img itemprop="logo" alt="logo Quelle Energie" src="https://www.quelleenergie.fr/images/layouts/principal/logo-pdf.png" />
+</div>
+
+<header class='header navbar navbar-static-top' role='banner'>
+<div class='container top-nav'>
+<div class='navbar-header'>
+<button class='navbar-toggle collapsed' data-target='.bs-navbar-collapse' data-toggle='collapse' type='button'>
+<span class='sr-only'>Toggle navigation</span>
+<span class='custom-menu'></span>
+</button>
+<a class="navbar-brand icon-logo2" href="https://www.quelleenergie.fr/"></a>
+<div class='are-you-a pull-right hidden-xs'>
+<a target="_blank" href="/pro">Vous êtes un pro ? Cliquez-ici</a>
+</div>
+</div>
+</div>
+<div class='container sec-nav'>
+<nav class='navbar-header navbar-collapse bs-navbar-collapse collapse no-transition' role='navigation'>
+<ul class='nav navbar-nav'>
+<li class="visible-xs subdropdown"><span class="icon-white-house-dpe"></span><button name="button" type="submit" class="subdropdown-link">Simulateurs d&#39;économies d&#39;énergie</button><button name="button" type="submit" class="caret-wrap" title="Déplier" data-title="Replier"><span class="caret"></span></button><ul class="subdropdown-menu"><li><a title="Diagnostic énergétique complet" id="link-menu-mobile-generic" href="/bilan-energetique/formulaire">Diagnostic énergétique complet</a></li>
+<li><a title="Simulateur Chauffage" id="link-menu-mobile-heating" href="/simulateur-chauffage/formulaire">Simulateur Chauffage</a></li>
+<li><a title="Simulateur Isolation" id="link-menu-mobile-thermal" href="/simulateur-isolation/formulaire">Simulateur Isolation</a></li>
+</ul></li><li class="visible-xs subdropdown"><span class="icon-white-money"></span><button name="button" type="submit" class="subdropdown-link">Simulateurs de Prix de Travaux</button><button name="button" type="submit" class="caret-wrap" title="Déplier" data-title="Replier"><span class="caret"></span></button><ul class="subdropdown-menu"><li><a title="Simulateur de Prix de travaux" id="link-menu-mobile-price" href="/simulateur-prix-travaux/formulaire">Simulateur de Prix de travaux</a></li>
+<li><a title="Simulateur Combles perdus à 1 €" id="link-menu-mobile-pes" href="/simulateur-isolation-combles-perdus-1-euro/formulaire">Simulateur Combles perdus à 1 €</a></li>
+</ul></li><li class="visible-xs subdropdown"><span class="icon-white-calculator"></span><button name="button" type="submit" class="subdropdown-link">Simulateurs Aides et Subventions</button><button name="button" type="submit" class="caret-wrap" title="Déplier" data-title="Replier"><span class="caret"></span></button><ul class="subdropdown-menu"><li><a title="Simulateur Aides et subventions" id="link-menu-mobile-subsidies" href="/simulateur-aides-et-subventions/formulaire">Simulateur Aides et subventions</a></li>
+<li><a title="Simulateur de Prime Énergie" id="link-menu-mobile-cee" href="/simulateur-prime-energie/formulaire">Simulateur de Prime Énergie</a></li>
+</ul></li><li class='visible-xs'>
+<span class='icon-white-quotation'></span>
+<a title="Demander un devis gratuit" id="link-menu-mobile-quote-request" href="/demande-devis/formulaire">Demander un devis gratuit</a>
+</li>
+<hr class='visible-xs'>
+<li class="visible-xs subdropdown"><span></span><button name="button" type="submit" class="subdropdown-link">Economies d&#39;énergie</button><button name="button" type="submit" class="caret-wrap" title="Déplier" data-title="Replier"><span class="caret"></span></button><ul class="subdropdown-menu"><li><a title="Tout savoir sur les travaux d&#39;économies d&#39;énergie" href="/economies-energie">Tout savoir sur les travaux d&#39;économies d&#39;énergie</a></li>
+<li><a title="Les aides pour financer vos travaux" href="/aides-primes">Les aides pour financer vos travaux</a></li>
+<li><a title="Magazine Quelle Energie" href="https://www.quelleenergie.fr/magazine/">Magazine Quelle Energie</a></li>
+</ul></li><li class="visible-xs subdropdown"><span></span><button name="button" type="submit" class="subdropdown-link">Qui sommes-nous ?</button><button name="button" type="submit" class="caret-wrap" title="Déplier" data-title="Replier"><span class="caret"></span></button><ul class="subdropdown-menu"><li><a title="Qui sommes-nous ?" href="/a_propos/societe">Qui sommes-nous ?</a></li>
+<li><span data-lru="L2FfcHJvcG9zL2NvbnRhY3Q" title="Contact" class="qeCrmbl">Contact</span></li>
+</ul></li><li class='active dropdown hidden-xs nav-more'>
+<a href="/simulateurs">Simulateurs
+<span class='caret'></span>
+</a><ul class='dropdown-menu row menu-first' role='menu'>
+<li class='title'>Simulateurs d&#39;Economies d&#39;Energie</li>
+<li><a title="Diagnostic énergétique complet" id="link-menu-generic" href="/bilan-energetique/formulaire">Diagnostic énergétique complet</a></li>
+<li><a title="Simulateur Chauffage" id="link-menu-heating" href="/simulateur-chauffage/formulaire">Simulateur Chauffage</a></li>
+<li><a title="Simulateur Isolation" id="link-menu-thermal" href="/simulateur-isolation/formulaire">Simulateur Isolation</a></li>
+<li class='title'>Simulateurs de Prix de Travaux</li>
+<li><a title="Simulateur de Prix de travaux" id="link-menu-price" href="/simulateur-prix-travaux/formulaire">Simulateur de Prix de travaux</a></li>
+<li><a title="Simulateur Combles perdus à 1 €" id="link-menu-pes" href="/simulateur-isolation-combles-perdus-1-euro/formulaire">Simulateur Combles perdus à 1 €</a></li>
+<li class='title'>Simulateurs Aides et Subventions</li>
+<li><a title="Simulateur Aides et subventions" id="link-menu-subsidies" href="/simulateur-aides-et-subventions/formulaire">Simulateur Aides et subventions</a></li>
+<li><a title="Simulateur de Prime Énergie" id="link-menu-cee" href="/simulateur-prime-energie/formulaire">Simulateur de Prime Énergie</a></li>
+<hr>
+<li class='title'></li>
+<li><a title="Obtenir un devis gratuit" id="link-menu-quote-request" href="/demande-devis/formulaire">Obtenir un devis gratuit</a></li>
+</ul>
+</li>
+<li class='dropdown hidden-xs'>
+<a class="dropdown-toggle" href="/economies-energie">Économies <br/> d'energie
+<span class='caret'></span>
+</a><div class='dropdown-menu mega row' role='menu'>
+<div class='col-md-3 col-sm-3'>
+<span class='title'>Améliorer son confort</span>
+<ul>
+<li><a href="/economies-energie/fenetres-double-triple-vitrage/">Fenêtres double vitrage</a></li>
+<li><a href="/economies-energie/ventilation-double-flux/">Ventilation double flux</a></li>
+<li><a href="/economies-energie/climatisation/">Climatisation</a></li>
+<li><a href="/economies-energie/domotique/">Domotique</a></li>
+<li><a href="/economies-energie/programmateur-chauffage/">Programmateur chauffage</a></li>
+</ul>
+<span class='title'>Produire son électricité</span>
+<ul>
+<li><a href="/economies-energie/panneaux-solaires-photovoltaiques/">Panneaux photovoltaïques</a></li>
+<li><a href="/economies-energie/aerovoltaique/">Aérovoltaïque</a></li>
+<li><a href="/economies-energie/eolienne-domestique/">Eolienne domestique</a></li>
+</ul>
+</div>
+<div class='col-md-3 col-sm-3'>
+<span class='title'>Améliorer son isolation</span>
+<ul>
+<li><a href="/economies-energie/isolation-combles/">Isolation des combles</a></li>
+<li><a href="/economies-energie/isolation-murs/">Isolation des murs</a></li>
+<li><a href="/economies-energie/isolation-sol/">Isolation du sol</a></li>
+<li><a href="/economies-energie/isolation-toiture/">Isolation de toiture</a></li>
+</ul>
+<span class='title'>Produire son eau chaude</span>
+<ul>
+<li><a href="/economies-energie/chauffe-eau-solaire/">Chauffe-eau solaire</a></li>
+<li><a href="/economies-energie/chauffe-eau-thermodynamique/">Chauffe-eau thermodynamique</a></li>
+</ul>
+<span class='title'>Economiser l’eau</span>
+<ul>
+<li><a href="/economies-energie/economiseur-eau-mousseur/">Économiseur d&#39;eau</a></li>
+<li><a href="/economies-energie/recuperateur-eau-pluie/">Récupérateur d&#39;eau de pluie</a></li>
+</ul>
+</div>
+<div class='col-md-3 col-sm-3'>
+<span class='title'>Changer son chauffage</span>
+<ul>
+<li><a href="/economies-energie/chaudiere-gaz-condensation/">Chaudière gaz à condensation</a></li>
+<li><a href="/economies-energie/chaudiere-gaz-basse-temperature/">Chaudière gaz basse température</a></li>
+<li><a href="/economies-energie/chaudiere-fioul-condensation/">Chaudière fioul à condensation</a></li>
+<li><a href="/economies-energie/chaudiere-granules-bois-pellets/">Chaudière à granulés bois</a></li>
+<li><a href="/economies-energie/chaudiere-bois/">Chaudière bois</a></li>
+<li><a href="/economies-energie/poele-granules-bois/">Poêle à granulés de bois</a></li>
+<li><a href="/economies-energie/poele-buches/">Poêle à bûches</a></li>
+<li><a href="/economies-energie/insert-cheminee/">Insert cheminée</a></li>
+<li><a href="/economies-energie/pompe-chaleur-air-air/">Pompe à chaleur air-air</a></li>
+<li><a href="/economies-energie/pompe-chaleur-air-eau/">Pompe à chaleur air-eau</a></li>
+<li><a href="/economies-energie/pompe-chaleur-geothermique/">Pompe à chaleur géothermique</a></li>
+<li><a href="/economies-energie/radiateur-electrique-inertie/">Radiateur électrique à inertie</a></li>
+<li><a href="/economies-energie/systeme-solaire-combine/">Système solaire combiné</a></li>
+<li><a href="/economies-energie/chauffage-piscine/">Chauffage piscine</a></li>
+</ul>
+</div>
+<div class='clearfix visible-sm-block'></div>
+<div class='col-md-3 col-sm-9'>
+<div class='box-highlighted'>
+<span class='title'>Bilan énergétique gratuit</span>
+<p>Découvrez quelle solution est adaptée à votre logement et réduisez vos factures</p>
+<a class="btn btn-neutral" href="/bilan-energetique/formulaire">Économisez</a>
+</div>
+</div>
+</div>
+</li>
+<li class='dropdown hidden-xs'>
+<a class="dropdown-toggle" href="/aides-primes">Aides et <br/> subventions
+<span class='caret'></span>
+</a><div class='dropdown-menu mega row' role='menu'>
+<div class='col-md-5 col-sm-5'>
+<article class='media'>
+<header>
+<span class='media-heading'>Découvrez notre Prime Quelle Energie</span>
+</header>
+<a class="pull-left" title="Découvrez notre Prime Quelle Energie" href="/aides-primes/certificats-economies-energie"><figure>
+<img class="media-object" alt="Découvrez notre Prime Quelle Energie" src="//static3.quelleenergie.net/images/contenu/100x100/header-fiscalite-verte-image1-100x100.jpg" />
+</figure>
+</a><div class='media-body'>
+<p>La Prime Quelle Energie vous aide à rentabiliser rapidement vos travaux de rénovation énergétique.</p>
+<a title="Découvrez notre Prime Quelle Energie" href="/aides-primes/certificats-economies-energie">Lire la suite</a>
+</div>
+</article>
+<article class='media'>
+<header>
+<span class='media-heading'>Tout savoir sur le crédit d&#39;impôt 2019</span>
+</header>
+<a class="pull-left" title="Tout savoir sur le crédit d&#39;impôt 2019" href="/aides-primes/credit-impot"><figure>
+<img class="media-object" alt="Tout savoir sur le crédit d&#39;impôt 2019" src="//static1.quelleenergie.net/images/contenu/100x100/header-fiscalite-verte-image2-100x100.jpg" />
+</figure>
+</a><div class='media-body'>
+<p>Quels sont les produits éligibles au nouveau crédit d&#39;impôt à 30% ?</p>
+<a title="Tout savoir sur le crédit d&#39;impôt 2019" href="/aides-primes/credit-impot">Lire la suite</a>
+</div>
+</article>
+</div>
+<div class='col-md-4 col-sm-4'>
+<span class='title'>Toutes les aides</span>
+<ul>
+<li><a href="/aides-primes/credit-impot/">Le Crédit d&#39;impôt 2019</a></li>
+<li><a href="/aides-primes/certificats-economies-energie/">La Prime Quelle Energie</a></li>
+<li><a href="/aides-primes/pacte-energie-solidarite/">Le Pacte Energie Solidarité</a></li>
+<li><a href="/aides-primes/eco-pret-taux-zero/">L&#39;éco-prêt à taux zéro</a></li>
+<li><a href="/aides-primes/aides-anah/">Les aides de l&#39;Anah</a></li>
+<li><a href="/aides-primes/aides-et-subventions-locales">Les aides et subventions locales</a></li>
+<li><a href="/aides-primes/aides-complementaires/cheque-energie">Le chèque énergie</a></li>
+<li><a href="/aides-primes/aides-complementaires/aide-caisse-retraite/">L&#39;aide de la Caisse de Retraite</a></li>
+<li><a href="/aides-primes/aides-complementaires/pret-caisse-allocations-familiales-caf/">Le prêt de la Caf</a></li>
+<li><a href="/aides-primes/aides-complementaires/tva-travaux-taux-reduit">La TVA à 5.5%</a></li>
+<li><a href="/prime-conversion-chaudiere">La Prime Conversion Chaudière</a></li>
+</ul>
+</div>
+<div class='col-md-3 col-sm-9'>
+<div class='box-highlighted'>
+<span class='title'>Calculez vos aides</span>
+<p>Profitez des aides pour réduire vos factures. Crédit d&#39;impôt, aides de l&#39;Anah, Prime Quelle Energie…</p>
+<a class="btn btn-neutral" href="/simulateur-aides-et-subventions/formulaire">Calculez</a>
+</div>
+</div>
+</div>
+</li>
+<li class='dropdown hidden-xs'>
+<a class="dropdown-toggle" href="https://www.quelleenergie.fr/magazine/">Magazine
+<span class='caret'></span>
+</a><div class='dropdown-menu mega row' role='menu'>
+<div class='col-md-5 col-sm-5'>
+<article class='media'>
+<header>
+<a href="https://www.quelleenergie.fr/magazine/chauffage-bois-2/installer-pole-pellet-sans-conduit-evacuation-preexistant-23206/"><span class='media-heading'>Poêle à bois et conduit de cheminée</span>
+</a></header>
+<a class="pull-left" title="Poêle à bois et conduit de cheminée" href="https://www.quelleenergie.fr/magazine/chauffage-bois-2/installer-pole-pellet-sans-conduit-evacuation-preexistant-23206/"><figure>
+<img class="media-object" alt="Poêle à bois et conduit de cheminée" src="//static3.quelleenergie.net/images/contenu/100x100/magazine-image1-100x100.jpg" />
+</figure>
+</a><div class='media-body'>
+<a href="https://www.quelleenergie.fr/magazine/chauffage-bois-2/installer-pole-pellet-sans-conduit-evacuation-preexistant-23206/"><p>Découvrez comment installer son poêle à bois sans conduit de cheminée !</p>
+</a><a title="Poêle à bois et conduit de cheminée" href="https://www.quelleenergie.fr/magazine/chauffage-bois-2/installer-pole-pellet-sans-conduit-evacuation-preexistant-23206/">Lire la suite</a>
+</div>
+</article>
+<article class='media'>
+<header>
+<a href="https://www.quelleenergie.fr/magazine/fiscalite-verte/credit-impot-transition-energetique-2015-34820/"><span class='media-heading'>[Développement durable] Quels crédits d&#39;impôt 2018 ?</span>
+</a></header>
+<a class="pull-left" title="[Développement durable] Quels crédits d&#39;impôt 2018 ?" href="https://www.quelleenergie.fr/magazine/fiscalite-verte/credit-impot-transition-energetique-2015-34820/"><figure>
+<img class="media-object" alt="[Développement durable] Quels crédits d&#39;impôt 2018 ?" src="//static1.quelleenergie.net/images/contenu/100x100/magazine-image2-100x100.jpg" />
+</figure>
+</a><div class='media-body'>
+<a href="https://www.quelleenergie.fr/magazine/fiscalite-verte/credit-impot-transition-energetique-2015-34820/"><p>Quels sont les produits éligibles au crédit d&#39;impôt 2018 et à quel taux ?</p>
+</a><a title="[Développement durable] Quels crédits d&#39;impôt 2018 ?" href="https://www.quelleenergie.fr/magazine/fiscalite-verte/credit-impot-transition-energetique-2015-34820/">Lire la suite</a>
+</div>
+</article>
+</div>
+<div class='col-md-4 col-sm-4'>
+<span class='title'>Toutes les rubriques</span>
+<ul>
+<li><a href="https://www.quelleenergie.fr/magazine/category/fiscalite-verte/">Fiscalité verte</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/actu-environnement/">Environnement</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/chauffage-bois-2/">Chauffage Bois</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/economies-energie/">Economies Energie</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/isolation/">Isolation</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/pompes-chaleur/">Pompe à chaleur</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/energie-solaire/">Energie solaire</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/chauffage-electrique-2/">Chauffage électrique</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/batiments-durables/">Bâtiments durables</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/energies-renouvelables/">Energies renouvelables</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/chaudiere-gaz-fioul/">Chaudière gaz / fioul</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/production-eau-chaude/">Production d&#39;eau chaude</a></li>
+<li><a href="https://www.quelleenergie.fr/magazine/category/prix-energie/">Prix énergies</a></li>
+</ul>
+</div>
+<div class='col-md-3 col-sm-9'>
+<div class='box-highlighted'>
+<span class='title'>Faites un bilan Energétique</span>
+<p>Découvrez quelle solution est adaptée à votre logement.<br />Bilan énergétique  gratuit et sans engagement.</p>
+<a class="btn btn-neutral" href="/bilan-energetique/formulaire">Simulation</a>
+</div>
+</div>
+</div>
+</li>
+<li class='visible-xs'>
+<a href="/pro">Espace Artisans</a>
+</li>
+<li class='dropdown small hidden-xs nav-more'>
+<a href="/demande-devis/formulaire">Devis gratuit</a>
+</li>
+<li class='nav-user visible-xs'>
+<span class='icon-user'></span>
+<a class="dropdown-toggle" href="/espace_perso/connexion">Connexion</a>
+</li>
+<li class='dropdown nav-user nav-more hidden-xs'>
+<a class="dropdown-toggle" href="/espace_perso/connexion"><span class='vcenter'>
+Connexion
+<i class='caret'></i>
+</span>
+</a><ul class='dropdown-menu medium public' display='block' role='menu'>
+<form class="new_utilisateur" id="new_utilisateur" role="form" action="/espace_perso/connexion" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="4+q+wUtwaN+916GGeBWVW736qapNy9VwvI7DAU2tb2DjgBWEmRw9P7U6WXffWWbbY8LwF9OR7au0JnHu9nPlGw==" /><div class="form-group form-line"><span><label class="col-sm-4 control-label" for="utilisateur_email">Adresse Email</label></span><div class="col-sm-8"><span><input class="form-control" type="text" name="utilisateur[email]" id="utilisateur_email" /></span>
+</div></div><div class="form-group form-line"><span><label class="col-sm-4 control-label" for="utilisateur_password">Mot de passe</label></span><div class="col-sm-8"><span><input class="form-control" type="password" name="utilisateur[password]" id="utilisateur_password" /></span></div></div>
+<div class='clearfix'><a class="btn pull-right grey-link" href="/espace_perso/demande-reinitialisation-mot-de-passe/new">Mot de passe oublié ?</a></div>
+<div class='form-group form-line'>
+<div class='col-sm-8 col-sm-offset-4'>
+<div class='checkbox'>
+<input name="utilisateur[remember_me]" type="hidden" value="0" /><span><input type="checkbox" value="1" name="utilisateur[remember_me]" id="utilisateur_remember_me" /></span>
+<span><label class="control-label" for="utilisateur_remember_me">Se souvenir de moi</label></span>
+</div>
+</div>
+</div>
+<div class='col-sm-8 col-sm-offset-4'><input type="submit" name="commit" value="Se connecter" class="green btn btn-action" /></div>
+</form><div class='col-sm-8 col-sm-offset-4'>
+<p class='pull-right'>
+<span class='flaticon stroke play-3'></span>
+Vous êtes artisan ? Connectez-vous
+<a href="/espace_pro/connexion">ici</a>
+</p>
+</div>
+</ul>
+</li>
+
+</ul>
+</nav>
+</div>
+</header>
+
+<div class='simulator' id='quote-request-form'>
+<div class='short-header'>
+<div class='top-page'>
+<div class='container'>
+<h1>
+Recevez des <span>devis gratuits</span> d'artisans qualifiés près de chez vous !
+<h3 class='hidden-xs'>
+<i>Comment ça marche ?</i>
+</h3>
+</h1>
+<div class='steps hidden-xs'>
+<div class='with-image'>
+<img src="//static1.quelleenergie.net/assets/icon/clic-green-923cc62426a361c0fe3061ca8e90e396.png" alt="Clic green" />
+<div class='text'>Faites votre demande de devis en ligne pour réaliser vos travaux d’économie d’énergie. C’est <b>simple</b>, et <b>gratuit</b> !</div>
+</div>
+<div class='with-image'>
+<img src="//static3.quelleenergie.net/assets/icon/call-green-4f9d0f12dfa9829e881888a368beefcb.png" alt="Call green" />
+<div class='text'>Un expert Quelle Energie vous recontacte pour vous conseiller sur votre projet, et valider votre demande de devis.</div>
+</div>
+<div class='with-image'>
+<img src="//static2.quelleenergie.net/assets/icon/hammer-green-213d63ec9b4882826c6e406a3a0bc37e.png" alt="Hammer green" />
+<div class='text'>Vous pourrez alors être mis en relation avec des installateurs de notre réseau, sérieux et proches de chez vous.</div>
+</div>
+<div class='more'>
+<strong>Vous ne savez pas quels travaux d’économie d’énergie réaliser ?</strong>
+Testez notre <a href="/bilan-energetique/formulaire">diagnostic énergétique complet</a>, et découvrez quelle solution est la plus adaptée à votre logement.
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='container'>
+<div class='row'>
+<form class="new_accommodation" id="new_accommodation" action="/demande-devis" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="QH6uM+BL+HX0FrSvjvbw5rMNExlFkP45I+Mh8rqgfvJAFAV2Mietlfz7TF4pugNmbTVKpNvKxuIrS5MdAX70iQ==" /><div class="big-title"><h3>Votre logement</h3><span></span></div><div class="form-line"><div class="title"><span><label for="accommodation_housing_type">Type d&#39;habitation</label></span></div><div class="choice"><label class="item-choice item-choice-housing_type " data-value="house"><div class="picto-wrapper"><span class="icon-house"></span></div><span class="radio-button title">Maison</span><span class="icon-checked"></span><span><input type="radio" value="house" checked="checked" name="accommodation[housing_type]" id="accommodation_housing_type_house" /></span></label><label class="item-choice item-choice-housing_type " data-value="apartment"><div class="picto-wrapper"><span class="icon-apartment"></span></div><span class="radio-button title">Appartement</span><span class="icon-checked"></span><span><input type="radio" value="apartment" name="accommodation[housing_type]" id="accommodation_housing_type_apartment" /></span></label></div></div>
+<div class="form-line"><div class="title"><span><label for="accommodation_zip_code">Code postal du logement</label></span></div><div class="choice"><span><input size="20" placeholder="" value="" class="typeahead city_selector form-text" type="text" name="accommodation[zip_code]" id="accommodation_zip_code" /></span></div></div>
+<div class="form-line"><div class="title"><span><label for="accommodation_year_of_construction">Date de construction du logement</label></span></div><div class="choice"><span><select data-width="auto" name="accommodation[year_of_construction]" id="accommodation_year_of_construction"><option value="">- Préciser -</option>
+<option value="before_1975">Avant 1975</option>
+<option value="between_1975_and_1977">Entre 1975 et 1977</option>
+<option value="between_1978_and_1982">Entre 1978 et 1982</option>
+<option value="between_1983_and_1988">Entre 1983 et 1988</option>
+<option value="between_1989_and_2000">Entre 1989 et 2000</option>
+<option value="between_2001_and_2005">Entre 2001 et 2005</option>
+<option value="after_2005">Après 2005</option>
+<option value="under_construction">Logement en construction</option></select></span></div></div>
+<div data-display-if="accommodation[year_of_construction]" data-has-value="[&quot;under_construction&quot;]" data-hash="fa9ddcb044834f3dffab1cef4ba8601f"><div class="form-line form-line-sub"><div class="title"><span><label for="accommodation_building_permit">Permis de construire</label></span></div><div class="choice"><span><select data-width="auto" name="accommodation[building_permit]" id="accommodation_building_permit"><option value="">- Préciser -</option>
+<option value="obtained">Permis obtenu</option>
+<option value="filed">Demande de permis en cours</option>
+<option value="not_filed">Demande pas encore déposée</option></select></span></div></div>
+</div><div class="form-line"><div class="title"><span><label for="accommodation_surface_area">Surface habitable (m²)</label></span></div><div class="choice"><span><input type="number" class="form-text" placeholder="" name="accommodation[surface_area]" id="accommodation_surface_area" /></span></div></div>
+<div class="form-line"><div class="title"><span><label for="accommodation_heating_system_1_attributes_annual_invoice_known">Connaissez-vous votre facture annuelle ?</label></span></div><div class="choice"><label class="item-choice item-choice-annual_invoice_known tiny" data-value="true"><span class="radio-button title">Oui</span><span class="icon-checked"></span><span><input type="radio" value="true" name="accommodation[heating_system_1_attributes][annual_invoice_known]" id="accommodation_heating_system_1_attributes_annual_invoice_known_true" /></span></label><label class="item-choice item-choice-annual_invoice_known tiny" data-value="false"><span class="radio-button title">Non</span><span class="icon-checked"></span><span><input type="radio" value="false" checked="checked" name="accommodation[heating_system_1_attributes][annual_invoice_known]" id="accommodation_heating_system_1_attributes_annual_invoice_known_false" /></span></label></div></div>
+<div data-display-if="accommodation[heating_system_1_attributes][annual_invoice_known]" data-has-value="[&quot;true&quot;]" data-hash="f55004494cbcaedfdcf841c7c8431c04"><div class="form-line form-line-sub"><div class="title"><span><label for="accommodation_heating_system_1_attributes_annual_invoice">Facture annuelle (€)</label></span></div><div class="choice"><span><input size="10" type="number" class="form-text" placeholder="Montant (€)" name="accommodation[heating_system_1_attributes][annual_invoice]" id="accommodation_heating_system_1_attributes_annual_invoice" /></span></div></div>
+</div>
+<div class="big-title"><h3>Vos projets de travaux</h3><span></span></div><div class='form-line solutions'>
+<div data-display-if="accommodation[housing_type]" data-has-value="[&quot;house&quot;]" data-detach="true" data-hash="65aa4711af8f30b1330eb3eb64d4a325"><div class="category-title">Chauffage</div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-gas"><input type="checkbox" name="solution_names[]" id="solution_names_" value="condensing_fuel_boiler" /><label for="Chaudi_re_Fioul___Condensation">Chaudière fioul à condensation</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-c-gb"><input type="checkbox" name="solution_names[]" id="solution_names_" value="condensing_gas_boiler" /><label for="Chaudi_re_Gaz___Condensation">Chaudière gaz à condensation</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-pc-gn"><input type="checkbox" name="solution_names[]" id="solution_names_" value="wood_pellet_boiler" /><label for="Chaudi_re___bois">Chaudière à bois</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-fireplace-insert"><input type="checkbox" name="solution_names[]" id="solution_names_" value="fireplace_insert" /><label for="Insert_Chemin_e">Insert cheminée</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-fire3"><input type="checkbox" name="solution_names[]" id="solution_names_" value="wood_stove" /><label for="Po_le___Bois__granul_s_ou_b_ches_">Poêle à bois (granulés ou bûches)</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-pc-aa"><input type="checkbox" name="solution_names[]" id="solution_names_" value="air_air_heat_pump" /><label for="Pompe___Chaleur_Air_Air">Pompe à chaleur air/air</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-pc-ae"><input type="checkbox" name="solution_names[]" id="solution_names_" value="air_water_heat_pump" /><label for="Pompe___Chaleur_Air_Eau">Pompe à chaleur air/eau</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-pc-g"><input type="checkbox" name="solution_names[]" id="solution_names_" value="geothermal_heat_pump" /><label for="Pompe___Chaleur_G_othermique">Pompe à chaleur géothermique</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-ri"><input type="checkbox" name="solution_names[]" id="solution_names_" value="storage_heater" /><label for="Radiateur___Inertie">Radiateur à inertie</label></div><div class="category-title">Isolation</div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-iso-c"><input type="checkbox" name="solution_names[]" id="solution_names_" value="attic_isolation" /><label for="Isolation_des_Combles">Isolation des combles</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-iso-m"><input type="checkbox" name="solution_names[]" id="solution_names_" value="external_wall_insulation" /><label for="Isolation_ext_rieure_des_murs">Isolation extérieure des murs</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-iso-m"><input type="checkbox" name="solution_names[]" id="solution_names_" value="internal_wall_insulation" /><label for="Isolation_int_rieure_des_murs">Isolation intérieure des murs</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-dtv"><input type="checkbox" name="solution_names[]" id="solution_names_" value="double_glazing" /><label for="Fen_tres">Fenêtres</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-vmc-df"><input type="checkbox" name="solution_names[]" id="solution_names_" value="double_flow_cmv" /><label for="VMC_Double_Flux">Vmc double flux</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-iso-s"><input type="checkbox" name="solution_names[]" id="solution_names_" value="floor_insulation" /><label for="Isolation_du_sol">Isolation du sol</label></div><div class="category-title">Solaire</div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-aerovoltaic"><input type="checkbox" name="solution_names[]" id="solution_names_" value="aerovoltaic" /><label for="Panneaux_A_rovolta_ques">Panneaux aérovoltaïques</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-psp"><input type="checkbox" name="solution_names[]" id="solution_names_" value="photovoltaic_solar_panel" /><label for="Panneaux_Solaires_Photovolta_ques">Panneaux solaires photovoltaïques</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-ss-c"><input type="checkbox" name="solution_names[]" id="solution_names_" value="combined_solar_system" /><label for="Syst_me_Solaire_Combin_">Système solaire combiné</label></div><div class="category-title">Chauffe-Eau</div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-ce-si"><input type="checkbox" name="solution_names[]" id="solution_names_" value="solar_water_heater" /><label for="Chauffe-Eau_Solaire_Individuel">Chauffe-eau solaire individuel</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-ce-t"><input type="checkbox" name="solution_names[]" id="solution_names_" value="thermodynamic_water_heater" /><label for="Chauffe-Eau_Thermodynamique">Chauffe-eau thermodynamique</label></div>
+</div><div data-display-if="accommodation[housing_type]" data-has-value="[&quot;apartment&quot;]" data-detach="true" data-hash="eb444c9d2df679908137c80420fcc5db"><div class="category-title">Chauffage</div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-c-gb"><input type="checkbox" name="solution_names[]" id="solution_names_" value="condensing_gas_boiler" /><label for="Chaudi_re_Gaz___Condensation">Chaudière gaz à condensation</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-pc-aa"><input type="checkbox" name="solution_names[]" id="solution_names_" value="air_air_heat_pump" /><label for="Pompe___Chaleur_Air_Air">Pompe à chaleur air/air</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-fire3"><input type="checkbox" name="solution_names[]" id="solution_names_" value="wood_stove" /><label for="Po_le___Bois__granul_s_ou_b_ches_">Poêle à bois (granulés ou bûches)</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-ri"><input type="checkbox" name="solution_names[]" id="solution_names_" value="storage_heater" /><label for="Radiateur___Inertie">Radiateur à inertie</label></div><div class="category-title">Isolation</div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-iso-m"><input type="checkbox" name="solution_names[]" id="solution_names_" value="internal_wall_insulation" /><label for="Isolation_int_rieure_des_murs">Isolation intérieure des murs</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-vmc-df"><input type="checkbox" name="solution_names[]" id="solution_names_" value="double_flow_cmv" /><label for="VMC_Double_Flux">Vmc double flux</label></div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-dtv"><input type="checkbox" name="solution_names[]" id="solution_names_" value="double_glazing" /><label for="Fen_tres">Fenêtres</label></div><div class="category-title">Chauffe-Eau</div><div class="check-box" data-checkbox-name="solution_names[]" data-checkbox-icon="project-icon active project-icon-ce-t"><input type="checkbox" name="solution_names[]" id="solution_names_" value="thermodynamic_water_heater" /><label for="Chauffe-Eau_Thermodynamique">Chauffe-eau thermodynamique</label></div>
+</div></div>
+<div class='work-questions'>
+<div data-display-if="accommodation[housing_type]" data-has-value="[&quot;house&quot;]" data-detach="true" data-hash="65aa4711af8f30b1330eb3eb64d4a325"><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;combined_solar_system&quot;,&quot;condensing_fuel_boiler&quot;,&quot;condensing_gas_boiler&quot;,&quot;fireplace_insert&quot;,&quot;wood_pellet_boiler&quot;,&quot;air_air_heat_pump&quot;,&quot;air_water_heat_pump&quot;,&quot;geothermal_heat_pump&quot;]" data-detach="true" data-hash="5f309cdec0b82a698ff7df2a39925cdc"><div class="form-line"><div class="title"><span><label for="accommodation_heating_system_1_attributes_category">Type de chauffage déjà installé</label></span></div><div class="choice"><span><select data-width="auto" name="accommodation[heating_system_1_attributes][category]" id="accommodation_heating_system_1_attributes_category"><option value="">- Préciser -</option>
+<option data-energy-annual-invoice="d&#39;électricité" value="electricity">Electrique</option>
+<option data-energy-annual-invoice="de fioul" value="heating_oil">Fioul</option>
+<option data-energy-annual-invoice="de gaz naturel" value="natural_gas">Gaz naturel</option>
+<option data-energy-annual-invoice="de GPL" value="lpg">GPL</option>
+<option data-energy-annual-invoice="d&#39;électricité" value="heat_pump">Pompe à chaleur</option>
+<option data-energy-annual-invoice="de bois" value="wood">Bois</option>
+<option data-energy-annual-invoice="de charbon" value="coal">Charbon</option></select></span>
+</div></div><div data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;electricity&quot;,&quot;heating_oil&quot;,&quot;natural_gas&quot;,&quot;lpg&quot;,&quot;heat_pump&quot;,&quot;wood&quot;,&quot;coal&quot;]" data-hash="e540645d55b5753558a06071c0c220f4"><div class="form-line form-line-sub"><div class="title"><span><label for="accommodation_heating_system_1_attributes_heating_mode">Appareil installé</label></span></div><div class="choice"><span><select data-width="auto" name="accommodation[heating_system_1_attributes][heating_mode]" id="accommodation_heating_system_1_attributes_heating_mode"><option value="">- Préciser -</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;electricity&quot;]" value="electric_convector">Convecteurs électriques</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;electricity&quot;]" value="panel_heaters">Panneaux rayonnants électriques</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;electricity&quot;]" value="heating_ceiling">Plafond chauffant électrique</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;electricity&quot;]" value="heating_floor">Plancher chauffant électrique</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;electricity&quot;]" value="electric_storage_heaters">Radiateurs électriques à inertie</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;electricity&quot;]" value="electric_boiler">Chaudière électrique</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;heating_oil&quot;]" value="condensing_oil_boiler">Chaudière Fioul à condensation</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;heating_oil&quot;]" value="low_temp_oil_boiler">Chaudière Fioul basse-température</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;heating_oil&quot;]" value="oil_boiler_1989">Chaudière Fioul installée avant 1989</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;heating_oil&quot;]" value="oil_boiler_1989_2000">Chaudière Fioul installée entre 1989 et 2000</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;heating_oil&quot;]" value="oil_boiler_2000">Chaudière Fioul installée après 2000</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;heating_oil&quot;]" value="fuel_stove">Poêle Fioul</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;lpg&quot;]" value="condensing_lpg_boiler">Chaudière GPL à condensation</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;lpg&quot;]" value="low_temp_lpg_boiler">Chaudière GPL basse-température</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;lpg&quot;]" value="lpg_boiler_1989">Chaudière GPL installée avant 1989</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;lpg&quot;]" value="lpg_boiler_1989_2000">Chaudière GPL installée entre 1989 et 2000</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;lpg&quot;]" value="lpg_boiler_2000">Chaudière GPL installée après 2000</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;lpg&quot;]" value="lpg_radiators">Radiateurs GPL</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;lpg&quot;]" value="lpg_stove">Poêle GPL</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;natural_gas&quot;]" value="condensing_gas_boiler">Chaudière Gaz naturel à condensation</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;natural_gas&quot;]" value="low_temp_gas_boiler">Chaudière Gaz naturel basse-température</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;natural_gas&quot;]" value="gas_boiler_1989">Chaudière Gaz naturel installée avant 1989</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;natural_gas&quot;]" value="gas_boiler_1989_2000">Chaudière Gaz naturel installée entre 1989 et 2000</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;natural_gas&quot;]" value="gas_boiler_2000">Chaudière Gaz naturel installée après 2000</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;natural_gas&quot;]" value="gas_radiators">Radiateurs Gaz naturel</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;heat_pump&quot;]" value="air_air_heat_pump">Pompe à chaleur air-air</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;heat_pump&quot;]" value="air_water_heat_pump">Pompe à chaleur air-eau</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;heat_pump&quot;]" value="water_water_heat_pump">Pompe à chaleur eau-eau</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;heat_pump&quot;]" value="geothermal_heat_pump">Pompe à chaleur géothermique</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;wood&quot;]" value="wood_burning_boiler">Chaudière bois</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;wood&quot;]" value="wood_stove">Poêle à bûches classique</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;wood&quot;]" value="chimney">Cheminée</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;wood&quot;]" value="pellet_boiler">Chaudière granulés de bois</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;wood&quot;]" value="pellet_stove">Poêle à granulés de bois</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;wood&quot;]" value="fireplace_insert">Insert cheminée</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;coal&quot;]" value="coal_fired_boiler">Chaudière charbon</option>
+<option data-display-if="accommodation[heating_system_1_attributes][category]" data-has-value="[&quot;coal&quot;]" value="coal_stove">Poêle charbon</option></select></span></div></div>
+</div></div><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;air_air_heat_pump&quot;,&quot;air_water_heat_pump&quot;,&quot;geothermal_heat_pump&quot;]" data-detach="true" data-hash="88c13dd0c9a666161000e1b12157d35c"><div class="form-line "><div class="title"><span><label for="accommodation_exterior">Avez-vous un jardin ou une cour extérieure ?</label></span></div><div class="choice"><span><select data-width="auto" name="accommodation[exterior]" id="accommodation_exterior"><option value="">- Préciser -</option>
+<option value="garden">Oui, un jardin</option>
+<option value="courtyard">Oui, une cour</option>
+<option value="garden_and_courtyard">Oui, un jardin et une cour</option>
+<option value="nothing">Non</option></select></span></div></div>
+<div data-display-if="accommodation[exterior]" data-has-value="[&quot;garden&quot;,&quot;garden_and_courtyard&quot;]" data-hash="649c35cf4de760d102936aee8a1ae8f7"><div class="form-line form-line-sub"><div class="title"><span><label for="accommodation_garden_area">Surface du jardin (m²)</label></span></div><div class="choice"><span><input type="number" class="form-text" placeholder="ex : 400" name="accommodation[garden_area]" id="accommodation_garden_area" /></span></div></div>
+</div></div><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;condensing_gas_boiler&quot;]" data-detach="true" data-hash="ff6b1b2b55fa0b4f4211597ec74e8ea0"><div class="form-line "><div class="title"><span><label for="accommodation_mains_gas">Y a-t-il un réseau de gaz dans votre ville ?</label></span></div><div class="choice"><label class="item-choice item-choice-mains_gas tiny" data-value="true"><span class="radio-button title">Oui</span><span class="icon-checked"></span><span><input type="radio" value="true" name="accommodation[mains_gas]" id="accommodation_mains_gas_true" /></span></label><label class="item-choice item-choice-mains_gas tiny" data-value="false"><span class="radio-button title">Non</span><span class="icon-checked"></span><span><input type="radio" value="false" name="accommodation[mains_gas]" id="accommodation_mains_gas_false" /></span></label></div></div>
+</div><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;attic_isolation&quot;]" data-detach="true" data-hash="67c2d3ca3c7084f54d9156d65ce84e13"><div class="form-line "><div class="title"><span><label for="accommodation_roof_type">Type de toit</label></span></div><div class="choice"><label class="item-choice item-choice-roof_type tiny" data-value="habitable_attics"><span class="radio-button title">Combles aménagés</span><span class="icon-checked"></span><span><input type="radio" value="habitable_attics" name="accommodation[roof_type]" id="accommodation_roof_type_habitable_attics" /></span></label><label class="item-choice item-choice-roof_type tiny" data-value="unoccupied_attics"><span class="radio-button title">Combles perdus</span><span class="icon-checked"></span><span><input type="radio" value="unoccupied_attics" name="accommodation[roof_type]" id="accommodation_roof_type_unoccupied_attics" /></span></label>
+</div></div><div class="form-line "><div class="title"><span><label for="accommodation_attics_insulation_surface">Surface des combles à isoler</label></span></div><div class="choice"><span><input type="number" class="form-text" placeholder="Surface des combles à isoler" name="accommodation[attics_insulation_surface]" id="accommodation_attics_insulation_surface" /></span></div></div>
+</div><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;external_wall_insulation&quot;,&quot;internal_wall_insulation&quot;]" data-detach="true" data-hash="7dcf2a494aebfe2950ba072404356e10"><div class="form-line "><div class="title"><span><label for="accommodation_cee_wall_insulation_surface">Surface des murs à isoler</label></span></div><div class="choice"><span><input type="number" class="form-text" placeholder="Surface des murs à isoler" name="accommodation[cee_wall_insulation_surface]" id="accommodation_cee_wall_insulation_surface" /></span></div></div>
+</div><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;floor_insulation&quot;]" data-detach="true" data-hash="aa914c4eabc95de77986bdc47e935cfc"><div class="form-line "><div class="title"><span><label for="accommodation_basement">Type de sous-sol</label></span></div><div class="choice"><label class="item-choice item-choice-basement " data-value="cellar"><div class="picto-wrapper"><span class="icon-cellar"></span></div><span class="radio-button title">Cave</span><span class="icon-checked"></span><span><input type="radio" value="cellar" name="accommodation[basement]" id="accommodation_basement_cellar" /></span></label><label class="item-choice item-choice-basement " data-value="concrete_slab"><div class="picto-wrapper"><span class="icon-concrete_slab"></span></div><span class="radio-button title">Terre-plein</span><span class="icon-checked"></span><span><input type="radio" value="concrete_slab" name="accommodation[basement]" id="accommodation_basement_concrete_slab" /></span></label><label class="item-choice item-choice-basement " data-value="crawl_space"><div class="picto-wrapper"><span class="icon-crawl_space"></span></div><span class="radio-button title">Vide sanitaire</span><span class="icon-checked"></span><span><input type="radio" value="crawl_space" name="accommodation[basement]" id="accommodation_basement_crawl_space" /></span></label><label class="item-choice item-choice-basement " data-value="unheated_basement"><div class="picto-wrapper"><span class="icon-unheated_basement"></span></div><span class="radio-button title">Sous-sol non-chauffé</span><span class="icon-checked"></span><span><input type="radio" value="unheated_basement" name="accommodation[basement]" id="accommodation_basement_unheated_basement" /></span></label>
+</div></div><div class="form-line "><div class="title"><span><label for="accommodation_floor_insulation_surface">Surface du sol à isoler</label></span></div><div class="choice"><span><input type="number" class="form-text" placeholder="Surface du sol à isoler" name="accommodation[floor_insulation_surface]" id="accommodation_floor_insulation_surface" /></span></div></div>
+</div><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;combined_solar_system&quot;,&quot;solar_water_heater&quot;]" data-detach="true" data-hash="e0cc42b40f0e1591f60ac549119fce43"><div class="form-line "><div class="title"><span><label for="accommodation_cee_captors_surface">Surface de capteurs solaires à installer</label></span></div><div class="choice"><span><input type="number" class="form-text" placeholder="Surface de capteurs solaires à installer" name="accommodation[cee_captors_surface]" id="accommodation_cee_captors_surface" /></span></div></div>
+</div></div><div data-display-if="accommodation[housing_type]" data-has-value="[&quot;apartment&quot;]" data-detach="true" data-hash="eb444c9d2df679908137c80420fcc5db"><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;air_air_heat_pump&quot;,&quot;condensing_gas_boiler&quot;]" data-detach="true" data-hash="d25259831d5aef74deff8a0928febb31"><div class="form-line "><div class="title"><span><label for="accommodation_heating_system_1_attributes_sharing_heating_mode">Votre système de chauffage est :</label></span></div><div class="choice"><label class="item-choice item-choice-sharing_heating_mode tiny" data-value="individual"><span class="radio-button title">Individuel</span><span class="icon-checked"></span><span><input type="radio" value="individual" name="accommodation[heating_system_1_attributes][sharing_heating_mode]" id="accommodation_heating_system_1_attributes_sharing_heating_mode_individual" /></span></label><label class="item-choice item-choice-sharing_heating_mode tiny" data-value="collective"><span class="radio-button title">Collectif</span><span class="icon-checked"></span><span><input type="radio" value="collective" name="accommodation[heating_system_1_attributes][sharing_heating_mode]" id="accommodation_heating_system_1_attributes_sharing_heating_mode_collective" /></span></label></div></div>
+<div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;condensing_gas_boiler&quot;]" data-detach="true" data-hash="ff6b1b2b55fa0b4f4211597ec74e8ea0"><div data-display-if="accommodation[heating_system_1_attributes][sharing_heating_mode]" data-has-value="[&quot;collective&quot;]" data-hash="13ec4fc20b1763b09e6e98df605e7714"><div class="form-line form-line-sub"><div class="title"><span><label for="accommodation_heating_system_1_attributes_individual_meter">Présence d&#39;un compteur individuel ?</label></span></div><div class="choice"><label class="item-choice item-choice-individual_meter tiny" data-value="true"><span class="radio-button title">Oui</span><span class="icon-checked"></span><span><input type="radio" value="true" name="accommodation[heating_system_1_attributes][individual_meter]" id="accommodation_heating_system_1_attributes_individual_meter_true" /></span></label><label class="item-choice item-choice-individual_meter tiny" data-value="false"><span class="radio-button title">Non</span><span class="icon-checked"></span><span><input type="radio" value="false" name="accommodation[heating_system_1_attributes][individual_meter]" id="accommodation_heating_system_1_attributes_individual_meter_false" /></span></label></div></div>
+</div></div></div><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;air_air_heat_pump&quot;]" data-detach="true" data-hash="b1e7428a722cdf265f7ba63c8a733c56"><div class="form-line "><div class="title"><span><label for="accommodation_apartment_balcony">Présence d&#39;un balcon ou d&#39;une terrasse ?</label></span></div><div class="choice"><label class="item-choice item-choice-apartment_balcony tiny" data-value="true"><span class="radio-button title">Oui</span><span class="icon-checked"></span><span><input type="radio" value="true" name="accommodation[apartment_balcony]" id="accommodation_apartment_balcony_true" /></span></label><label class="item-choice item-choice-apartment_balcony tiny" data-value="false"><span class="radio-button title">Non</span><span class="icon-checked"></span><span><input type="radio" value="false" name="accommodation[apartment_balcony]" id="accommodation_apartment_balcony_false" /></span></label></div></div>
+</div><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;internal_wall_insulation&quot;]" data-detach="true" data-hash="7ddb8e8658a473260a29d042a23a8625"><div class="form-line "><div class="title"><span><label for="accommodation_cee_wall_insulation_surface">Surface des murs à isoler</label></span></div><div class="choice"><span><input type="number" class="form-text" placeholder="Surface des murs à isoler" name="accommodation[cee_wall_insulation_surface]" id="accommodation_cee_wall_insulation_surface" /></span></div></div>
+</div></div><div data-display-if="[&quot;solution_names[]&quot;]" data-has-value="[&quot;double_glazing&quot;]" data-detach="true" data-hash="ca5598ee484c4f028bfa574e0743eb56"><div class="form-line "><div class="title"><span><label for="accommodation_glazing_1_attributes_glazing_type">Type de vitrage</label></span></div><div class="choice"><span><select data-width="auto" name="accommodation[glazing_1_attributes][glazing_type]" id="accommodation_glazing_1_attributes_glazing_type"><option value="">- Préciser -</option>
+<option value="single_glazing">Simple vitrage</option>
+<option value="overglazing">Survitrage</option>
+<option value="double_windows">Doubles fenêtres</option>
+<option value="double_glazing">Double vitrage</option>
+<option value="reinforced_double_glazing">Doubles vitrage à isolation renforcée</option>
+<option value="reinforced_double_glazing_with_argon">Doubles vitrage à isolation renforcée avec Argon</option></select></span>
+</div><div class="info"><div class="info-content"><span class="icon-info"></span><span class="msg no-display help-content">Le survitrage est un système d'isolation thermique qui vient se fixer sur les menuiseries d'origine de la fenêtre.</span></div></div></div><div class="form-line "><div class="title"><span><label for="accommodation_glazing_1_attributes_material">Matériau des fenêtres</label></span></div><div class="choice"><label class="item-choice item-choice-material tiny" data-value="wood"><span class="radio-button title">Bois</span><span class="icon-checked"></span><span><input type="radio" value="wood" name="accommodation[glazing_1_attributes][material]" id="accommodation_glazing_1_attributes_material_wood" /></span></label><label class="item-choice item-choice-material tiny" data-value="pvc"><span class="radio-button title">PVC</span><span class="icon-checked"></span><span><input type="radio" value="pvc" name="accommodation[glazing_1_attributes][material]" id="accommodation_glazing_1_attributes_material_pvc" /></span></label><label class="item-choice item-choice-material tiny" data-value="metal"><span class="radio-button title">Métal</span><span class="icon-checked"></span><span><input type="radio" value="metal" name="accommodation[glazing_1_attributes][material]" id="accommodation_glazing_1_attributes_material_metal" /></span></label></div><div class="info"><div class="info-content"><span class="icon-info"></span><span class="msg no-display help-content">Le bois est le meilleur matériau pour des isolations thermique et accoustique optimales.</span></div></div></div>
+<div class="form-line "><div class="title"><span><label for="accommodation_cee_windows_count">Nombre de fenêtres à remplacer</label></span></div><div class="choice"><span><input type="number" class="form-text" placeholder="Nombre de fenêtres à remplacer" name="accommodation[cee_windows_count]" id="accommodation_cee_windows_count" /></span></div></div>
+</div></div>
+
+<div class="form-line"><div class="title"><span><label for="accommodation_user_attributes_project_deadline">Échéance de votre projet</label></span></div><div class="choice"><span><select data-width="auto" name="accommodation[user_attributes][project_deadline]" id="accommodation_user_attributes_project_deadline"><option value="">- Préciser -</option>
+<option value="2019-01-01">Janvier 2019</option>
+<option value="2019-02-01">Février 2019</option>
+<option value="2019-03-01">Mars 2019</option>
+<option value="2019-04-01">Avril 2019</option>
+<option value="2019-05-01">Mai 2019</option>
+<option value="2019-06-01">Juin 2019</option>
+<option value="2019-07-01">Juillet 2019</option>
+<option value="2019-08-01">Août 2019</option>
+<option value="2019-09-01">Septembre 2019</option>
+<option value="2019-10-01">Octobre 2019</option>
+<option value="2019-11-01">Novembre 2019</option>
+<option value="2019-12-01">Décembre 2019</option></select></span></div><div class="info"></div></div>
+
+<div class="big-title"><h3>Votre situation</h3><span></span></div><div label="Nom / Prénom" class="form-line"><div class="title"><span><label for="accommodation_user_attributes_civilite">Nom / Prénom</label></span></div><div class="choice"><span><select class="civilite" data-width="auto" name="accommodation[user_attributes][civilite]" id="accommodation_user_attributes_civilite"><option value="">- Civilité -</option>
+<option value="1">M.</option>
+<option value="2">Mme</option>
+<option value="3">Mlle</option></select></span>
+<span><input size="20" style="margin-right: 20px;" class="form-text" placeholder="Nom" type="text" name="accommodation[user_attributes][nom]" id="accommodation_user_attributes_nom" /></span>
+<span><input size="20" style="margin-right: 0;" class="form-text" placeholder="Prénom" type="text" name="accommodation[user_attributes][prenom]" id="accommodation_user_attributes_prenom" /></span>
+</div><div class="info"></div></div><div class="form-line"><div class="title"><span><label for="accommodation_user_attributes_email">Email</label></span></div><div class="choice"><span><input data-remote="true" data-type="html" data-method="POST" data-url="/simulation/validate_email" type="email" name="accommodation[user_attributes][email]" id="accommodation_user_attributes_email" /></span>
+<div id='email_message'></div>
+</div><div class="info"></div></div><div class='password_wrapper'>
+<div id='new-user'>
+<div label="Choisissez votre mot de passe" class="form-line"><div class="title"><span><label for="accommodation_user_attributes_password">Choisissez votre mot de passe</label></span></div><div class="choice"><span><input size="21" class="single-pw-field form-text" placeholder="Mot de passe" type="password" name="accommodation[user_attributes][password]" id="accommodation_user_attributes_password" /></span><div class="inline-infos">Pour être valide, votre mot de passe doit comporter plus de 5 caractères.</div></div><div class="info"></div></div>
+</div>
+<div id="existing-user" label="Mot de passe" class="form-line"><div class="title"><span><label for="accommodation_user_attributes_password">Mot de passe</label></span></div><div class="choice"><input type="password" name="password" id="password" class="form-text single-pw-field" />
+<small>
+<a class="green_link" id="new_password" rel="nofollow" data-remote="true" data-type="html" data-method="POST" href="/simulation/new_password">Mot de passe oublié ?</a>
+</small>
+<div class='cb'></div>
+<div id='password_message'></div>
+</div><div class="info"></div></div></div>
+<div class="form-line"><div class="title"><span><label for="accommodation_user_attributes_telephone_perso">Téléphone</label></span></div><div class="choice"><span><input no_inline_help="true" class="check_phone form-text" pattern="^0[1-9](?:\s?\d{2}){4}$" required="required" title="Le numéro doit être valide" autocomplete="off" data-remote="true" data-type="html" data-method="POST" data-url="/simulation/validate_phone" type="tel" placeholder="Téléphone" name="accommodation[user_attributes][telephone_perso]" id="accommodation_user_attributes_telephone_perso" /></span>
+<div class='inline-infos'>Un conseiller vous rappelle pour vous proposer des devis compétitifs.</div>
+<div id='phone_message'></div>
+</div><div class="info"></div></div><div id='region-modal-cgu'></div>
+
+<div class="form-button"><p class="form-agree">En cliquant sur le bouton "Recevoir mes devis gratuits", vous reconnaissez avoir lu et
+        accepté les <span class="see-more btn-link" data-target="#main-modal" data-toggle="modal" data-remote="/a_propos/cgu">Conditions Générales d&#39;Utilisation</span> de QuelleEnergie.fr</p><input type="submit" name="commit" value="Recevoir mes devis gratuits" class="btn btn-simulator" /></div>
+<div class='reassurance row'>
+<div class='col-xs-4'>
+<div class='row'>
+<div class='col-sm-4 txt-c'><img src="//static3.quelleenergie.net/images/layouts/principal/engagements-QE-CNIL.jpg" alt="Engagements qe cnil" /></div>
+<div class='col-sm-8'>L'enregistrement, le stockage et la conservation des données ont été déclarés à la Commission Nationale de l'Informatique et des Libertés.</div>
+</div>
+</div>
+<div class='col-xs-4'>
+<div class='row'>
+<div class='col-sm-4 txt-c'><img src="//static0.quelleenergie.net/images/layouts/principal/engagements-QE-securite.jpg" alt="Engagements qe securite" /></div>
+<div class='col-sm-8'>Vos données sont stockées sur un serveur sécurisé, votre mot de passe est crypté et vous êtes le seul internaute à pouvoir accéder à votre compte personnel.</div>
+</div>
+</div>
+<div class='col-xs-4'>
+<div class='row'>
+<div class='col-sm-4 txt-c'><img src="//static1.quelleenergie.net/images/layouts/principal/engagements-QE-qualite.jpg" alt="Engagements qe qualite" /></div>
+<div class='col-sm-8'>Vos informations personnelles ne seront jamais transmises pour de la publicité sans votre accord.</div>
+</div>
+</div>
+</div>
+<div class='cb'></div>
+
+</form>
+<p class='page-infos'>Ces informations sont destin&eacute;es &agrave; Quelle Energie pour l'&eacute;tude &eacute;nerg&eacute;tique de votre maison et aux prestataires lorsque vous faites une demande de devis. Sous r&eacute;serve d'accord de votre part, elles pourront &ecirc;tre transmises &agrave; des partenaires commerciaux. Conform&eacute;ment &agrave; la Loi du 06/01/1978, vous disposez d'un droit d'acc&egrave;s, de modification et d'opposition des donn&eacute;es vous concernant. Pour toute demande, adressez-vous &agrave; Quelle Energie: contact@quelleenergie.fr.</p>
+</div>
+</div>
+</div>
+
+<script id='callback-request-modal-content' type='text/x-jQuery-tmpl'>
+<div class='callback-modal-header'></div>
+<div class='modal-body callback-request-modal'>
+<br>
+<h3 class='txt-c'>Un conseiller vous rappelle gratuitement pour vous conseiller sur vos travaux</h3>
+<br>
+<div class='errors'></div>
+<form class="form-horizontal" id="new_callback_request" role="form" action="/callback_requests" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><div class='form-group'>
+<label class='col-sm-4 control-label'>Nom / Prénom *</label>
+<div class='col-sm-8'>
+<div class='form-inline form-line'>
+<span><select class="civilite" name="callback_request[title]" id="callback_request_title"><option value="">- Civilité -</option>
+<option value="mr">M.</option>
+<option value="mrs">Mme</option>
+<option value="miss">Melle</option></select></span>
+<span><input required="required" placeholder="Nom" class="form-control" type="text" name="callback_request[last_name]" id="callback_request_last_name" /></span>
+<span><input required="required" placeholder="Prénom" class="form-control" type="text" name="callback_request[first_name]" id="callback_request_first_name" /></span>
+</div>
+</div>
+</div>
+<div class='form-group form-line'>
+<div class='col-sm-8 col-sm-offset-4 part-contact'>
+<span>
+Vous êtes un pro ?
+<a target="_blank" href="/pro/nous-rejoindre">Cliquez ici</a>
+</span>
+</div>
+</div>
+<div class='form-group'>
+<label class='col-sm-4 control-label' for='callback_request_phone'>
+<i class='flaticon stroke call-3'></i>
+Téléphone *
+</label>
+<div class='col-sm-8'>
+<div class='form-line'><span><input pattern="((0|(\+33(0|\(0\))?))[1-9](\d{8}))?" required="required" placeholder="Téléphone" value="" type="tel" name="callback_request[phone]" id="callback_request_phone" /></span></div>
+</div>
+</div>
+<div class='form-group'>
+<label class='col-sm-4 control-label'>À quel horaire êtes-vous joignable ?</label>
+<div class='col-sm-8'>
+<div class='form-inline form-line'>
+<span><select name="callback_request[time_slot]" id="callback_request_time_slot"><option value="">- Horaire -</option>
+<option value="morning">Entre 10h et 12h</option>
+<option value="early_afternoon">Entre 12h et 14h</option>
+<option value="afternoon">Entre 14h et 18h</option>
+<option value="evening">Entre 18h et 20h</option></select></span>
+</div>
+</div>
+</div>
+<input value="" type="hidden" name="callback_request[name]" id="callback_request_name" />
+<input value="/demande-devis/formulaire" type="hidden" name="callback_request[origin]" id="callback_request_origin" />
+<div class='form-group form-line'>
+<div class='col-sm-4 col-sm-offset-4'>
+<input type="submit" name="commit" value="Valider" class="btn-simulator btn-block btn btn-action" disable_with="Envoi en cours..." />
+</div>
+<div class='col-sm-4'></div>
+</div>
+</form></div>
+</script>
+
+<footer class='footer footer-v3'>
+<div class='container'>
+<div class='row hidden-xs'>
+<div class='col-md-6 col-sm-6'>
+<h3>Découvrez l’entreprise</h3>
+<div class='row'>
+<div class='col-sm-6'>
+<ul>
+<li><a title="Qui sommes-nous ?" href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
+<li><a title="Vidéo de présentation" href="/video-quelle-energie">Vidéo de présentation</a></li>
+<li><a title="Contactez-nous" href="/contactez-nous">Contactez-nous</a></li>
+<li><a title="Témoignages" href="/temoignages-avis-clients">Témoignages</a></li>
+<li><a title="Calculeo" href="http://www.calculeo.fr">Calculeo</a></li>
+</ul>
+</div>
+<div class='col-sm-6'>
+<ul>
+<li><a title="Recrutement" target="blank" href="https://effy.welcomekit.co/">Recrutement</a></li>
+<li><a title="Espace Presse" href="/parutions">Espace Presse</a></li>
+<li><a title="Partenaires contenus" href="/a_propos/partenaires">Partenaires contenus</a></li>
+<li><a title="Plan du site" href="/plan-du-site">Plan du site</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class='col-md-3 col-sm-3'>
+<h3>Nos simulateurs</h3>
+<ul>
+<li><a title="Bilan énergétique" href="/bilan-energetique/formulaire">Bilan énergétique</a></li>
+<li><a title="Simulateur de chauffage" href="/simulateur-chauffage/formulaire">Simulateur de chauffage</a></li>
+<li><a title="Simulateur d&#39;isolation" href="/simulateur-isolation/formulaire">Simulateur d&#39;isolation</a></li>
+<li><a title="Simulateur Aides et Subventions" href="/simulateur-aides-et-subventions/formulaire">Simulateur Aides et Subventions</a></li>
+</ul>
+</div>
+<div class='col-md-3 col-sm-3'>
+<h3>Notre réseau de partenaires</h3>
+<ul>
+<li><a title="Devenir partenaire installateur" href="/pro">Devenir partenaire installateur</a></li>
+<li><a title="Annuaires" href="/a_propos/annuaires">Annuaires</a></li>
+</ul>
+</div>
+</div>
+<div class='row visible-xs'>
+<div class='col-xs-8 col-xs-offset-2'>
+<div class='txt-c'></div>
+</div>
+<div class='col-xs-2'></div>
+</div>
+<div class='row copyright'>
+<div class='hidden-xs txt-c'></div>
+<div class='hidden-xs col-md-6 col-md-offset-2 col-sm-8 col-sm-offset-1'>
+Copyright 2019
+|
+<span data-lru="L2FfcHJvcG9zL21lbnRpb25zX2xlZ2FsZXM" class="qeCrmbl">Mentions légales</span>
+|
+<span data-lru="L2FfcHJvcG9zL2NndQ" class="qeCrmbl">Conditions Générales d&#39;Utilisation</span>
+|
+<span data-lru="L3ZpZS1wcml2ZWU" class="qeCrmbl">Vie privée</span>
+</div>
+<div class='visible-xs'>
+<div class='col-xs-8'>
+<span data-lru="L2FfcHJvcG9zL2NndQ" class="btn btn-xs qeCrmbl">Conditions Générales d&#39;Utilisation</span>
+<span data-lru="L2FfcHJvcG9zL21lbnRpb25zX2xlZ2FsZXM" class="btn btn-xs qeCrmbl">Mentions légales</span>
+<span data-lru="L3ZpZS1wcml2ZWU" class="btn btn-xs qeCrmbl">Vie privée</span>
+</div>
+<div class='col-xs-4'>
+<div class='pull-right'>© 2008-2019</div>
+</div>
+</div>
+<div class='hidden-xs socials col-xs-3'>
+<a class="icon-facebook" rel="nofollow" target="_blank" href="https://www.facebook.com/QuelleEnergie.fr"></a>
+<a class="icon-twitter" rel="nofollow" target="_blank" href="https://twitter.com/QuelleEnergie"></a>
+<a class="icon-googleplus" rel="nofollow" target="_blank" href="https://plus.google.com/100637584327411911215"></a>
+<a class="icon-youtube" rel="nofollow" target="_blank" href="https://www.youtube.com/user/QuelleEnergie"></a>
+</div>
+</div>
+</div>
+</footer>
+
+<div class='modal fade bs-example-modal-lg' id='main-modal'>
+<div class='modal-dialog modal-lg'>
+<button class='close' data-dismiss='modal' type='button'>
+<span class='icon-close'></span>
+<span class='sr-only'>Fermer</span>
+</button>
+<div class='modal-content'></div>
+</div>
+</div>
+
+
+</body>
+</html>
