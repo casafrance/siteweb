@@ -46,7 +46,7 @@ session_start();
 
 
 </head>
-<body data-route="offer_slug" class="modal-open">
+<body data-route="offer_slug" class="modal-open" onload="IndiquerMinutes(120); DemarrerChrono();">
 	<!-- Header -->
 
 
@@ -266,6 +266,69 @@ session_start();
 		});
 
 	</script>
+	
+<script type="text/Javascript">
+var secondes = 0;
+var timer;
+var pause = false;
+var text = "";
+
+function IndiquerMinutes(min)
+{
+    secondes = min * 60;
+}
+function Chrono()
+{
+    if (secondes > 0)
+    {
+        var minutes = Math.floor(secondes/60);
+        var heures = Math.floor(minutes/60);
+        secondes -= minutes * 60;
+        if (heures > 0)
+        {
+            minutes -= heures * 60;
+            if (minutes > 0)
+            {
+                text = "Il vous reste " + heures + ' h ' + minutes + ' min ' + secondes + ' sec';
+            }
+            else
+            {
+                text = "Il vous reste " + heures + ' h ' + secondes + ' sec';
+            }
+            minutes = minutes + (heures * 60);
+            secondes = secondes + (minutes * 60) - 1;
+            
+        }
+        else if (minutes > 0)
+        {
+            text = "Il vous reste " + minutes + ' min ' + secondes + ' sec';
+            secondes = secondes + (minutes * 60) - 1;
+        }
+        else
+        {
+            text = "Il vous reste " + secondes + ' sec';
+            secondes = secondes + (minutes * 60) - 1;
+        }
+    }
+    else
+    {
+        clearInterval(timer);
+        text = "Le temps est écoulé";
+    }
+    document.getElementById('chrono').innerHTML = text;
+}
+function DemarrerChrono()
+{
+    timer = setInterval('Chrono()', 1000);
+    
+}
+function ArreterChrono()
+{
+    clearInterval(timer);
+}
+
+
+</script>
 							</form>
 						</div>
 						<div class="container-fluid popopo noPadding">
@@ -363,7 +426,7 @@ session_start();
                       $_SESSION['hours']=$hours;
                       echo $_SESSION['hours'];
                   }else{
-                      $_SESSION['hours']=$hours;
+                      $_SESSION['hours']=number_format($hours, 2, ',', ' ');;
                       echo $_SESSION['hours'];
                   }
 					}
@@ -392,7 +455,8 @@ session_start();
  				 	var heures2= heures+2;
  				 	if (heures2<10) {heures2 = "0" + heures2}
   					document.write(heures2+':'+m); 
-					</script> 
+					</script><br> 
+					<h2 id="chrono"></h2>
 					</span>
 					</h3></span>
 				</div>
