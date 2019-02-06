@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once 'sendemail.php';
+// include_once 'sendemail.php';
 ?>
 
 
@@ -317,8 +317,8 @@ include_once 'sendemail.php';
 
 	<div id="hc-pack-preview" data-is-authenticated="true">
 		<h1 class="text-center hc-pack-title padding-bottom--m">
-			Votre devis CasaFrance : «&nbsp;<span class="font-bold">Isolation des
-				combles</span>&nbsp;»
+			Votre devis CasaFrance : &nbsp;<span class="font-bold">Isolation des
+				combles</span>&nbsp;
 		</h1>
 		<!-- top container with sum up -->
 		<div class="hc-pack-preview-container">
@@ -342,7 +342,8 @@ include_once 'sendemail.php';
 						class="hc-pack-total-price-sub-category-amount"><?php
 						if(!empty($_POST['surface'])){
     $maindoeuvre = $budget * 0.9;
-    echo $maindoeuvre;}?> €</span>
+    $_SESSION['maindoeuvre']=$maindoeuvre;
+    echo $_SESSION['maindoeuvre'];}?> €</span>
 				</p>
 
 
@@ -350,13 +351,21 @@ include_once 'sendemail.php';
 					Déplacement : <span class="hc-pack-total-price-sub-category-amount"><?php
 					if(!empty($_POST['surface'])){
     $deplacement = $budget * 0.1;
-    echo $deplacement;}?>€</span>
+    $_SESSION['deplacement']=$deplacement;
+    echo $_SESSION['deplacement'];}?>€</span>
 				</p>
 				<p class="hc-pack-total-price-sub-category margin-top--s">
 					Durée des travaux : <span><?php
 					if(!empty($_POST['surface'])){
-                  $hours = $surface/5;
-                  echo $hours;
+                  $hours = $surface/7;
+                  if($hours<2){
+                      $hours=2;
+                      $_SESSION['hours']=$hours;
+                      echo $_SESSION['hours'];
+                  }else{
+                      $_SESSION['hours']=$hours;
+                      echo $_SESSION['hours'];
+                  }
 					}
 					?> heures</span>
 				</p>
@@ -374,7 +383,7 @@ include_once 'sendemail.php';
 
 				<div class="hc-pack-intervention-date">
 						
-					<span> <img width="90%" src="30.jfif"><h3><span style="color:red"><?php echo $budget * 0.7; ?></span> au lieu de <strike><?php echo $budget;?></strike> si vous confirmez votre devis <span style="color:red">avant
+					<span> <img width="90%" src="30.jfif"><h3><span style="color:red"><?php echo $_SESSION['budget'] * 0.7; ?></span> au lieu de <strike><?php echo $_SESSION['budget'];?></strike> si vous confirmez votre devis <span style="color:red">avant
 					<script type="text/javascript"> 
  				 	d = new Date();
  				 	var m=d.getMinutes();
@@ -383,7 +392,8 @@ include_once 'sendemail.php';
  				 	var heures2= heures+2;
  				 	if (heures2<10) {heures2 = "0" + heures2}
   					document.write(heures2+':'+m); 
-					</script> </span>
+					</script> 
+					</span>
 					</h3></span>
 				</div>
 			</div>
