@@ -46,7 +46,7 @@ session_start();
 
 
 </head>
-<body data-route="offer_slug" class="modal-open" onload="IndiquerMinutes(120); DemarrerChrono();">
+<body data-route="offer_slug" class="modal-open" >
 	<!-- Header -->
 
 
@@ -463,15 +463,17 @@ function ArreterChrono()
 			</div>
 		</div>
 		</script>
-    <script type="text/javascript">
-    window.onload = function()
-    {
-      setTimeout(function()
-      {
-        document.getElementById("promos").style.display = "none";
-      }, 120000);
-    }
-    </script>
+     <script type="text/javascript">
+     window.onload = function()
+     {
+    	IndiquerMinutes(120); 
+    	 DemarrerChrono();
+       setTimeout(function()
+       {
+         document.getElementById("promos").style.display = "none";
+       }, 120000);
+     }
+     </script>
 		<div class="hc-pack-preview-detail-bottom-container container">
 			<div class="hc-pack-preview-section-header">
 				<div class="col-xs-7 col-md-10 col-sm-9 padding--0">
