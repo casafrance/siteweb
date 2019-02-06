@@ -433,7 +433,7 @@ function ArreterChrono()
 					?> heures</span>
 				</p>
 			</div>
-			<div class="hc-pack-cta-container">
+			<div class="hc-pack-cta-container" id="promos">
 				<button
 					class="hc-cta medium-normal-filled-dark hc-pack-main-cta button-finish-question hc-pack-add-to-cart-btn "
 					style="opacity: 1;" >
@@ -462,19 +462,16 @@ function ArreterChrono()
 				</div>
 			</div>
 		</div>
-		<!-- end -->
-
-
-
-
-		<!-- check if there are excluded materials -->
-		<!-- end -->
-
-
-
-
-
-
+		</script>
+    <script type="text/javascript">
+    window.onload = function()
+    {
+      setTimeout(function()
+      {
+        document.getElementById("promos").style.display = "none";
+      }, 120000);
+    }
+    </script>
 		<div class="hc-pack-preview-detail-bottom-container container">
 			<div class="hc-pack-preview-section-header">
 				<div class="col-xs-7 col-md-10 col-sm-9 padding--0">
