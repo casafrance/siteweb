@@ -5,9 +5,8 @@
     display: inline-block;
     font-family: "BrandonGrotesque-Medium";
     font-size: 2em;
-    margin: 0;
+    margin: auto;
 	margin-top: 10px;
-	margin-bottom: 10px;
     float: left;
     padding: 50px 0;
     width: 100%;
@@ -15,7 +14,9 @@
 }
 
 .textdetails{
-    width: 400px;
+    max-width: 500px;
+    display : block;
     position: relative;
-    margin-left: 34%;
+    text-align: center;
+    margin: auto;
 }
