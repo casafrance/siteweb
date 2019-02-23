@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+
+.textIsolationComble {
+    color: #1b94ce;
+    display: inline-block;
+    font-family: "BrandonGrotesque-Medium";
+    font-size: 2em;
+    margin: 0;
+    margin-left: 34%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.textdetails{
+    width: 400px;
+    height: 200px;
+    margin-left: 34%;
+}
