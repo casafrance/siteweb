@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+.pictoIsolationComble img{
+	
+	transition: transform 2s;
+}
+
+
+.pictoIsolationComble:hover img{
+	transform: scale(1.5);
+}
+
+.pictoIsolationToiture img{
+	
+	transition: transform 2s;
+}
+
+
+.pictoIsolationToiture:hover img{
+	transform: scale(1.5);
+}
+
+.containerIsolation{
+	text-align: center;
+	margin-left: 20%;
+}
+.textIsolation{
+	margin-top : 20px;
+	text-transform: uppercase;
+	
+}
+
+.typeIsolation {
+    color: #1b94ce;
+    display: inline-block;
+    font-family: "BrandonGrotesque-Medium";
+    font-size: 2em;
+    margin: 0;
+    margin-right: 25%;
+}

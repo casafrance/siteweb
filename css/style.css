@@ -4182,5 +4182,15 @@ img {
   #aa-header .aa-header-top .aa-header-top-right .aa-head-top-nav-right li a {   
     padding: 5px 2px;
   }
+  
+.isolation a {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+.isolation a:hover{
+	color: #cc04c2;
+	background-color: #000000;
+}
 }
 
