@@ -257,13 +257,32 @@
               <div class="col-md-6">
                 <div class="aa-myaccount-register">                 
                  <h4>S'inscrire</h4>
-                 <form action="" class="aa-login-form">
-                    <label for="">Email<span>*</span></label>
-                    <input type="text" placeholder="email">
-                    <label for="">Mot de passe<span>*</span></label>
-                    <input type="password" placeholder="Mot de passe">
-                    <button type="submit" class="aa-browse-btn">Valider</button>                    
-                  </form>
+                 <form class="aa-login-form" action="choisirArtisanIsolationComblesDevis.php">
+            <label for="">Nom<span>*</span></label>
+            <input type="text" placeholder="Email" name="nom">
+            <label for="">Prénom<span>*</span></label>
+            <input type="password" placeholder="Mot de passe" name="prenom">
+             <label for="">Email<span>*</span></label>
+            <input type="text" placeholder="Email" name="email">
+            <label for="">Téléphone<span>*</span></label>
+            <input type="password" placeholder="Mot de passe" name="telephone">
+             <label for="">Mot de passe<span>*</span></label>
+            <input type="text" placeholder="Email" name="password">
+            <label for="">Confirmer votre mot de pass<span>*</span></label>
+            <input type="password" placeholder="Mot de passe" name="password2">
+             <label for="">Adresse<span>*</span></label>
+            <input type="text" placeholder="Email" name="adresse">
+            <label for="">Code postal<span>*</span></label>
+            <input type="password" placeholder="Mot de passe" name="codepostal">
+             <label for="">Ville<span>*</span></label>
+            <input type="text" placeholder="Email" name="ville">
+            <button class="aa-browse-btn" type="submit">Valider</button>
+            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Se souvenir de moi </label>
+            <p class="aa-lost-password"><a href="#">Mot de passe oublié?</a></p>
+            <div class="aa-register-now">
+              Je n'ai pas de compte ?<a href="account.html">M'inscrire maintenant!</a>
+            </div>
+          </form>
                 </div>
               </div>
             </div>          
@@ -339,7 +358,7 @@
     </div>
   </footer>
   <!-- / footer -->
-  <!-- Login Modal -->  
+ <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">                      
@@ -351,7 +370,7 @@
             <input type="text" placeholder="Email">
             <label for="">Mot de passe<span>*</span></label>
             <input type="password" placeholder="Mot de passe">
-            <button class="aa-browse-btn" type="submit">email</button>
+            <button class="aa-browse-btn" type="submit">Valider</button>
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Se souvenir de moi </label>
             <p class="aa-lost-password"><a href="#">Mot de passe oublié?</a></p>
             <div class="aa-register-now">

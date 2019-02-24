@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -386,7 +386,7 @@
             <input type="text" placeholder="Email">
             <label for="">Mot de passe<span>*</span></label>
             <input type="password" placeholder="Mot de passe">
-            <button class="aa-browse-btn" type="submit">email</button>
+            <button class="aa-browse-btn" type="submit">Valider</button>
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Se souvenir de moi </label>
             <p class="aa-lost-password"><a href="#">Mot de passe oublié?</a></p>
             <div class="aa-register-now">

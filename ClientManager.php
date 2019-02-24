@@ -12,20 +12,18 @@ Class ClientManager{
 
 
 
-	public function login($username, $password){
-		if(!empty($username) && !empty($password)){
-			$password = md5($password);
-			$req = $this->db->query("SELECT * FROM users WHERE username='$username' AND password='$password'");
+	public function login($email, $password){
+		if(!empty($email) && !empty($password)){
+// 			$password = md5($password);
+			$req = $this->db->query("SELECT * FROM client WHERE username='$email' AND password='$password'");
 			if ($req->rowCount()==1){
-				$_SESSION['username']=$username;
-				$_SESSION['mdp']=$password;
-				header('Location:membre.php');
-	
+				$_SESSION['email']=$email;
+				$_SESSION['password']=$password;
 			}
 			else{
 				echo "Utilisateur n'existe pas sur la base";
 			}
-			// � rajouter
+			//  rajouter
 		}else{
 			echo "Merci de saisir le login et le mot de passe ";
 		}
