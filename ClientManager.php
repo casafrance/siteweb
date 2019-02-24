@@ -1,0 +1,106 @@
+<?php
+session_start();
+include_once 'Connection.php';
+
+Class ClientManager{
+
+	private $db;
+
+	public function __construct($db){
+		$this->db=$db;
+	}
+
+
+
+	public function login($username, $password){
+		if(!empty($username) && !empty($password)){
+			$password = md5($password);
+			$req = $this->db->query("SELECT * FROM users WHERE username='$username' AND password='$password'");
+			if ($req->rowCount()==1){
+				$_SESSION['username']=$username;
+				$_SESSION['mdp']=$password;
+				header('Location:membre.php');
+	
+			}
+			else{
+				echo "Utilisateur n'existe pas sur la base";
+			}
+			// � rajouter
+		}else{
+			echo "Merci de saisir le login et le mot de passe ";
+		}
+	}
+	
+	//add client
+	public function ajouterClient($nom, $prenom, $email, $telephone, $password, $adresse, $ville, $codepostal) {
+		try {
+// 						$password = sha1($password);
+						$this->db->query("insert into client values (Default,'$nom','$prenom','$email','$telephone','$password','$adresse','$ville','$codepostal',rand())")or exit(print_r($this->db->errorInfo()));
+		}
+		catch (Exception $e){
+			echo "Erreur : ".$e->getMessage();
+		}
+	
+	}
+	
+	public function getAll(){
+		try{
+			return  $this->db->query("SELECT * FROM users");
+		}
+		catch(Exception $e){
+	
+		}
+	}
+	
+	public function rechercher($nom){
+		try{
+			return  $this->db->query("SELECT * FROM users where username like '%".$nom."%'");
+		}
+		catch(Exception $e){
+			$e->getMessage();
+	
+		}
+	}
+	
+	public function getUserById($id){
+		try{
+			return  $this->db->query("SELECT * FROM users WHERE id= '$id' ");
+			$modif->closeCursor();
+		}
+		catch(Exception $e){
+			$e->getMessage();
+		}
+	}
+	
+	public function update($id, $pseudo, $mdp) {
+		try{
+			if(!empty($pseudo) && !empty($mdp)){
+				$mdp = md5($mdp);
+				$modif = $this->db->query("update users set username='$pseudo' where id ='$id'");
+				$modif = $this->db->query("update users set password='$mdp' where id ='$id'");
+				$modif->closeCursor();
+				echo "<span>Modification enregistr�e!</span>";
+			}
+		}
+		catch(Exception $e){
+			$e->getMessage();
+		}
+	
+	}
+	public function delete($id){
+		try{
+			if($id){
+				$st=$this->db->prepare("DELETE FROM users WHERE id='$id'");
+				$st->execute();
+				$st->closeCursor();
+				echo "Utilisateur  suuprim� avec  Succ�s";
+			}
+		}catch (Exception $e){
+			$e->getMessage();
+	
+		}
+	
+	
+	}
+	}
+	?>

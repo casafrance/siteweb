@@ -1,3 +1,19 @@
+<?php
+include_once 'ClientManager.php';
+
+if(isset($_POST['submit'])){
+
+    try {
+	extract($_POST);
+	$bdd = Connection::getInstance('localhost', 'casafrancebdd', 'utf8', 'root', '');
+	$user = new ClientManager($bdd);
+	$user->ajouterClient($nom, $prenom, $email, $telephone, $password, $adresse, $codepostal, $ville);
+    }catch (Exception $e){
+        echo "Erreur : ".$e->getMessage();
+    }
+}
+
+?>
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
@@ -217,72 +233,7 @@
   <!-- / menu -->  
   
 		<div class="form-style-10">
-<h1>Devis en ligne<span>Obtenez votre devis gratuit en quelques secondes</span></h1>
-<form method="post" action="choisirArtisanIsolationComblesDevis.php">
-    <div class="section"><span>1</span>Votre logement</div>
-    
-    <div class="hiddenradio">
-<table>    
-<tr>    
-<td width="200px">
-	<label> 
-  <input type="radio" name="test" value="plainpied" checked>
-  <img src="img/maisonPlainPied.png">
-  </label>
-  <span class="section">Plain-pied </span>
- </td>
- <td> 
-  <label>
-  
-  <input type="radio" name="test" value="aetage">
-  <img src="img/maisonetage.png">
-  </label>
- <span class="section"> À étage</span>
-</td>
-</tr>
-</table>
-</div>
-
-    <div class="inner-wrap">
-        <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostalchantier" required="required" /></label>
-        <label><b>Surface au sol (m²)</b> <input type="number" name="surface" required="required"/></label>
-        <label><b>Enlèvement de l'ancienne isolation</b></label>
-         <div class="form-group">
-    		<label for="happy" class="col-sm-4 col-md-4 control-label text-right"></label>
-    		<div class="col-sm-7 col-md-7">
-    			<div class="input-group">
-    				<div id="radioBtn" class="btn-group">
-    					<a class="btn btn-primary btn-sm active" data-toggle="happy" data-title="Y">Oui</a>
-    					<a class="btn btn-primary btn-sm notActive" data-toggle="happy" data-title="N">Non</a>
-    				</div>
-    				<input type="hidden" name="happy" id="happy">
-    			</div>
-    		</div>
-    	</div>
-    </div>
- 
-
-    <div class="section"><span>2</span>Planification des travaux</div>
-    <div class="inner-wrap">
-    	<label><b>Disponibilité pour la programmation de métrage</b><input type="date" name="datemetrage" required="required"/><br><input type="time" name="heuremetrage" value="11:00" /></label>
-        <label><b>Date de démarrage souhaitée</b><input type="date" name="datedemarragetravaux" required="required" /></label>
-    </div>
-    <div class="section"><span>3</span>Vos coordonnées (créez votre compte)</div>
-        <div class="inner-wrap">
-        <label><b>Nom </b><input type="text" name="nom" required="required"/></label>
-        <label><b>Prénom</b><input type="text" name="prenom" required="required"/></label>
-        <label><b>Email </b><input type="email" name="email" required="required"/></label>
-        <label><b>Téléphone </b><input type="number" name="telephone" required="required"/></label>
-        <label><b>Mot de passe </b><input type="password" name="password" required="required"/></label>
-        <label><b>Confirmer votre mot de passe</b><input type="password" name="password2" required="required"/></label>
-        <label><b>Adresse</b><input type="text" name="adresse" required="required"/></label>
-        <label><b>Code postal</b><input type="number" name="codepostal" required="required"/></label> 
-        <label><b>Ville</b><input type="text" name="ville" required="required"/></label>
-    </div>
-    <div class="button-section">
-     <input type="submit" name="submit" />
-    </div>
-</form>
+<h1>Devis enregistré</h1>
 </div>
       <!-- Subscribe section -->
  <section id="aa-subscribe">
