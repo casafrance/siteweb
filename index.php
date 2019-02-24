@@ -633,20 +633,7 @@ les transactions effectuées sur ce site sont sécurisées par la plateforme de 
 		</div>
 	</footer>
 	<!-- / footer -->
-<?php 
-include_once 'ClientManager.php';
 
-if(isset($_POST['submit'])){
-	
-	extract($_POST);
-	$rep = Connection::getInstance('casafrancebdd.mysql.database.azure.com', 'casafrancebdd', 'utf8', 'casafrancebdd@casafrancebdd', 'C@ricalentvt88');
-	$answer=$rep->dbconnect();
-	$user = new ClientManager($answer);
-	$user->login($email, $password);
-	header('Location:index.php');
-	
-}
-?>
 	 <!-- Login Modal -->   
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
