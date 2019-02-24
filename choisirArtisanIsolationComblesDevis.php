@@ -5,7 +5,8 @@ if(isset($_POST['submit'])){
 
     try {
 	extract($_POST);
-	$bdd = Connection::getInstance('localhost', 'casafrancebdd', 'utf8', 'root', '');
+	$bdd = Connection::getInstance('casafrancebdd.mysql.database.azure.com', 'casafrancebdd', 'utf8', 'casafrancebdd@casafrancebdd', '
+C@ricalentvt88');
 	$user = new ClientManager($bdd);
 	$user->ajouterClient($nom, $prenom, $email, $telephone, $password, $adresse, $codepostal, $ville);
     }catch (Exception $e){
