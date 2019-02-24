@@ -276,7 +276,7 @@ if(isset($_POST['submit'])){
               <div class="col-md-6">
                 <div class="aa-myaccount-register">                 
                  <h4>S'inscrire</h4>
-                 <form class="aa-login-form" action="choisirArtisanIsolationComblesDevis.php">
+                 <form class="aa-login-form" action="choisirArtisanIsolationComblesDevis.php" method="post">
             <label for="">Nom<span>*</span></label>
             <input type="text"  name="nom">
             <label for="">Prénom<span>*</span></label>
