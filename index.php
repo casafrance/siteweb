@@ -107,7 +107,7 @@
               <!-- / header top left -->
 							     <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="account.html">Mon compte</a></li>
+                  <li><a href="account.html"><?php if(isset($_SESSION['email'])){echo "Bonjour ".$_SESSION['email'];}else echo "Mon compte"; ?></a></li>
                   <li class="hidden-xs"><a href="wishlist.html">Mes Devis</a></li>
                   <li class="hidden-xs"><a href="cart.html">Mes projets</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Paiement sécurisé</a></li>
