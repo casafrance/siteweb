@@ -1,3 +1,16 @@
+<?php 
+include_once 'ClientManager.php';
+
+if(isset($_POST['submit'])){
+	
+	extract($_POST);
+	$rep = Connection::getInstance('casafrancebdd.mysql.database.azure.com', 'casafrancebdd', 'utf8', 'casafrancebdd@casafrancebdd', 'C@ricalentvt88');
+	$answer=$rep->dbconnect();
+	$user = new ClientManager($answer);
+	$user->login($email, $password);
+	
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -91,7 +104,12 @@
               <!-- / header top left -->
                   <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="account.html">Mon compte</a></li>
+                  <li><a href="account.php"><?php 
+                  if (isset($_SESSION['email'])){
+                      echo $_SESSION['email'];
+                  }else 
+                      echo "Mon compte"; 
+                  ?></a></li>
                   <li class="hidden-xs"><a href="wishlist.html">Mes Devis</a></li>
                   <li class="hidden-xs"><a href="cart.html">Mes projets</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Paiement sécurisé</a></li>
@@ -233,6 +251,7 @@
   </section>
   <!-- / catg header banner section -->
 
+
  <!-- Cart view section -->
  <section id="aa-myaccount">
    <div class="container">
@@ -243,7 +262,7 @@
               <div class="col-md-6">
                 <div class="aa-myaccount-login">
                 <h4>Se connecter</h4>
-                 <form action="" class="aa-login-form">
+                 <form action="index.php" class="aa-login-form" method="post">
                   <label for="">Email<span>*</span></label>
                    <input type="text" >
                    <label for="">Mot de passe<span>*</span></label>
@@ -371,7 +390,7 @@
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Se souvenir de moi </label>
             <p class="aa-lost-password"><a href="#">Mot de passe oublié?</a></p>
             <div class="aa-register-now">
-              Je n'ai pas de compte ?<a href="account.html">M'inscrire maintenant!</a>
+              Je n'ai pas de compte ?<a href="account.php">M'inscrire maintenant!</a>
             </div>
           </form>
         </div>                        

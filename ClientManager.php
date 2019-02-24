@@ -17,8 +17,8 @@ Class ClientManager{
 			$password = sha1($password);
 			$req = $this->db->query("SELECT * FROM client WHERE username='$email' AND password='$password'");
 			if ($req->rowCount()==1){
-				$_SESSION['email']=$email;
-				$_SESSION['password']=$password;
+				$_SESSION["email"]=$email;
+				$_SESSION["password"]=$password;
 			}
 			else{
 				echo "Utilisateur n'existe pas sur la base";

@@ -109,7 +109,7 @@ session_start();
               <!-- / header top left -->
 							     <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="account.html"><?php 
+                  <li><a href="account.php"><?php 
                   if (isset($_SESSION['email'])){
                       echo $_SESSION['email'];
                   }else 
@@ -663,7 +663,7 @@ if(isset($_POST['submit'])){
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Se souvenir de moi </label>
             <p class="aa-lost-password"><a href="#">Mot de passe oublié?</a></p>
             <div class="aa-register-now">
-              Je n'ai pas de compte ?<a href="account.html">M'inscrire maintenant!</a>
+              Je n'ai pas de compte ?<a href="account.php">M'inscrire maintenant!</a>
             </div>
           </form>
         </div>                        
