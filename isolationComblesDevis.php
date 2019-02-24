@@ -204,7 +204,7 @@
               </li>
               <li><a href="#">Traitement de charpente <span class="caret"></span></a>
               </li>
-              <li><a href="#">Démoussage et hydrofugation des toitures <span class="caret"></span></a>
+              <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
               </li>
               <li><a href="#">façade</a></li>
               <li><a href="contact.html">Contact</a></li>
