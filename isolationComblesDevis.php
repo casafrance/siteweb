@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
@@ -27,9 +30,8 @@
     <link href="css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
 
     <!-- Main style sheet -->
-    <link href="css/style.css" rel="stylesheet">   
-    <link rel="stylesheet" href="css/isolationCombles.css" />     
-    
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/isolationComblesDevis.css" />    
 
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -46,7 +48,6 @@
 
   </head>
   <body>   
-
   <!-- Start header section -->
   <header id="aa-header">
    <!-- start header top  -->
@@ -217,26 +218,72 @@
       </div>
   </section>
   <!-- / menu -->  
-
-        <div class="textIsolationComble">Isolation des combles
-        </div>
-        <div class="textdetails">
-        
-L’isolation des combles est un choix de rénovation énergétique à prioriser. <b>En effet, jusqu’à 30 % des pertes de chaleur se font par la toiture</b>. Cette isolation est donc celle qui permet de faire le plus d’économies d’énergie pour un faible coût, de l'ordre de 53 €/m², ce qui en fait une solution très vite rentabilisée. <br><br>
-<iframe  src="https://casafrancedata.blob.core.windows.net/video/isolationvideo.mp4" frameborder="0"  allowfullscreen autoplay="false" ></iframe>
-							<a  href="isolationComblesDevis.php" > 
-                                     <div class="col-lg-3 col-md-4 col-sm-3 col-xs-6">
-                        <div class="block-picto picto-form picto-hover" data-form-target="category_id" data-form-value="123">
-                            <div class="textIsolation"><b>Devis en ligne</b></div>
-                            <div class="pictoIsolationComble" >
-                                <img src="img/picto_isolation-combles.png" style="width:100%;" class="isolation"/>
-                            </div>
-                        </div>
-                    </div></a>
-
-
+  
+		<div class="form-style-10">
+<h1>Devis en ligne<span>Obtenez votre devis gratuit en quelques secondes</span></h1>
+<form >
+    <div class="section"><span>1</span>Votre logement</div>
+    
+    <div class="hiddenradio">
+<table>    
+<tr>    
+<td width="200px">
+	<label> 
+  <input type="radio" name="test" value="plainpied" checked>
+  <img src="img/maisonPlainPied.png">
+  </label>
+  <span class="section">Plain-pied </span>
+ </td>
+ <td> 
+  <label>
+  
+  <input type="radio" name="test" value="aetage">
+  <img src="img/maisonetage.png">
+  </label>
+ <span class="section"> À étage</span>
+</td>
+</tr>
+</table>
 </div>
 
+    <div class="inner-wrap">
+        <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostal" /></label>
+        <label><b>Surface au sol (m²)</b> <input type="number" name="surface" /></label>
+        <label><b>Enlèvement de l'ancienne isolation</b></label>
+         <div class="form-group">
+    		<label for="happy" class="col-sm-4 col-md-4 control-label text-right"></label>
+    		<div class="col-sm-7 col-md-7">
+    			<div class="input-group">
+    				<div id="radioBtn" class="btn-group">
+    					<a class="btn btn-primary btn-sm active" data-toggle="happy" data-title="Y">Oui</a>
+    					<a class="btn btn-primary btn-sm notActive" data-toggle="happy" data-title="N">Non</a>
+    				</div>
+    				<input type="hidden" name="happy" id="happy">
+    			</div>
+    		</div>
+    	</div>
+    </div>
+ 
+
+    <div class="section"><span>2</span>Date de démarrage souhaitée</div>
+    <div class="inner-wrap">
+        <label><input type="date" name="field4" /></label>
+    </div>
+
+    <div class="section"><span>3</span>Vos coordonnées (créez votre compte)</div>
+        <div class="inner-wrap">
+        <label><b>Nom </b><input type="text" name="nom" /></label>
+        <label><b>Prénom</b><input type="text" name="prenom" /></label>
+        <label><b>Email </b><input type="email" name="email" /></label>
+        <label><b>Téléphone </b><input type="number" name="telephone" /></label>
+        <label><b>Mot de passe </b><input type="password" name="password1" /></label>
+        <label><b>Confirmer votre mot de passe</b><input type="password" name="password2" /></label>
+    </div>
+    <div class="button-section">
+     <input type="submit" name="Sign Up" />
+    </div>
+</form>
+</div>
       <!-- Subscribe section -->
  <section id="aa-subscribe">
 		<div class="container">
@@ -366,6 +413,15 @@ L’isolation des combles est un choix de rénovation énergétique à prioriser
     <!-- Custom js -->
     <script src="js/custom.js"></script> 
   
-
+<script type="text/javascript">
+$('#radioBtn a').on('click', function(){
+    var sel = $(this).data('title');
+    var tog = $(this).data('toggle');
+    $('#'+tog).prop('value', sel);
+    
+    $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
+    $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
+})
+</script>
   </body>
 </html>
