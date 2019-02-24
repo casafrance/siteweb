@@ -14,7 +14,7 @@ Class ClientManager{
 
 	public function login($email, $password){
 		if(!empty($email) && !empty($password)){
-// 			$password = md5($password);
+			$password = sha1($password);
 			$req = $this->db->query("SELECT * FROM client WHERE username='$email' AND password='$password'");
 			if ($req->rowCount()==1){
 				$_SESSION['email']=$email;
