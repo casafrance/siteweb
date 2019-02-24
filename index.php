@@ -137,7 +137,7 @@
 <!-- 									</p> -->
 <!-- 								</a> -->
 								<!-- img based logo -->
-								<a href="index.html"><img src="img/logo.png" alt="logo img" ></a>
+								<a href="index.php"><img src="img/logo.png" alt="logo img" ></a>
 							</div>
 							<!-- / logo  -->
 							<!-- cart box -->
@@ -214,7 +214,7 @@
 					          <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
-              <li><a href="index.html">Accueil </a></li>
+              <li><a href="index.php">Accueil </a></li>
                   <li><a href="isolation.html">Isolation <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
                   <li><a href="isolationCombles.html">Isolation des combles </a></li>
