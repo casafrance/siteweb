@@ -247,8 +247,8 @@ session_start();
 </div>
 
     <div class="inner-wrap">
-        <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostal" /></label>
-        <label><b>Surface au sol (m²)</b> <input type="number" name="surface" /></label>
+        <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostal" required="required" /></label>
+        <label><b>Surface au sol (m²)</b> <input type="number" name="surface" required="required"/></label>
         <label><b>Enlèvement de l'ancienne isolation</b></label>
          <div class="form-group">
     		<label for="happy" class="col-sm-4 col-md-4 control-label text-right"></label>
@@ -265,19 +265,20 @@ session_start();
     </div>
  
 
-    <div class="section"><span>2</span>Date de démarrage souhaitée</div>
+    <div class="section"><span>2</span>Planification des travaux</div>
     <div class="inner-wrap">
-        <label><input type="date" name="field4" /></label>
+    	<label><b>Disponibilité pour la programmation de métrage</b><input type="date" name="datemetrage" required="required"/><br><input type="time" name="heuremetrage" /></label>
+        <label><b>Date de démarrage souhaitée</b><input type="date" name="datedemarragetravaux" required="required" /></label>
     </div>
 
     <div class="section"><span>3</span>Vos coordonnées (créez votre compte)</div>
         <div class="inner-wrap">
-        <label><b>Nom </b><input type="text" name="nom" /></label>
-        <label><b>Prénom</b><input type="text" name="prenom" /></label>
-        <label><b>Email </b><input type="email" name="email" /></label>
-        <label><b>Téléphone </b><input type="number" name="telephone" /></label>
-        <label><b>Mot de passe </b><input type="password" name="password1" /></label>
-        <label><b>Confirmer votre mot de passe</b><input type="password" name="password2" /></label>
+        <label><b>Nom </b><input type="text" name="nom" required="required"/></label>
+        <label><b>Prénom</b><input type="text" name="prenom" required="required"/></label>
+        <label><b>Email </b><input type="email" name="email" required="required"/></label>
+        <label><b>Téléphone </b><input type="number" name="telephone" required="required"/></label>
+        <label><b>Mot de passe </b><input type="password" name="password1" required="required"/></label>
+        <label><b>Confirmer votre mot de passe</b><input type="password" name="password2" required="required"/></label>
     </div>
     <div class="button-section">
      <input type="submit" name="Sign Up" />
