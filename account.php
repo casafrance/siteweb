@@ -8,6 +8,7 @@ if(isset($_POST['meloger'])){
 	$answer=$rep->dbconnect();
 	$user = new ClientManager($answer);
 	$user->login($email, $password);
+	echo "login ok";
 	
 }
 ?>
