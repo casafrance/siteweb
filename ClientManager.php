@@ -36,8 +36,7 @@ Class ClientManager{
 						$requete ="insert into client values (?,?,?,?,?,?,?,?,?,?)";
 // 		                $requete = mysql_real_escape_string($$requete);
 		                $reponse = $this->db->prepare($requete)or exit(print_r($this->db->errorInfo()));
-						$reponse->bind_param('Default','$nom','$prenom','$email','$telephone','$password','$adresse','$ville','$codepostal',rand());
-						$reponse->execute();
+		                $reponse->execute(['Default','$nom','$prenom','$email','$telephone','$password','$adresse','$ville','$codepostal',rand()]);
 		}
 		catch (Exception $e){
 			echo "Erreur : ".$e->getMessage();
