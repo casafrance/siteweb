@@ -32,8 +32,12 @@ Class ClientManager{
 	//add client
 	public function ajouterClient($nom, $prenom, $email, $telephone, $password, $adresse, $ville, $codepostal) {
 		try {
-// 						$password = sha1($password);
-						$this->db->query("insert into client values (Default,'$nom','$prenom','$email','$telephone','$password','$adresse','$ville','$codepostal',rand())")or exit(print_r($this->db->errorInfo()));
+						$password = sha1($password);
+						$requete ="insert into client values (?,?,?,?,?,?,?,?,?,?)";
+		                $requete = mysql_real_escape_string($$requete);
+		                $reponse = $this->db->prepare($requete)or exit(print_r($this->db->errorInfo()));
+						$reponse->bind_param('Default','$nom','$prenom','$email','$telephone','$password','$adresse','$ville','$codepostal',rand());
+						$reponse->execute();
 		}
 		catch (Exception $e){
 			echo "Erreur : ".$e->getMessage();
