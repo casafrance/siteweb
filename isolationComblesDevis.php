@@ -270,7 +270,7 @@
 
     <div class="section"><span>2</span>Planification des travaux</div>
     <div class="inner-wrap">
-    	<label><b>Disponibilité pour la programmation de métrage</b><input type="date" name="datemetrage" required="required"/><br><input type="time" name="heuremetrage" value="11:00" /></label>
+    	<label><b>Choisissez vos disponibilités pour le passage du technicien metreur  </b><input type="date" name="datemetrage" required="required"/><br><input type="time" name="heuremetrage" value="11:00" /></label>
         <label><b>Date de démarrage souhaitée</b><input type="date" name="datedemarragetravaux" required="required" /></label>
     </div>
     <div class="section"><span>3</span>Vos coordonnées (créez votre compte)</div>
