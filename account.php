@@ -263,11 +263,11 @@ if(isset($_POST['meloger'])){
               <div class="col-md-6">
                 <div class="aa-myaccount-login">
                 <h4>Se connecter</h4>
-                 <form action="" class="aa-login-form" method="post">
+                 <form action="account.php" class="aa-login-form" method="post">
                   <label for="">Email<span>*</span></label>
-                   <input type="text" >
+                   <input type="text" name="email">
                    <label for="">Mot de passe<span>*</span></label>
-                    <input type="password" >
+                    <input type="password" name="password">
                     <button type="submit" class="aa-browse-btn" name="meloger">Valider</button>
                     <label class="rememberme" for="rememberme"><input type="checkbox" id="rememberme"> Se souvenir de moi </label>
                     <p class="aa-lost-password"><a href="#">Mot de passe oublié ?</a></p>
