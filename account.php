@@ -263,7 +263,7 @@ if(isset($_POST['meloger'])){
               <div class="col-md-6">
                 <div class="aa-myaccount-login">
                 <h4>Se connecter</h4>
-                 <form action="index.php" class="aa-login-form" method="post">
+                 <form action="" class="aa-login-form" method="post">
                   <label for="">Email<span>*</span></label>
                    <input type="text" >
                    <label for="">Mot de passe<span>*</span></label>
