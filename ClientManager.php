@@ -17,13 +17,13 @@ Class ClientManager{
 		if(isset($email) && isset($password)){
 			$requete ="SELECT prenom FROM client WHERE email = ? AND password = ?";
 			$reponse = $this->db->prepare($requete)or exit(print_r($this->db->errorInfo()));
-			print_r($reponse);
 			$reponse->execute([$email,$password]);	
-			echo "exec ok";
 			echo $reponse->rowCount();
 			if ($reponse->rowCount()==1){
 				$_SESSION["email"]=$email;
-				
+				$result = $reponse->fetch(PDO::FETCH_OBJ);
+				$prenomclient = $result->prenom;
+				$_SESSION["prenomclient"]=$prenomclient;
 			}
 			else{
 				echo "Utilisateur n'existe pas sur la base";

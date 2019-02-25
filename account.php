@@ -108,8 +108,8 @@ if(isset($_POST['meloger'])){
                   <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
                   <li><a href="account.php"><?php 
-                  if (isset($_SESSION['email'])){
-                      echo $_SESSION['email'];
+                  if (isset($_SESSION['prenomclient'])){prenomclient
+                      echo "Bonjour ".$_SESSION['prenomclient'];
                   }else 
                       echo "Mon compte"; 
                   ?></a></li>
