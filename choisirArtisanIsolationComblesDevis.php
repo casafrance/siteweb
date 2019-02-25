@@ -234,7 +234,7 @@ if(isset($_POST['submit'])){
   <!-- / menu -->  
   
 		<div class="form-style-10">
-<h1>Devis enregistré</h1>
+<h1>Enregistré Avec succès</h1>
 </div>
       <!-- Subscribe section -->
  <section id="aa-subscribe">
