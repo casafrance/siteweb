@@ -15,7 +15,7 @@ Class ClientManager{
 	public function login($email, $password){
 		if(empty($email) && empty($password)){
 			$password = sha1($password);
-			$requete ="SELECT * FROM client WHERE username=? AND password=?";
+			$requete ="SELECT * FROM client WHERE email = ? AND password = ?";
 			$reponse = $this->db->prepare($requete)or exit(print_r($this->db->errorInfo()));
 			$reponse->execute([$email,$password]);			
 			if ($reponse->rowCount()==1){
