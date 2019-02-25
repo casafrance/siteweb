@@ -1,13 +1,14 @@
 <?php 
 include_once 'ClientManager.php';
 
-if(isset($_POST['submit'])){
+if(isset($_POST['meloger'])){
 	
 	extract($_POST);
 	$rep = Connection::getInstance('casafrancebdd.mysql.database.azure.com', 'casafrancebdd', 'utf8', 'casafrancebdd@casafrancebdd', 'C@ricalentvt88');
 	$answer=$rep->dbconnect();
 	$user = new ClientManager($answer);
 	$user->login($email, $password);
+	header("Location:index.php");
 	
 }
 ?>
@@ -267,7 +268,7 @@ if(isset($_POST['submit'])){
                    <input type="text" >
                    <label for="">Mot de passe<span>*</span></label>
                     <input type="password" >
-                    <button type="submit" class="aa-browse-btn">Valider</button>
+                    <button type="submit" class="aa-browse-btn" name="meloger">Valider</button>
                     <label class="rememberme" for="rememberme"><input type="checkbox" id="rememberme"> Se souvenir de moi </label>
                     <p class="aa-lost-password"><a href="#">Mot de passe oublié ?</a></p>
                   </form>

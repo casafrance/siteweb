@@ -15,8 +15,10 @@ Class ClientManager{
 	public function login($email, $password){
 		if(!empty($email) && !empty($password)){
 			$password = sha1($password);
-			$req = $this->db->query("SELECT * FROM client WHERE username='$email' AND password='$password'");
-			if ($req->rowCount()==1){
+			$requete ="SELECT * FROM client WHERE username=? AND password=?";
+			$reponse = $this->db->prepare($requete)or exit(print_r($this->db->errorInfo()));
+			$reponse->execute([$email,$password]);			
+			if ($reponse->rowCount()==1){
 				$_SESSION["email"]=$email;
 				$_SESSION["password"]=$password;
 			}
@@ -34,7 +36,6 @@ Class ClientManager{
 		try {
 						$password = sha1($password);
 						$requete ="insert into client values (?,?,?,?,?,?,?,?,?,?)";
-// 		                $requete = mysql_real_escape_string($$requete);
 		                $reponse = $this->db->prepare($requete)or exit(print_r($this->db->errorInfo()));
 		                $reponse->execute(['Default',$nom,$prenom,$email,$telephone,$password,$adresse,$ville,$codepostal,rand()]);
 		}
