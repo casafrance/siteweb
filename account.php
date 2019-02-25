@@ -295,7 +295,7 @@ if(isset($_POST['submit'])){
             <input type="text"  name="codepostal">
              <label for="">Ville<span>*</span></label>
             <input type="text"  name="ville">
-            <button class="aa-browse-btn" type="submit" name="submit">Valider</button>
+            <button class="aa-browse-btn" type="submit" name="envoyer">Valider</button>
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Se souvenir de moi </label>
             <p class="aa-lost-password"><a href="#">Mot de passe oublié?</a></p>
           </form>

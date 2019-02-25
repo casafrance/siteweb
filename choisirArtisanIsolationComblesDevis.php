@@ -1,6 +1,8 @@
 <?php
 include_once 'ClientManager.php';
 
+if(isset($_POST['envoyer'])){
+
     try {
 	extract($_POST);
 	$bdd = Connection::getInstance('casafrancebdd.mysql.database.azure.com', 'casafrancebdd', 'utf8', 'casafrancebdd@casafrancebdd', 'C@ricalentvt88');
@@ -9,6 +11,7 @@ include_once 'ClientManager.php';
     }catch (Exception $e){
         echo "Erreur : ".$e->getMessage();
     }
+}
 
 ?>
 <!DOCTYPE HTML>
