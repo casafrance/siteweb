@@ -4,14 +4,14 @@ include_once 'ClientManager.php';
 if(isset($_POST['meloger'])){
 	
 	extract($_POST);
-	$rep = Connection::getInstance('casafrancebdd.mysql.database.azure.com', 'casafrancebdd', 'utf8', 'casafrancebdd@casafrancebdd', 'C@ricalentvt88');
-	$answer=$rep->dbconnect();
-	$user = new ClientManager($answer);
+	$bdd = Connection::getInstance('casafrancebdd.mysql.database.azure.com', 'casafrancebdd', 'utf8', 'casafrancebdd@casafrancebdd', 'C@ricalentvt88');
+	$user = new ClientManager($bdd);
 	$user->login($email, $password);
 	echo "login ok";
 	
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
