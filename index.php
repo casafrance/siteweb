@@ -109,7 +109,12 @@ session_start();
               <!-- / header top left -->
 							     <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="account.php"><?php 
+                
+                  <li class="hidden-xs"><a href="wishlist.html">Mes Devis</a></li>
+                  <li class="hidden-xs"><a href="cart.html">Mes projets</a></li>
+                  <li class="hidden-xs"><a href="checkout.html">Paiement sécurisé</a></li>
+                  <li><a href="" data-toggle="modal" data-target="#login-modal">Espace Pro</a></li>
+                   <li><a href="account.php"><?php 
                   if (isset($_SESSION['prenomclient'])){
                       echo $_SESSION['prenomclient'];
                   }else 
@@ -117,11 +122,6 @@ session_start();
                   ?>
                       
                       </a></li>
-                  <li class="hidden-xs"><a href="wishlist.html">Mes Devis</a></li>
-                  <li class="hidden-xs"><a href="cart.html">Mes projets</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Paiement sécurisé</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Espace Pro</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Se connecter</a></li>
                 </ul>
               </div>
 						</div>
