@@ -5,7 +5,6 @@ if(isset($_POST['submit'])){
 
     try {
 	extract($_POST);
-	$password= sha1($password);
 	$bdd = Connection::getInstance('casafrancebdd.mysql.database.azure.com', 'casafrancebdd', 'utf8', 'casafrancebdd@casafrancebdd', 'C@ricalentvt88');
 	$user = new ClientManager($bdd);
 	$user->ajouterClient($nom, $prenom, $email, $telephone, $password, $adresse, $codepostal, $ville);
