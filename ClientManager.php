@@ -18,7 +18,6 @@ Class ClientManager{
 			$requete ="SELECT prenom FROM client WHERE email = ? AND password = ?";
 			$reponse = $this->db->prepare($requete)or exit(print_r($this->db->errorInfo()));
 			$reponse->execute([$email,$password]);	
-			echo $reponse->rowCount();
 			if ($reponse->rowCount()==1){
 				$_SESSION["email"]=$email;
 				$result = $reponse->fetch(PDO::FETCH_OBJ);
