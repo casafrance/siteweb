@@ -17,10 +17,13 @@ Class ClientManager{
 			$password = sha1($password);
 			$requete ="SELECT * FROM client WHERE email = ? AND password = ?";
 			$reponse = $this->db->prepare($requete)or exit(print_r($this->db->errorInfo()));
-			$reponse->execute([$email,$password]);			
+			print_r($reponse);
+			$reponse->execute([$email,$password]);	
+			echo "exec ok";
+			echo $reponse->rowCount();
 			if ($reponse->rowCount()==1){
 				$_SESSION["email"]=$email;
-				$_SESSION["password"]=$password;
+				
 			}
 			else{
 				echo "Utilisateur n'existe pas sur la base";
