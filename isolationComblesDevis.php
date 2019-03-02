@@ -1,3 +1,21 @@
+<?php
+session_start();
+$_SESSION['codePostal'] = null;
+$_SESSION['pasgere'] = "";
+
+if(isset($_POST['submit'])){
+    
+   extract($_POST);
+   $codepos = substr($codePostalchantier,0, 2);
+   if($codepos=="33" or $codepos=="24" or $codepos=="40" or $codepos=="16" or $codepos=="17"){
+       $_SESSION['codePostal'] = $codePostalchantier;
+       header("Location:typeDeLogement.php");
+   }
+   else{
+       $_SESSION['pasgere']=" Désolé !! Nous n'intervenons pas encore dans votre secteur, mais on arrive bientôt ...";
+   }
+}
+?>
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
@@ -225,7 +243,7 @@
   
 		<div class="form-style-10">
 <h1>Devis en ligne<span>Obtenez votre devis gratuit en quelques secondes</span></h1>
-<form method="post" action="typeDeLogement.php">
+<form method="post" action="isolationComblesDevis.php">
     <div class="section"><span>1</span>Nous allons vérifier votre éligibilité </div>
     
 

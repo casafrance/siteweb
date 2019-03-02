@@ -224,23 +224,36 @@ session_start();
   <!-- / menu -->  
   
 		<div class="form-style-10">
-<h1>
-<?php
-$_SESSION['codePostal'] = null;
-
-if(isset($_POST['submit'])){
+<form method="post" action="#">
+    <div class="section"><span>2</span> Type d'habitation </div>
     
-   extract($_POST);
-   $codepos = substr($codePostalchantier,0, 2);
-   if($codepos=="33" or $codepos=="24" or $codepos=="40" or $codepos=="16" or $codepos=="17"){
-       $_SESSION['codePostal'] = $codePostalchantier;
-   }
-   else{
-       echo " Désolé !! Nous n'intervenons pas encore dans votre secteur, mais on arrive bientôt ...";
-   }
-}
-?>
-</h1>
+
+ <div class="hiddenradio">
+<table>    
+<tr>    
+<td width="200px">
+	<label> 
+  <input type="radio" name="test" value="plainpied" checked>
+  <img src="img/maisonPlainPied.png">
+  </label>
+  <span class="section">Plain-pied </span>
+ </td>
+ <td> 
+  <label>
+  
+  <input type="radio" name="test" value="aetage">
+  <img src="img/maisonetage.png">
+  </label>
+ <span class="section"> À étage</span>
+</td>
+</tr>
+</table><br><br>
+</div>
+
+    <div class="button-section">
+     <input type="submit" name="submit" id="submit" />
+    </div>
+    </form>
 </div>
 
 
