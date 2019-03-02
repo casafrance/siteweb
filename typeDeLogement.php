@@ -234,7 +234,10 @@ if(isset($_POST['submit'])){
    $codepos = substr($codePostalchantier,0, 2);
    if($codepos=="33" or $codepos=="24" or $codepos=="40" or $codepos=="16" or $codepos=="17"){
        $_SESSION['codePostal'] = $codePostalchantier;
-   }else{
+   }elseif(strlen($codepos) != 5){
+       echo " Il faut saisir 5 caractère fils de pute !!";
+   }
+   else{
        echo " Désolé !! Nous n'intervenons pas encore dans votre secteur, mais on arrive bientôt ...";
    }
 }
