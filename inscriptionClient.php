@@ -267,6 +267,24 @@
     	</div>
     </div>
  
+
+    <div class="section"><span>2</span>Planification des travaux</div>
+    <div class="inner-wrap">
+    	<label><b>Choisissez vos disponibilités pour le passage du metreur  </b><input type="date" name="datemetrage" required="required"/><br><input type="time" name="heuremetrage" value="11:00" /></label>
+        <label><b>Indiquez vos disponibilité pour la date des travaux </b><input type="date" name="datedemarragetravaux" required="required" /></label>
+    </div>
+    <div class="section"><span>3</span>Vos coordonnées (créez votre compte)</div>
+        <div class="inner-wrap">
+        <label><b>Nom </b><input type="text" name="nom" required="required"/></label>
+        <label><b>Prénom</b><input type="text" name="prenom" required="required"/></label>
+        <label><b>Email </b><input type="email" name="email" required="required"/></label>
+        <label><b>Téléphone </b><input type="number" name="telephone" required="required"/></label>
+        <label><b>Mot de passe </b><input type="password" name="password" required="required"/></label>
+        <label><b>Confirmer votre mot de passe</b><input type="password" name="password2" required="required"/></label>
+        <label><b>Adresse</b><input type="text" name="adresse" required="required"/></label>
+        <label><b>Code postal</b><input type="number" name="codepostal" required="required"/></label> 
+        <label><b>Ville</b><input type="text" name="ville" required="required"/></label>
+    </div>
     <div class="button-section">
      <input type="submit" name="submit" />
     </div>
