@@ -1,15 +1,11 @@
 <?php
 session_start();
+$budget = "";
 
-if(isset($_POST['envo'])){
-   $_SESSION['surface'] = null;
-   $_SESSION['enlevement'] = null;
-   extract($_POST);
-   echo $surface;
-   echo $enlevement;
-   $_SESSION['surface'] = $surface;
-   $_SESSION['enlevement'] = $enlevement;
-   header("Location:devisPret.php");
+
+if(isset($_SESSION['surface'])){
+    $surface = $_SESSION['surface'];
+    $budget = $surface * 39.90;
 }
 ?>
 <!DOCTYPE HTML>
@@ -43,7 +39,6 @@ if(isset($_POST['envo'])){
     <!-- Main style sheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/isolationComblesDevis.css" />    
-
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
@@ -239,27 +234,21 @@ if(isset($_POST['envo'])){
 		<div class="form-style-10">
 <h1>Devis en ligne<span>Obtenez votre devis gratuit en quelques secondes</span></h1>
 <form method="post" action="surfaceAuSol.php">
-    <div class="section"><span>3</span>Votre logement</div>
+    <div class="section"><span>4</span>Bravo votre devis est prêt</div>
+    <b>votre budget : <?php echo $budget;?>  Euros TTC pose/main d'oeuvre/déplacement inclus</b><br>
 
-    <div class="inner-wrap">
-        <label><b>Surface au sol (m²)</b> <input type="number" name="surface" required="required"/></label>
-        <label><b>Enlèvement de l'ancienne isolation</b></label>
-         <div class="form-group">
-    		<label for="happy" class="col-sm-4 col-md-4 control-label text-right"></label>
-    		<div class="col-sm-7 col-md-7">
-    			<div class="input-group">
-    				<div id="radioBtn" class="btn-group">
-    					<a class="btn btn-primary btn-sm active" data-toggle="happy" data-title="Y" name="enlevement" value="oui">Oui</a>
-    					<a class="btn btn-primary btn-sm notActive" data-toggle="happy" data-title="N" name="enlevement" value="non">Non</a>
-    				</div>
-    				<input type="hidden" name="happy" id="happy">
-    			</div>
-    		</div>
-    	</div>
-    </div>
+Mise en place du chantier<br>
+Enlèvement et traitement de l'ancienne isolation en déchetterie<br>
+Préparation des supports <br>
+Réagreage de l'ancienne isolation<br>
+Protection des spots, boites de dérivation ,cheminée, appareillage autres <br>
+Entourage de trappes coffrage en osb <br>
+Soufflage laine de roche 32 cm R 7 jetrock2  <br>
+Contrat sérénité 10 ans avec une visite technique gratuite par an offer<br>
+<b>"pour reserver et valider votre commande valider votre acompte de <?php echo $budget* 0.1;?></b> <br><br>
  
     <div class="button-section">
-     <input type="submit" name="envo" />
+     <input type="submit" name="envoi" />
     </div>
 </form>
 </div>
