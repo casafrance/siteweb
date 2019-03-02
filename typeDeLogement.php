@@ -235,7 +235,7 @@ if(isset($_POST['submit'])){
    if($codepos=="33" or $codepos=="24" or $codepos=="40" or $codepos=="16" or $codepos=="17"){
        $_SESSION['codePostalchantier'] = $codePostalchantier;
    }else{
-       $_SESSION['codePostalchantier'] = "Désolé !! Nous n'intervenons pas encore dans votre secteur, mais on arrive bientôt ...";
+       $_SESSION['codePostalchantier'] = " Désolé !! Nous n'intervenons pas encore dans votre secteur, mais on arrive bientôt ...";
    }
 }
 echo $_SESSION['codePostalchantier'];
