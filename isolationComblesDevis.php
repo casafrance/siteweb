@@ -1,3 +1,8 @@
+<?php 
+session_start();
+
+
+?>
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
@@ -230,6 +235,12 @@
 
     <div class="inner-wrap">
         <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostalchantier" required="required" /></label>
+        
+        <?php 
+        if(isset($_SESSION['codepostalinvalide'])){
+            echo $_SESSION['codepostalinvalide'];
+        };
+        ?>
     </div>
  
     <div class="button-section">
