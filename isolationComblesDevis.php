@@ -33,6 +33,7 @@
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/codepostalerrone.js"></script>
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -44,7 +45,7 @@
   
 
   </head>
-  <body>   
+  <body onload="auChargement();">   
   <!-- Start header section -->
   <header id="aa-header">
    <!-- start header top  -->
@@ -229,11 +230,11 @@
     
 
     <div class="inner-wrap">
-        <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostalchantier" required="required" /></label>
+        <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostalchantier" required="required" onblur="checkCodePostal(this,4);"/></label>
     </div>
  
     <div class="button-section">
-     <input type="submit" name="submit" />
+     <input type="submit" name="submit" id="submit" />
     </div>
 </form>
 </div>
