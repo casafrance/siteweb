@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <!-- SCRIPT STYLE -->
+       <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <title>CasaFrance</title>
@@ -26,7 +27,9 @@
     <link href="css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
 
     <!-- Main style sheet -->
-    <link href="css/style.css" rel="stylesheet">    
+    <link href="css/style.css" rel="stylesheet">   
+    <link rel="stylesheet" href="css/isolationCombles.css" />     
+    
 
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -91,12 +94,19 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="account.php">Mon compte</a></li>
-                  <li class="hidden-xs"><a href="wishlist.html">Mes Devis</a></li>
-                  <li class="hidden-xs"><a href="cart.html">Mes projets</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Paiement sécurisé</a></li>
+                 
+                  <li class="hidden-xs"><a href="wishlist.php">Mes Devis</a></li>
+                  <li class="hidden-xs"><a href="cart.php">Mes projets</a></li>
+                  <li class="hidden-xs"><a href="checkout.php">Paiement sécurisé</a></li>
                    <li><a href="" data-toggle="modal" data-target="#login-modal">Espace Pro</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Se connecter</a></li>
+                   <li><a href="account.php"><?php 
+                  if (isset($_SESSION['prenomclient'])){
+                      echo $_SESSION['prenomclient'];
+                  }else 
+                      echo "Mon compte"; 
+                  ?>
+                      
+                      </a></li>
                 </ul>
               </div>
             </div>
@@ -123,7 +133,7 @@
                  <a href="index.php"><img src="img/logo.png" alt="logo img" ></a>
               </div>
               <!-- / logo  -->
-             <!-- cart box -->
+               <!-- cart box -->
               <div class="aa-cartbox">
                 <a class="aa-cart-link" href="#">
                   <span class="fa fa-shopping-basket"></span>
@@ -195,46 +205,46 @@
             <!-- Left nav -->
             <ul class="nav navbar-nav">
               <li><a href="index.php">Accueil </a></li>
-              <li><a href="isolation.html">Isolation <span class="caret"></span></a>
+                 <li><a href="isolation.php">Isolation <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="isolationCombles.html">Isolation des combles </a></li>
+                  <li><a href="isolationCombles.php">Isolation des combles </a></li>
                   <li><a href="isolationToitures.html">Isolation sous toiture</a></li>
                 </ul>
               </li>
-              <li><a href="#">traitement de charpente <span class="caret"></span></a>
+              <li><a href="#">Traitement de charpente <span class="caret"></span></a>
               </li>
               <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
               </li>
-              <li><a href="#">Façade</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#">façade</a></li>
+              <li><a href="contact.php">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div> 
       </div>
-    </div>
   </section>
   <!-- / menu -->  
- 
-  
-  <!-- 404 error section -->
-  <section id="aa-error">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-error-area">
-            <h2>404</h2>
-            <span>Sorry! Page Not Found</span>
-            <p>Sorry this content has been moved Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, amet perferendis, nemo facere excepturi quis.</p>
-            <a href="#"> Go to Homepage</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- / 404 error section -->
 
-  <!-- Subscribe section -->
+        <div class="textIsolationComble">Isolation des combles
+        </div>
+        <div class="textdetails">
+        
+L’isolation des combles est un choix de rénovation énergétique à prioriser. <b>En effet, jusqu’à 30 % des pertes de chaleur se font par la toiture</b>. Cette isolation est donc celle qui permet de faire le plus d’économies d’énergie pour un faible coût, de l'ordre de 53 €/m², ce qui en fait une solution très vite rentabilisée. <br><br>
+<iframe  src="https://casafrancedata.blob.core.windows.net/video/isolationvideo.mp4" frameborder="0"  allowfullscreen autoplay="false" ></iframe>
+							<a  href="isolationComblesDevis.php" > 
+                                     <div class="col-lg-3 col-md-4 col-sm-3 col-xs-6">
+                        <div class="block-picto picto-form picto-hover" data-form-target="category_id" data-form-value="123">
+                            <div class="textIsolation"><b>Devis en ligne</b></div>
+                            <div class="pictoIsolationComble" >
+                                <img src="img/picto_isolation-combles.png" style="width:100%;" class="isolation"/>
+                            </div>
+                        </div>
+                    </div></a>
+
+
+</div>
+
+      <!-- Subscribe section -->
  <section id="aa-subscribe">
 		<div class="container">
 			<div class="row">
@@ -318,7 +328,7 @@
     </div>
   </footer>
   <!-- / footer -->
-  <!-- Login Modal -->  
+   <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">                      
@@ -341,11 +351,6 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div>
-
-
-    
-
-
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

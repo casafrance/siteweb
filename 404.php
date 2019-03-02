@@ -39,25 +39,26 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  
 
   </head>
-  <body> 
+  <body>   
 
   <!-- Start header section -->
   <header id="aa-header">
-    <!-- start header top  -->
+   <!-- start header top  -->
     <div class="aa-header-top">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="aa-header-top-area">
-               <!-- start header top left -->
+              <!-- start header top left -->
               <div class="aa-header-top-left">
                 <!-- start language -->
                 <div class="aa-language">
                   <div class="dropdown">
                     <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                           <img src="img/flag/french.jpg" alt="english flag">FRANÇAIS
+                      <img src="img/flag/french.jpg" alt="english flag">FRANÇAIS
                       <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -83,23 +84,19 @@
                 <!-- / currency -->
                 <!-- start cellphone -->
                 <div class="cellphone hidden-xs">
-                  <p><span class="fa fa-phone"></span>0 806 07 95 21 appel gratuit</p>
+                  <p><span class="fa fa-phone"></span><b>0 806 07 95 21 appel gratuit</b></p>
                 </div>
                 <!-- / cellphone -->
               </div>
               <!-- / header top left -->
-                   <div class="aa-header-top-right">
+              <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li class="hidden-xs"><a href="wishlist.html">Mes Devis</a></li>
-                  <li class="hidden-xs"><a href="cart.html">Mes projets</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Paiement sécurisé</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Espace Pro</a></li>
-                   <li><a href="account.php"><?php 
-                  if (isset($_SESSION['prenomclient'])){
-                      echo "Bonjour ".$_SESSION['prenomclient'];
-                  }else 
-                      echo "Mon compte"; 
-                  ?></a></li>
+                  <li><a href="account.php">Mon compte</a></li>
+                  <li class="hidden-xs"><a href="wishlist.php">Mes Devis</a></li>
+                  <li class="hidden-xs"><a href="cart.php">Mes projets</a></li>
+                  <li class="hidden-xs"><a href="checkout.php">Paiement sécurisé</a></li>
+                   <li><a href="" data-toggle="modal" data-target="#login-modal">Espace Pro</a></li>
+                  <li><a href="" data-toggle="modal" data-target="#login-modal">Se connecter</a></li>
                 </ul>
               </div>
             </div>
@@ -123,10 +120,10 @@
 <!--                   <p>daily<strong>Shop</strong> <span>Your Shopping Partner</span></p> -->
 <!--                 </a> -->
                 <!-- img based logo -->
-                <a href="index.php"><img src="img/logo.png" alt="logo img" ></a>
+                 <a href="index.php"><img src="img/logo.png" alt="logo img" ></a>
               </div>
               <!-- / logo  -->
-              <!-- cart box -->
+             <!-- cart box -->
               <div class="aa-cartbox">
                 <a class="aa-cart-link" href="#">
                   <span class="fa fa-shopping-basket"></span>
@@ -194,22 +191,22 @@
               <span class="icon-bar"></span>
             </button>          
           </div>
-                    <div class="navbar-collapse collapse">
+          <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
               <li><a href="index.php">Accueil </a></li>
-                 <li><a href="isolation.html">Isolation <span class="caret"></span></a>
+              <li><a href="isolation.php">Isolation <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="isolationCombles.html">Isolation des combles </a></li>
+                  <li><a href="isolationCombles.php">Isolation des combles </a></li>
                   <li><a href="isolationToitures.html">Isolation sous toiture</a></li>
                 </ul>
               </li>
-              <li><a href="#">Traitement de charpente <span class="caret"></span></a>
+              <li><a href="#">traitement de charpente <span class="caret"></span></a>
               </li>
               <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
               </li>
               <li><a href="#">Façade</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="contact.php">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -219,95 +216,26 @@
   </section>
   <!-- / menu -->  
  
-  <!-- catg header banner section -->
-  <section id="aa-catg-head-banner">
-   <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
-   <div class="aa-catg-head-banner-area">
-     <div class="container">
-      <div class="aa-catg-head-banner-content">
-        <h2>Contact</h2>
-        <ol class="breadcrumb">
-          <li><a href="index.php">Accueil</a></li>         
-          <li class="active">Contact</li>
-        </ol>
+  
+  <!-- 404 error section -->
+  <section id="aa-error">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-error-area">
+            <h2>404</h2>
+            <span>Sorry! Page Not Found</span>
+            <p>Sorry this content has been moved Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, amet perferendis, nemo facere excepturi quis.</p>
+            <a href="#"> Go to Homepage</a>
+          </div>
+        </div>
       </div>
-     </div>
-   </div>
+    </div>
   </section>
-  <!-- / catg header banner section -->
-<!-- start contact section -->
- <section id="aa-contact">
-   <div class="container">
-     <div class="row">
-       <div class="col-md-12">
-         <div class="aa-contact-area">
-           <div class="aa-contact-top">
-             <h2>N'hésitez pas à nous contacter</h2>
-             <p>Pour vous conseiller et finaliser vos commandes</p>
-           </div>
-           <!-- contact map -->
-           <div class="aa-contact-map">
-           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90493.58959694453!2d-0.6561814110974282!3d44.86382822080391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527e8f751ca81%3A0x796386037b397a89!2sBordeaux!5e0!3m2!1sfr!2sfr!4v1550492203578" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-           </div>
-           <!-- Contact address -->
-           <div class="aa-contact-address">
-             <div class="row">
-               <div class="col-md-8">
-                 <div class="aa-contact-address-left">
-                   <form class="comments-form contact-form" action="">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">                        
-                          <input type="text" placeholder="Votre nom" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">                        
-                          <input type="email" placeholder="Email" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                     <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">                        
-                          <input type="text" placeholder="Sujet" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">                        
-                          <input type="text" placeholder="Société" class="form-control">
-                        </div>
-                      </div>
-                    </div>                  
-                     
-                    <div class="form-group">                        
-                      <textarea class="form-control" rows="3" placeholder="Message"></textarea>
-                    </div>
-                    <button class="aa-secondary-btn">Envoyer</button>
-                  </form>
-                 </div>
-               </div>
-               <div class="col-md-4">
-                 <div class="aa-contact-address-right">
-                   <address>
-                     <h4>Service Client CasaFrance</h4>
-                     <p>25 rue Saint François Xavier Bordeaux</p>
-                     <p><span class="fa fa-home"></span></p>
-                     <p><span class="fa fa-phone"></span>0 806 07 95 21 appel gratuit</p>
-                     <p><span class="fa fa-envelope"></span>Email: contact@casafrance.fr</p>
-                   </address>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </section>
+  <!-- / 404 error section -->
 
   <!-- Subscribe section -->
-  <section id="aa-subscribe">
+ <section id="aa-subscribe">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -327,7 +255,7 @@
 
   <!-- footer -->  
   <footer id="aa-footer">
-     <!-- footer bottom -->
+    <!-- footer bottom -->
     <div class="aa-footer-top">
      <div class="container">
         <div class="row">
@@ -390,7 +318,7 @@
     </div>
   </footer>
   <!-- / footer -->
- <!-- Login Modal -->  
+  <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">                      
@@ -415,27 +343,30 @@
   </div>
 
 
+    
 
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.js"></script>  
-  <!-- SmartMenus jQuery plugin -->
-  <script type="text/javascript" src="js/jquery.smartmenus.js"></script>
-  <!-- SmartMenus jQuery Bootstrap Addon -->
-  <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.js"></script>  
-  <!-- To Slider JS -->
-  <script src="js/sequence.js"></script>
-  <script src="js/sequence-theme.modern-slide-in.js"></script>  
-  <!-- Product view slider -->
-  <script type="text/javascript" src="js/jquery.simpleGallery.js"></script>
-  <script type="text/javascript" src="js/jquery.simpleLens.js"></script>
-  <!-- slick slider -->
-  <script type="text/javascript" src="js/slick.js"></script>
-  <!-- Price picker slider -->
-  <script type="text/javascript" src="js/nouislider.js"></script>
-  <!-- Custom js -->
-  <script src="js/custom.js"></script> 
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>  
+    <!-- SmartMenus jQuery plugin -->
+    <script type="text/javascript" src="js/jquery.smartmenus.js"></script>
+    <!-- SmartMenus jQuery Bootstrap Addon -->
+    <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.js"></script>  
+    <!-- To Slider JS -->
+    <script src="js/sequence.js"></script>
+    <script src="js/sequence-theme.modern-slide-in.js"></script>  
+    <!-- Product view slider -->
+    <script type="text/javascript" src="js/jquery.simpleGallery.js"></script>
+    <script type="text/javascript" src="js/jquery.simpleLens.js"></script>
+    <!-- slick slider -->
+    <script type="text/javascript" src="js/slick.js"></script>
+    <!-- Price picker slider -->
+    <script type="text/javascript" src="js/nouislider.js"></script>
+    <!-- Custom js -->
+    <script src="js/custom.js"></script> 
   
 
   </body>

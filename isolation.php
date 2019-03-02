@@ -93,9 +93,9 @@
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
                  
-                  <li class="hidden-xs"><a href="wishlist.html">Mes Devis</a></li>
-                  <li class="hidden-xs"><a href="cart.html">Mes projets</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Paiement sécurisé</a></li>
+                  <li class="hidden-xs"><a href="wishlist.php">Mes Devis</a></li>
+                  <li class="hidden-xs"><a href="cart.php">Mes projets</a></li>
+                  <li class="hidden-xs"><a href="checkout.php">Paiement sécurisé</a></li>
                    <li><a href="" data-toggle="modal" data-target="#login-modal">Espace Pro</a></li>
                     <li><a href="account.php"><?php 
                   if (isset($_SESSION['prenomclient'])){
@@ -203,9 +203,9 @@
             <!-- Left nav -->
             <ul class="nav navbar-nav">
               <li><a href="index.php">Accueil </a></li>
-                 <li><a href="isolation.html">Isolation <span class="caret"></span></a>
+                 <li><a href="isolation.php">Isolation <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="isolationCombles.html">Isolation des combles </a></li>
+                  <li><a href="isolationCombles.php">Isolation des combles </a></li>
                   <li><a href="isolationToitures.html">Isolation sous toiture</a></li>
                 </ul>
               </li>
@@ -214,7 +214,7 @@
               <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
               </li>
               <li><a href="#">façade</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="contact.php">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -227,7 +227,7 @@
         <div class="row mb-40">
             <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 mt-40">
                 <div class="row">
-                                     <a  href="isolationCombles.html" > 
+                                     <a  href="isolationCombles.php" > 
                                      <div class="col-lg-3 col-md-4 col-sm-3 col-xs-6">
                         <div class="block-picto picto-form picto-hover" data-form-target="category_id" data-form-value="123">
                             <div class="textIsolation"><p>Isolation des combles</p></div>

@@ -107,12 +107,10 @@ session_start();
                 <!-- / cellphone -->
               </div>
               <!-- / header top left -->
-							     <div class="aa-header-top-right">
+				<div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                
-                  <li class="hidden-xs"><a href="wishlist.html">Mes Devis</a></li>
-                  <li class="hidden-xs"><a href="cart.html">Mes projets</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Paiement sécurisé</a></li>
+                  <li class="hidden-xs"><a href="cart.php">Mes projets</a></li>
+                  <li class="hidden-xs"><a href="checkout.php">Paiement sécurisé</a></li>
                   <li><a href="" data-toggle="modal" data-target="#login-modal">Espace Pro</a></li>
                    <li><a href="account.php"><?php 
                   if (isset($_SESSION['prenomclient'])){
@@ -124,6 +122,27 @@ session_start();
                       </a></li>
                 </ul>
               </div>
+              <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <img src="img/flag/french.jpg" alt="english flag"><?php 
+                  if (isset($_SESSION['prenomclient'])){
+                      echo $_SESSION['prenomclient'];
+                  }else 
+                      echo "Mon compte"; 
+                  ?>
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="wishlist.php">Mes Devis</a></li>
+                    </ul>
+                  </div>
+              
+              
+              
+              
+              
+              
+              
 						</div>
 					</div>
 				</div>
@@ -224,9 +243,9 @@ session_start();
             <!-- Left nav -->
             <ul class="nav navbar-nav">
               <li><a href="index.php">Accueil </a></li>
-                  <li><a href="isolation.html">Isolation <span class="caret"></span></a>
+                  <li><a href="isolation.php">Isolation <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="isolationCombles.html">Isolation des combles </a></li>
+                  <li><a href="isolationCombles.php">Isolation des combles </a></li>
                   <li><a href="isolationToitures.html">Isolation sous toiture</a></li>
                 </ul>
               </li>
@@ -235,7 +254,7 @@ session_start();
               <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
               </li>
               <li><a href="#">Façade</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="contact.php">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
 				</div>
@@ -272,7 +291,7 @@ vos projets sont ici !</p>
 								<span data-seq>À partir de 39.90 €/ m2</span>
 								<h2 data-seq>Isolation des combles</h2>
 								<p data-seq>Besoin d'un professionnel pour l'isolation de vos combles ?</p>
-								<a data-seq href="isolation.html" class="aa-shop-now-btn aa-secondary-btn">DEVIS EN LIGNE</a>
+								<a data-seq href="isolation.php" class="aa-shop-now-btn aa-secondary-btn">DEVIS EN LIGNE</a>
 							</div>
 						</li>
 						<!-- single slide item -->

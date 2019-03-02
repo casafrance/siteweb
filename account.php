@@ -105,9 +105,9 @@ if(isset($_POST['meloger'])){
                   <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
                  
-                  <li class="hidden-xs"><a href="wishlist.html">Mes Devis</a></li>
-                  <li class="hidden-xs"><a href="cart.html">Mes projets</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Paiement sécurisé</a></li>
+                  <li class="hidden-xs"><a href="wishlist.php">Mes Devis</a></li>
+                  <li class="hidden-xs"><a href="cart.php">Mes projets</a></li>
+                  <li class="hidden-xs"><a href="checkout.php">Paiement sécurisé</a></li>
                   <li><a href="" data-toggle="modal" data-target="#login-modal">Espace Pro</a></li>
                    <li><a href="account.php"><?php 
                   if (isset($_SESSION['prenomclient'])){
@@ -213,9 +213,9 @@ if(isset($_POST['meloger'])){
             <!-- Left nav -->
             <ul class="nav navbar-nav">
               <li><a href="index.php">Accueil </a></li>
-                <li><a href="isolation.html">Isolation <span class="caret"></span></a>
+                <li><a href="isolation.php">Isolation <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="isolationCombles.html">Isolation des combles </a></li>
+                  <li><a href="isolationCombles.php">Isolation des combles </a></li>
                   <li><a href="isolationToitures.html">Isolation sous toiture</a></li>
                 </ul>
               </li>
@@ -224,7 +224,7 @@ if(isset($_POST['meloger'])){
               <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
               </li>
               <li><a href="#">Façade</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="contact.php">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
