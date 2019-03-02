@@ -1,11 +1,14 @@
 <?php
 session_start();
-$_SESSION['typemaison'] = null;
 
-if(isset($_POST['submit'])){
-    
+if(isset($_POST['envo'])){
+   $_SESSION['surface'] = null;
+   $_SESSION['enlevement'] = null;
    extract($_POST);
-   $_SESSION['typemaison'] = $typemaison;
+   echo $surface;
+   echo $enlevement;
+   $_SESSION['surface'] = $surface;
+   $_SESSION['enlevement'] = $enlevement;
 }
 ?>
 <!DOCTYPE HTML>
@@ -78,7 +81,7 @@ if(isset($_POST['submit'])){
                     </ul>
                   </div>
                 </div>
-                <!-- / language -->
+                <!-- / language   -->
 
                 <!-- start currency -->
                 <div class="aa-currency">
@@ -106,12 +109,14 @@ if(isset($_POST['submit'])){
                   <li class="hidden-xs"><a href="cart.php">Mes projets</a></li>
                   <li class="hidden-xs"><a href="checkout.php">Paiement sécurisé</a></li>
                    <li><a href="" data-toggle="modal" data-target="#login-modal">Espace Pro</a></li>
-                   <li><a href="account.php"><?php 
+                    <li><a href="account.php"><?php 
                   if (isset($_SESSION['prenomclient'])){
-                      echo "Bonjour ".$_SESSION['prenomclient'];
+                      echo $_SESSION['prenomclient'];
                   }else 
                       echo "Mon compte"; 
-                  ?></a></li>
+                  ?>
+                      
+                      </a></li>
                 </ul>
               </div>
             </div>
@@ -220,7 +225,7 @@ if(isset($_POST['submit'])){
               </li>
               <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
               </li>
-              <li><a href="#">Façade</a></li>
+              <li><a href="#">façade</a></li>
               <li><a href="contact.php">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -231,38 +236,32 @@ if(isset($_POST['submit'])){
   <!-- / menu -->  
   
 		<div class="form-style-10">
+<h1>Devis en ligne<span>Obtenez votre devis gratuit en quelques secondes</span></h1>
 <form method="post" action="surfaceAuSol.php">
-    <div class="section"><span>2</span> Type d'habitation </div>
-    
+    <div class="section"><span>3</span>Votre logement</div>
 
- <div class="hiddenradio">
-<table>    
-<tr>    
-<td width="200px">
-	<label> 
-  <input type="radio" name="typemaison" value="plainpied" checked>
-  <img src="img/maisonPlainPied.png" width="150px" height="100px">
-  </label>
-  <span class="section">Plain-pied </span>
- </td>
- <td> 
-  <label>
-  
-  <input type="radio" name="typemaison" value="aetage">
-  <img src="img/maisonetage.png" width="150px" height="100px">
-  </label>
- <span class="section"> Étage</span>
-</td>
-</tr>
-</table><br><br>
-</div>
-
-    <div class="button-section">
-     <input type="submit" name="submit" id="submit" />
+    <div class="inner-wrap">
+        <label><b>Surface au sol (m²)</b> <input type="number" name="surface" required="required"/></label>
+        <label><b>Enlèvement de l'ancienne isolation</b></label>
+         <div class="form-group">
+    		<label for="happy" class="col-sm-4 col-md-4 control-label text-right"></label>
+    		<div class="col-sm-7 col-md-7">
+    			<div class="input-group">
+    				<div id="radioBtn" class="btn-group">
+    					<a class="btn btn-primary btn-sm active" data-toggle="happy" data-title="Y" name="enlevement" value="oui">Oui</a>
+    					<a class="btn btn-primary btn-sm notActive" data-toggle="happy" data-title="N" name="enlevement" value="non">Non</a>
+    				</div>
+    				<input type="hidden" name="happy" id="happy">
+    			</div>
+    		</div>
+    	</div>
     </div>
-    </form>
+ 
+    <div class="button-section">
+     <input type="submit" name="envo" />
+    </div>
+</form>
 </div>
-
 
   <!-- footer -->  
   <footer id="aa-footer">
