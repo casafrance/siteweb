@@ -5,7 +5,13 @@ $budget = "";
 
 if(isset($_SESSION['surface'])){
     $surface = $_SESSION['surface'];
+    echo $_SESSION['enlevement'];
+    if($_SESSION['enlevement']=="N"){
     $budget = $surface * 39.90;
+    }else{
+        $budget = $surface * 44.90;
+    }
+    
 }
 ?>
 <!DOCTYPE HTML>
@@ -238,13 +244,15 @@ if(isset($_SESSION['surface'])){
     <b>votre budget : <?php echo $budget;?>  Euros TTC pose/main d'oeuvre/déplacement inclus</b><br>
 
 Mise en place du chantier<br>
-Enlèvement et traitement de l'ancienne isolation en déchetterie<br>
+<?php 
+if($_SESSION['enlevement']=="Y"){
+echo "Enlèvement et traitement de l'ancienne isolation en déchetterie <br>";}
+?>
 Préparation des supports <br>
-Réagreage de l'ancienne isolation<br>
 Protection des spots, boites de dérivation ,cheminée, appareillage autres <br>
 Entourage de trappes coffrage en osb <br>
 Soufflage laine de roche 32 cm R 7 jetrock2  <br>
-Contrat sérénité 10 ans avec une visite technique gratuite par an offer<br>
+Contrat sérénité 10 ans inclus<br>
 <b>"pour reserver et valider votre commande valider votre acompte de <?php echo $budget* 0.1;?></b> <br><br>
  
     <div class="button-section">

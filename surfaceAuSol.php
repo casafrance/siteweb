@@ -6,9 +6,9 @@ if(isset($_POST['envo'])){
    $_SESSION['enlevement'] = null;
    extract($_POST);
    echo $surface;
-   echo $enlevement;
+   echo $happy;
    $_SESSION['surface'] = $surface;
-   $_SESSION['enlevement'] = $enlevement;
+   $_SESSION['enlevement'] = $happy;
    header("Location:devisPret.php");
 }
 ?>
@@ -249,8 +249,8 @@ if(isset($_POST['envo'])){
     		<div class="col-sm-7 col-md-7">
     			<div class="input-group">
     				<div id="radioBtn" class="btn-group">
-    					<a class="btn btn-primary btn-sm active" data-toggle="happy" data-title="Y" name="enlevement" value="oui">Oui</a>
-    					<a class="btn btn-primary btn-sm notActive" data-toggle="happy" data-title="N" name="enlevement" value="non">Non</a>
+    					<a class="btn btn-primary btn-sm active" data-toggle="happy" data-title="Y" >Oui</a>
+    					<a class="btn btn-primary btn-sm notActive" data-toggle="happy" data-title="N" >Non</a>
     				</div>
     				<input type="hidden" name="happy" id="happy">
     			</div>
