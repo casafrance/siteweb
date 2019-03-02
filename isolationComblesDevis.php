@@ -33,7 +33,7 @@
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="js/codepostalerrone.js"></script>
+<!--     <script type="text/javascript" src="js/codepostalerrone.js"></script> -->
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -230,7 +230,7 @@
     
 
     <div class="inner-wrap">
-        <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostalchantier" required="required" onblur="checkCodePostal(this);"/></label>
+        <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostalchantier" required="required" /></label>
     </div>
  
     <div class="button-section">
