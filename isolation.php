@@ -223,7 +223,7 @@
   </section>
   <!-- / menu -->  
 		<div class="containerIsolation" >
-		<div class="typeIsolation"><h3>Choisir le type d'isolation</h3> </div>
+		<div class="typeIsolation"><h3>Étape 1 : Choisir le type d'isolation</h3> </div>
         <div class="row mb-40">
             <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 mt-40">
                 <div class="row">
