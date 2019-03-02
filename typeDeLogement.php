@@ -234,7 +234,7 @@ session_start();
 <td width="200px">
 	<label> 
   <input type="radio" name="test" value="plainpied" checked>
-  <img src="img/maisonPlainPied.png">
+  <img src="img/maisonPlainPied.png" width="150px" height="100px">
   </label>
   <span class="section">Plain-pied </span>
  </td>
@@ -242,7 +242,7 @@ session_start();
   <label>
   
   <input type="radio" name="test" value="aetage">
-  <img src="img/maisonetage.png">
+  <img src="img/maisonetage.png" width="150px" height="100px">
   </label>
  <span class="section"> À étage</span>
 </td>
