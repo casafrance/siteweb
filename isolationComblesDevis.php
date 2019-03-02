@@ -248,7 +248,7 @@ if(isset($_POST['submit'])){
     
 
     <div class="inner-wrap">
-        <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostalchantier" required="required" /></label>
+        <label><b>Code postal</b> <input type="number" name="codePostalchantier" required /></label>
     </div>
  
     <div class="button-section">
