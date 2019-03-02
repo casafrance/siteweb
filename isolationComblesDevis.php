@@ -225,7 +225,7 @@
 		<div class="form-style-10">
 <h1>Devis en ligne<span>Obtenez votre devis gratuit en quelques secondes</span></h1>
 <form method="post" action="typeDeLogement.php">
-    <div class="section"><span>1</span>Votre logement</div>
+    <div class="section"><span>1</span>Nous allons vérifier votre éligibilité </div>
     
 
     <div class="inner-wrap">
@@ -237,24 +237,7 @@
     </div>
 </form>
 </div>
-      <!-- Subscribe section -->
- <section id="aa-subscribe">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="aa-subscribe-area">
-						<h3>Souscrire à notre newsletter</h3>
-						<p>Et recevez nos offres promotionnelles en exclusivité !</p>
-						<form action="" class="aa-subscribe-form">
-							<input type="email" name="" id="" placeholder="Saisir votre email">
-							<input type="submit" value="Valider">
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-  <!-- / Subscribe section -->
+
 
   <!-- footer -->  
   <footer id="aa-footer">

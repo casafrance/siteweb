@@ -239,24 +239,6 @@ if(isset($_POST['envoyer'])){
 		<div class="form-style-10">
 <h1>Enregistré Avec succès</h1>
 </div>
-      <!-- Subscribe section -->
- <section id="aa-subscribe">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="aa-subscribe-area">
-						<h3>Souscrire à notre newsletter</h3>
-						<p>Et recevez nos offres promotionnelles en exclusivité !</p>
-						<form action="" class="aa-subscribe-form">
-							<input type="email" name="" id="" placeholder="Saisir votre email">
-							<input type="submit" value="Valider">
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-  <!-- / Subscribe section -->
 
   <!-- footer -->  
   <footer id="aa-footer">
