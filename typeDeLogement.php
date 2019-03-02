@@ -226,19 +226,18 @@ session_start();
 		<div class="form-style-10">
 <h1>
 <?php
-$_SESSION['intervention'] = null;
+$_SESSION['codePostal'] = null;
 
 if(isset($_POST['submit'])){
     
    extract($_POST);
    $codepos = substr($codePostalchantier,0, 1);
    if($codepos=="33" or $codepos=="24" or $codepos=="40" or $codepos=="16" or $codepos=="17"){
-       $_SESSION['codePostalchantier'] = $codePostalchantier;
+       $_SESSION['codePostal'] = $codePostalchantier;
    }else{
-       $_SESSION['codePostalchantier'] = " Désolé !! Nous n'intervenons pas encore dans votre secteur, mais on arrive bientôt ...";
+       echo " Désolé !! Nous n'intervenons pas encore dans votre secteur, mais on arrive bientôt ...";
    }
 }
-echo $_SESSION['codePostalchantier'];
 ?>
 </h1>
 </div>
