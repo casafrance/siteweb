@@ -68,7 +68,7 @@
                     </ul>
                   </div>
                 </div>
-                <!-- / language -->
+                <!-- / language  -->
 
                 <!-- start currency -->
                 <div class="aa-currency">
