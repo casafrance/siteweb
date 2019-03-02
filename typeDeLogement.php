@@ -1,3 +1,19 @@
+<?php
+include_once 'ClientManager.php';
+$_SESSION['intervention'] = null;
+
+if(isset($_POST['envoyer'])){
+    
+   extract($_POST);
+   $codepos = substr(0, 1);
+   if($codepos=="33" or $codepos=="24" or $codepos=="40" or $codepos=="16" or $codepos=="17"){
+       $_SESSION['intervention'] = "";
+   }else{
+       $_SESSION['intervention'] = "Désolé !! Nous n'intervenons pas encore dans votre secteur, mais on arrive bientôt ...";
+   }
+}
+
+?>
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
@@ -96,14 +112,12 @@
                   <li class="hidden-xs"><a href="cart.php">Mes projets</a></li>
                   <li class="hidden-xs"><a href="checkout.php">Paiement sécurisé</a></li>
                    <li><a href="" data-toggle="modal" data-target="#login-modal">Espace Pro</a></li>
-                    <li><a href="account.php"><?php 
+                   <li><a href="account.php"><?php 
                   if (isset($_SESSION['prenomclient'])){
-                      echo $_SESSION['prenomclient'];
+                      echo "Bonjour ".$_SESSION['prenomclient'];
                   }else 
                       echo "Mon compte"; 
-                  ?>
-                      
-                      </a></li>
+                  ?></a></li>
                 </ul>
               </div>
             </div>
@@ -212,7 +226,7 @@
               </li>
               <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
               </li>
-              <li><a href="#">façade</a></li>
+              <li><a href="#">Façade</a></li>
               <li><a href="contact.php">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -223,19 +237,7 @@
   <!-- / menu -->  
   
 		<div class="form-style-10">
-<h1>Devis en ligne<span>Obtenez votre devis gratuit en quelques secondes</span></h1>
-<form method="post" action="typeDeLogement.php">
-    <div class="section"><span>1</span>Votre logement</div>
-    
-
-    <div class="inner-wrap">
-        <label><b>Code postal</b> <input type="number" maxlength="5" name="codePostalchantier" required="required" /></label>
-    </div>
- 
-    <div class="button-section">
-     <input type="submit" name="submit" />
-    </div>
-</form>
+<h1><?php echo $_SESSION['intervention']?></h1>
 </div>
       <!-- Subscribe section -->
  <section id="aa-subscribe">
