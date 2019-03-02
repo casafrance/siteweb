@@ -10,7 +10,7 @@ function auChargement(){
 function surligne(champ, erreur)
 {
    if(erreur)
-      champ.style.backgroundColor = "#FFC0CB";
+      champ.style.backgroundColor = "red";
    else
       champ.style.backgroundColor = "";
 }
