@@ -252,7 +252,7 @@ if(isset($_POST['passer'])){
         <label><b>Ville</b><input type="text" name="ville" required="required"/></label>
     </div>
     <div class="button-section">
-     <input type="submit" name="submit" value="Valider" />
+     <input type="submit" name="submit" />
     </div>
 </form>
 </div>
