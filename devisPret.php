@@ -1,11 +1,17 @@
 <?php
 session_start();
 $budget = "";
+$jourdetravail = "1";
 
 
 if(isset($_SESSION['surface'])){
     $surface = $_SESSION['surface'];
-    echo $_SESSION['enlevement'];
+    if($_SESSION['surface'] > 100 && $_SESSION['surface']<200){
+        $jourdetravail = "2";
+    }elseif ($_SESSION['surface'] >= 200 && $_SESSION['surface']<400){
+        $jourdetravail = "3";
+    }elseif ($_SESSION['surface'] >= 400 ) $jourdetravail = "Un conseiller va vous contacter, veuillez créer votre compte";
+    
     if($_SESSION['enlevement']=="N"){
     $budget = $surface * 39.90;
     }else{
@@ -239,10 +245,11 @@ if(isset($_SESSION['surface'])){
   
 		<div class="form-style-10">
 <h1>Devis en ligne<span>Obtenez votre devis gratuit en quelques secondes</span></h1>
-<form method="post" action="surfaceAuSol.php">
+<form method="post" action="inscriptionClient.php">
     <div class="section"><span>4</span>Bravo votre devis est prêt</div>
-    <b>votre budget : <?php echo $budget;?>  Euros TTC pose/main d'oeuvre/déplacement inclus</b><br>
-
+  <div>  <b>votre budget : <span style="color: blue;"> <?php echo $budget;?> </span>  euros TTC <br>
+  Le prix comprend la fourniture et la pose </b><br>
+<b>Nous avons estimé la durée des travaux à : <?php echo $jourdetravail;?>  jours.</b><br>
 Mise en place du chantier<br>
 <?php 
 if($_SESSION['enlevement']=="Y"){
@@ -253,10 +260,16 @@ Protection des spots, boites de dérivation ,cheminée, appareillage autres <br>
 Entourage de trappes coffrage en osb <br>
 Soufflage laine de roche 32 cm R 7 jetrock2  <br>
 Contrat sérénité 10 ans inclus<br>
-<b>"pour reserver et valider votre commande valider votre acompte de <?php echo $budget* 0.1;?></b> <br><br>
- 
+<b>Nous allons rechercher pour vous un artisan dans votre secteur </b>
+ <br><br>
+ </div>
+  <div class="section"><span>5</span>Choisissez vos disponibilités</div>
+    <div class="inner-wrap">
+    	<label><b>Choisissez vos disponibilités pour le passage du metreur  </b><input type="date" name="datemetrage" required="required"/><br><input type="time" name="heuremetrage" value="11:00" /></label>
+        <label><b>Indiquez vos disponibilité pour la date des travaux </b><input type="date" name="datedemarragetravaux" required="required" /></label>
+    </div>
     <div class="button-section">
-     <input type="submit" name="envoi" />
+     <input type="submit" name="passer" value="Passer à l'étape suivante" />
     </div>
 </form>
 </div>
