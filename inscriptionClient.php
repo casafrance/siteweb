@@ -235,7 +235,7 @@ if(isset($_POST['passer'])){
   <!-- / menu -->  
   
 		<div class="form-style-10">
-<h1>Devis en ligne<span>Obtenez votre devis gratuit en quelques secondes</span></h1>
+<h1>Créer mon compte gratuit<span></span></h1>
 <form method="post" action="#">
     
 
