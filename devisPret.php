@@ -1,21 +1,23 @@
 <?php
 session_start();
 $budget = "";
-$jourdetravail = "1";
+$_SESSION['jourdetravail']="1";
 
 
 if(isset($_SESSION['surface'])){
     $surface = $_SESSION['surface'];
     if($_SESSION['surface'] > 100 && $_SESSION['surface']<200){
-        $jourdetravail = "2";
+        $_SESSION['jourdetravail'] = "2";
     }elseif ($_SESSION['surface'] >= 200 && $_SESSION['surface']<400){
-        $jourdetravail = "3";
-    }elseif ($_SESSION['surface'] >= 400 ) $jourdetravail = "Un conseiller va vous contacter, veuillez créer votre compte";
+        $_SESSION['jourdetravail'] = "3";
+    }elseif ($_SESSION['surface'] >= 400 ) $_SESSION['jourdetravail'] = "Un conseiller va vous contacter, veuillez créer votre compte";
     
     if($_SESSION['enlevement']=="N"){
     $budget = $surface * 39.90;
+    $_SESSION['budget']=$budget;
     }else{
         $budget = $surface * 44.90;
+        $_SESSION['budget']=$budget;
     }
     
 }
@@ -249,7 +251,7 @@ if(isset($_SESSION['surface'])){
     <div class="section"><span>4</span>Bravo votre devis est prêt</div>
   <div>  <b>votre budget : <span style="color: blue;"> <?php echo $budget;?> </span>  euros TTC <br>
   Le prix comprend la fourniture et la pose </b><br>
-<b>Nous avons estimé la durée des travaux à : <?php echo $jourdetravail;?>  jours.</b><br>
+<b>Nous avons estimé la durée des travaux à : <?php echo $_SESSION['jourdetravail'];?>  jours.</b><br>
 Mise en place du chantier<br>
 <?php 
 if($_SESSION['enlevement']=="Y"){

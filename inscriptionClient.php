@@ -236,10 +236,10 @@ if(isset($_POST['passer'])){
   
 		<div class="form-style-10">
 <h1>Créer mon compte gratuit<span></span></h1>
-<form method="post" action="#">
+<form method="post" action="checkout.php">
     
 
-    <div class="section"><span>5</span>Vos coordonnées (créez votre compte)</div>
+    <div class="section"><span>5</span>Vos coordonnées </div>
         <div class="inner-wrap">
         <label><b>Nom </b><input type="text" name="nom" required="required"/></label>
         <label><b>Prénom</b><input type="text" name="prenom" required="required"/></label>

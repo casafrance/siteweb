@@ -122,25 +122,6 @@ session_start();
                       </a></li>
                 </ul>
               </div>
-              <div class="dropdown">
-                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <img src="img/flag/french.jpg" alt="english flag"><?php 
-                  if (isset($_SESSION['prenomclient'])){
-                      echo $_SESSION['prenomclient'];
-                  }else 
-                      echo "Mon compte"; 
-                  ?>
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <li><a href="wishlist.php">Mes Devis</a></li>
-                    </ul>
-                  </div>
-              
-              
-              
-              
-              
               
               
 						</div>

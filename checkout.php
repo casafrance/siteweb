@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -282,28 +285,6 @@
 													</div>
 												</div>
 											</div>
-											<!-- Login section -->
-											<div class="panel panel-default aa-checkout-login">
-												<div class="panel-heading">
-													<h4 class="panel-title">
-														<a data-toggle="collapse" data-parent="#accordion"
-															href="#collapseTwo"> Authentification </a>
-													</h4>
-												</div>
-												<div id="collapseTwo" class="panel-collapse collapse">
-													<div class="panel-body">
-														<p>Veuillez saisir vos identifiants</p>
-														<input type="text" placeholder="Username or email">
-														<input type="password" placeholder="Password">
-														<button type="submit" class="aa-browse-btn">Email</button>
-														<label for="rememberme"><input type="checkbox"
-															id="rememberme"> Se souvenir de moi </label>
-														<p class="aa-lost-password">
-															<a href="#">Mot de passe oublié?</a>
-														</p>
-													</div>
-												</div>
-											</div>
 											<!-- Billing Details -->
 											<div class="panel panel-default aa-checkout-billaddress">
 												<div class="panel-heading">
@@ -314,81 +295,25 @@
 												</div>
 												<div id="collapseThree" class="panel-collapse collapse">
 													<div class="panel-body">
-														<div class="row">
-															<div class="col-md-6">
-																<div class="aa-checkout-single-bill">
-																	<input type="text" placeholder="Nom*">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="aa-checkout-single-bill">
-																	<input type="text" placeholder="Prénom*">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-12">
-																<div class="aa-checkout-single-bill">
-																	<input type="text" placeholder="Société">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-6">
-																<div class="aa-checkout-single-bill">
-																	<input type="email" placeholder="Email de facturation*">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="aa-checkout-single-bill">
-																	<input type="tel" placeholder="Phone*">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-12">
-																<div class="aa-checkout-single-bill">
-																	<textarea cols="8" rows="3">Adresse*</textarea>
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-12">
-																<div class="aa-checkout-single-bill">
-																	<select>
-																		<option value="0">Séléctionner votre pays</option>
-																		<option value="1">France</option>
-																		<option value="2">Espagne</option>
-																		<option value="3">Maroc</option>
-																	</select>
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-6">
-																<div class="aa-checkout-single-bill">
-																	<input type="text"
-																		placeholder="Appartement, Suite etc.">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="aa-checkout-single-bill">
-																	<input type="text" placeholder="Ville*">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-6">
-																<div class="aa-checkout-single-bill">
-																	<input type="text" placeholder="District*">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="aa-checkout-single-bill">
-																	<input type="text" placeholder="Code Postal*">
-																</div>
-															</div>
-														</div>
+														
+													<div>  <b>votre budget : <span style="color: blue;"> <?php if(isset($_SESSION['budget'])) echo $_SESSION['budget'];?> </span>  euros TTC <br>
+  Le prix comprend la fourniture et la pose </b><br>
+<b>Nous avons estimé la durée des travaux à : <?php if(isset($_SESSION['budget'])) echo $_SESSION['jourdetravail'];?>  jours.</b><br>
+Mise en place du chantier<br>
+<?php 
+if(isset($_SESSION['enlevement'])){
+if($_SESSION['enlevement']=="Y"){
+    echo "Enlèvement et traitement de l'ancienne isolation en déchetterie <br>";}}
+?>
+Préparation des supports <br>
+Protection des spots, boites de dérivation ,cheminée, appareillage autres <br>
+Entourage de trappes coffrage en osb <br>
+Soufflage laine de roche 32 cm R 7 jetrock2  <br>
+Contrat sérénité 10 ans inclus<br>	</div>
+														
+														
+														
+													
 													</div>
 												</div>
 											</div>
@@ -397,7 +322,7 @@
 												<div class="panel-heading">
 													<h4 class="panel-title">
 														<a data-toggle="collapse" data-parent="#accordion"
-															href="#collapseFour"> Adresse de facturation </a>
+															href="#collapseFour"> Paiement en plusieurs fois </a>
 													</h4>
 												</div>
 												<div id="collapseFour" class="panel-collapse collapse">
@@ -444,10 +369,10 @@
 															<div class="col-md-12">
 																<div class="aa-checkout-single-bill">
 																	<select>
-																		<option value="0">Selectionner votre pays</option>
-																		<option value="1">France</option>
-																		<option value="2">Espagne</option>
-																		<option value="3">Maroc</option>
+																		<option value="0">Choisir</option>
+																		<option value="1">3 fois sans frais</option>
+																		<option value="2">4 fois sans frais</option>
+																		<option value="3">10 fois sans frais</option>
 																	</select>
 																</div>
 															</div>
@@ -456,31 +381,12 @@
 															<div class="col-md-6">
 																<div class="aa-checkout-single-bill">
 																	<input type="text"
-																		placeholder="Appartement, Suite etc.">
+																		placeholder="IBAN">
 																</div>
 															</div>
 															<div class="col-md-6">
 																<div class="aa-checkout-single-bill">
-																	<input type="text" placeholder="Ville*">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-6">
-																<div class="aa-checkout-single-bill">
-																	<input type="text" placeholder="Region">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="aa-checkout-single-bill">
-																	<input type="text" placeholder="Code Postal">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-12">
-																<div class="aa-checkout-single-bill">
-																	<textarea cols="8" rows="3">Notes</textarea>
+																	<input type="text" placeholder="BIC*">
 																</div>
 															</div>
 														</div>
@@ -504,29 +410,13 @@
 												<tbody>
 													<tr>
 														<td>Isolation <strong> x 1</strong></td>
-														<td>150 €</td>
-													</tr>
-													<tr>
-														<td>Traitemet de charpente <strong> x 1</strong></td>
-														<td>250 €</td>
-													</tr>
-													<tr>
-														<td>Peinture <strong> x 1</strong></td>
-														<td>350 €</td>
+														<td><?php if(isset($_SESSION['budget'])) echo $_SESSION['budget'];?> €</td>
 													</tr>
 												</tbody>
 												<tfoot>
 													<tr>
-														<th>Sous total</th>
-														<td>750 €</td>
-													</tr>
-													<tr>
-														<th>TVA</th>
-														<td>10%</td>
-													</tr>
-													<tr>
-														<th>Total</th>
-														<td>785 €</td>
+														<th>Total TTC</th>
+														<td><?php if(isset($_SESSION['budget'])) echo $_SESSION['budget'];?> €</td>
 													</tr>
 												</tfoot>
 											</table>
@@ -534,8 +424,7 @@
 										<h4>Paiment sécurisé</h4>
 										<div class="aa-payment-method">
 											<label for="cashdelivery"><input type="radio"
-												id="cashdelivery" name="optionsRadios"> Cash on
-												Delivery </label> <label for="paypal"><input type="radio"
+												id="cashdelivery" name="optionsRadios"> Via carte blue </label> <label for="paypal"><input type="radio"
 												id="paypal" name="optionsRadios" checked> Via Paypal
 											</label> <img
 												src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg"
