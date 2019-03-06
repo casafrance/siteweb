@@ -52,7 +52,8 @@ if(isset($_SESSION['surface'])){
 
     <!-- Main style sheet -->
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/isolationComblesDevis.css" />    
+    <link rel="stylesheet" href="css/isolationComblesDevis.css" />  
+    <link rel="stylesheet" href="css/devispret.css" />    
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
@@ -244,27 +245,37 @@ if(isset($_SESSION['surface'])){
       </div>
   </section>
   <!-- / menu -->  
-  
-		<div class="form-style-10">
+  <br>
+  <br>
+  		<div class="form-style-10">
 <h1>Devis en ligne<span>Obtenez votre devis gratuit en quelques secondes</span></h1>
+   <div class="section"><span>4</span>Bravo votre devis est prêt</div>
+<table class="tableau">
+<!--   <caption>Exemple de tableau stylisé</caption> -->
+  <colgroup>
+    <col class="col1" />
+    <col class="col3" />
+  </colgroup>
+  <thead>
+    <tr><th style="text-align:center;">Détails</th><th>Total</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>- Nous avons estimé la durée des travaux à</td><td><b><?php echo $_SESSION['jourdetravail'];?> </b> jour.</td><td></td></tr>
+    <tr><td>- Préparation des supports </td><td></td></tr>
+    <tr><td>- Protection des spots, boites de dérivation ,cheminée, appareillage autres </td><td></td></tr>
+    <tr><td>- Entourage de trappes coffrage en osb</td><td></td></tr>
+    <tr><td>- Soufflage laine de roche 32 cm R 7 jetrock2</td><td></td></tr>
+    <tr><td>- Contrat sérénité 10 ans inclus</td><td></td></tr>
+    <tr><td>- Nous allons rechercher pour vous un artisan dans votre secteur</td><td></td></tr>
+    <tr><td><b>Votre budget : </b></td><td><span style="color: blue;"> <?php echo $budget;?>  euros TTC</span></td></tr>
+  </tbody>
+</table>
+  
+  <br>
+  
+  
+
 <form method="post" action="inscriptionClient.php">
-    <div class="section"><span>4</span>Bravo votre devis est prêt</div>
-  <div>  <b>votre budget : <span style="color: blue;"> <?php echo $budget;?> </span>  euros TTC <br>
-  Le prix comprend la fourniture et la pose </b><br>
-<b>Nous avons estimé la durée des travaux à : <?php echo $_SESSION['jourdetravail'];?>  jours.</b><br>
-Mise en place du chantier<br>
-<?php 
-if($_SESSION['enlevement']=="Y"){
-echo "Enlèvement et traitement de l'ancienne isolation en déchetterie <br>";}
-?>
-Préparation des supports <br>
-Protection des spots, boites de dérivation ,cheminée, appareillage autres <br>
-Entourage de trappes coffrage en osb <br>
-Soufflage laine de roche 32 cm R 7 jetrock2  <br>
-Contrat sérénité 10 ans inclus<br>
-<b>Nous allons rechercher pour vous un artisan dans votre secteur </b>
- <br><br>
- </div>
   <div class="section"><span>5</span>Choisissez vos disponibilités</div>
     <div class="inner-wrap">
     	<label><b>Choisissez vos disponibilités pour le passage du metreur  </b><input type="date" name="datemetrage" required="required"/><br><input type="time" name="heuremetrage" value="11:00" /></label>

@@ -1,0 +1,50 @@
+/* Tableau */
+.tableau {
+  width:400px;
+/*   border-collapse: separate; pour ligné */
+ /* border-spacing: 1px; // pour contrer les style de base */
+ 
+}
+/* .tableau caption { */
+/*   font-size:1.4rem; */
+/*   color:#ffffff; */
+/*   background-color: #999690; */
+/*  /* caption-side: bottom; // Ex : aligné en bas */ */
+/* } */
+
+/* Entête */
+.tableau th {
+  background-color:#999690;
+  color:#fff;
+}
+
+/* Pied */
+.tableau tfoot td {
+  color:#fff;
+  background-color:#999690;
+  border-top:1px solid #5d625c;
+  border-bottom:1px solid #5d625c;
+  
+}
+
+/* Colonnes avec classes */
+.tableau col.col1 {
+  background-color:#d6d3ce;
+}
+.tableau col.col2 {
+  background-color:#dddad4;width:100px;
+}
+.tableau col.col3 {
+  background-color:#c6c3bd;color:#fff;width:100px;
+}
+
+/* Alignement par colonnes sans classe */
+.tableau td:nth-child(2) {
+/*   text-align:right; */
+}
+.tableau td:nth-child(3) {
+/*   text-align:right; */
+}
+td{
+	text-align: left;
+}
