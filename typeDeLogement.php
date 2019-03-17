@@ -216,7 +216,7 @@ if(isset($_POST['submit'])){
                   <li><a href="isolationToitures.html">Isolation sous toiture</a></li>
                 </ul>
               </li>
-              <li><a href="#">Traitement de charpente <span class="caret"></span></a>
+              <li><a href="traitementCharpente.php">Traitement de charpente <span class="caret"></span></a>
               </li>
               <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
               </li>
