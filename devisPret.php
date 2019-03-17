@@ -237,7 +237,7 @@ if(isset($_SESSION['surface'])){
               </li>
               <li><a href="traitementCharpente.php">Traitement de charpente <span class="caret"></span></a>
               </li>
-              <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
+              <li><a href="nettoyage.php">Nettoyage de toiture <span class="caret"></span></a>
               </li>
               <li><a href="#">façade</a></li>
               <li><a href="contact.php">Contact</a></li>

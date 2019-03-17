@@ -211,7 +211,7 @@
               </li>
               <li><a href="traitementCharpente.php">Traitement de charpente <span class="caret"></span></a>
               </li>
-              <li><a href="#">Nettoyage de toiture <span class="caret"></span></a>
+              <li><a href="nettoyage.php">Nettoyage de toiture <span class="caret"></span></a>
               </li>
               <li><a href="#">Façade</a></li>
               <li><a href="contact.php">Contact</a></li>
