@@ -238,7 +238,7 @@ Les charpentes subissent les attaques de plusieurs variétés de parasites (cham
 
 LES SIGNES D’UNE CHARPENTE INFESTÉE
 Le capricorne des maisons attaque la structure de la charpente et creuse le bois dans le sens des fibres. Plus généralement les insectes xylophages (capricornes, vrillettes) attaquent profondément le bois, amenuisant le travail de soutien de la charpente, ce qui amène parfois à l’effondrement de la toiture des habitations.<br><br>
-<img alt="" src="insecte.jpeg"/>
+<!-- <img alt="" src="insecte.jpeg"/> -->
 							<a  href="isolationComblesDevis.php" > 
                                      <div class="col-lg-3 col-md-4 col-sm-3 col-xs-6">
                         <div class="block-picto picto-form picto-hover" data-form-target="category_id" data-form-value="123">
