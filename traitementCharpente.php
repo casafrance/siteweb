@@ -230,9 +230,10 @@
         <div class="textdetails">
         
 Le bois est un matériau naturel, vivant et d’une grande longévité s’il est correctement entretenu. Il existe différentes essences de bois :
-
-Les « Feuillus »  : le chêne / le châtaignier
-Les « résineux » : le pin maritime / le sapin
+<ul>
+<li>Les « Feuillus »  : le chêne / le châtaignier</li>
+<li>Les « résineux » : le pin maritime / le sapin</li>
+</ul>
 Les charpentes subissent les attaques de plusieurs variétés de parasites (champignons, insectes, larves…). Les plus répandus et les plus nocifs sont des insectes xylophages appelés aussi capricornes. Ils détruisent les charpentes petit à petit tout au long de leur cycle de vie qui se déroule entièrement à l’intérieur du bois. Pour bien les combattre, il est important de bien les connaître.
 
 LES SIGNES D’UNE CHARPENTE INFESTÉE
