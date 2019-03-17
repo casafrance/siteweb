@@ -275,7 +275,7 @@ if(isset($_SESSION['surface'])){
   
   
 
-<form method="post" action="inscriptionClient.php">
+<form method="post" action="checkout.php">
   <div class="section"><span>5</span>Choisissez vos disponibilités</div>
     <div class="inner-wrap">
     	<label><b>Choisissez vos disponibilités pour le passage du metreur  </b><input type="date" name="datemetrage" required="required"/><br><input type="time" name="heuremetrage" value="11:00" /></label>
