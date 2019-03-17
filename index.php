@@ -537,7 +537,7 @@ les transactions effectuées sur ce site sont sécurisées par la plateforme de 
 									alt="sthenplus"></a></li>
 							<li><a href="#"><img src="img/adso.png" width="135px" height="33px"
 									alt="adso"></a></li>
-							<li><a href="#"><img src="img/leroymerlin.png" width="135px" height="33px"
+							<li><a href="#"><img src="img/ROCKWOOL.png" width="135px" height="33px"
 									alt="leroymerlin"></a></li>
 							<li><a href="#"><img
 									src="img/qualibat.jpg" alt="qualibat" width="135px" height="33px"></a></li>
