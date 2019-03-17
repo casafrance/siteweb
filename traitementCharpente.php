@@ -28,7 +28,7 @@
 
     <!-- Main style sheet -->
     <link href="css/style.css" rel="stylesheet">   
-    <link rel="stylesheet" href="css/isolationCombles.css" />     
+    <link rel="stylesheet" href="css/traitementCharpente.css" />     
     
 
     <!-- Google Font -->
@@ -227,7 +227,7 @@
 
         <div class="textIsolationComble">POURQUOI PROTÉGER SA CHARPENTE DES INSECTES XYLOPHAGES ?
         </div>
-        <div class="textdetails"><span class="">
+        <div class="textdetails"><span class="textStyle">
         
 Le bois est un matériau naturel, vivant et d’une grande longévité s’il est correctement entretenu. Il existe différentes essences de bois :
 <ul>
