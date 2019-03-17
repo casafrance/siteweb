@@ -233,7 +233,8 @@ Le bois est un matériau naturel, vivant et d’une grande longévité s’il es
 
 Les « Feuillus »  : le chêne / le châtaignier
 Les « résineux » : le pin maritime / le sapin
-Les charpentes subissent les attaques de plusieurs variétés de parasites (champignons, insectes, larves…). Les plus répandus et les plus nocifs sont des insectes xylophages appelés aussi capricornes. Ils détruisent les charpentes petit à petit tout au long de leur cycle de vie qui se déroule entièrement à l’intérieur du bois. Pour bien les combattre, il est important de bien les connaître.<iframe  src="https://casafrancedata.blob.core.windows.net/video/isolationvideo.mp4" frameborder="0"  allowfullscreen autoplay="false" ></iframe>
+Les charpentes subissent les attaques de plusieurs variétés de parasites (champignons, insectes, larves…). Les plus répandus et les plus nocifs sont des insectes xylophages appelés aussi capricornes. Ils détruisent les charpentes petit à petit tout au long de leur cycle de vie qui se déroule entièrement à l’intérieur du bois. Pour bien les combattre, il est important de bien les connaître.
+<iframe  src="insecte.jpeg" frameborder="0"  allowfullscreen autoplay="false" ></iframe>
 							<a  href="isolationComblesDevis.php" > 
                                      <div class="col-lg-3 col-md-4 col-sm-3 col-xs-6">
                         <div class="block-picto picto-form picto-hover" data-form-target="category_id" data-form-value="123">
