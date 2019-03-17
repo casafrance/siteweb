@@ -225,11 +225,18 @@
   </section>
   <!-- / menu -->  
 
-        <div class="textIsolationComble">Isolation des combles
+        <div class="textIsolationComble">POURQUOI PROTÉGER SA CHARPENTE DES INSECTES XYLOPHAGES ?
         </div>
         <div class="textdetails">
         
-L’isolation des combles est un choix de rénovation énergétique à prioriser. <b>En effet, jusqu’à 30 % des pertes de chaleur se font par la toiture</b>. Cette isolation est donc celle qui permet de faire le plus d’économies d’énergie pour un faible coût, de l'ordre de 53 €/m², ce qui en fait une solution très vite rentabilisée. <br><br>
+Le bois est un matériau naturel, vivant et d’une grande longévité s’il est correctement entretenu. Il existe différentes essences de bois :
+
+Les « Feuillus »  : le chêne / le châtaignier
+Les « résineux » : le pin maritime / le sapin
+Les charpentes subissent les attaques de plusieurs variétés de parasites (champignons, insectes, larves…). Les plus répandus et les plus nocifs sont des insectes xylophages appelés aussi capricornes. Ils détruisent les charpentes petit à petit tout au long de leur cycle de vie qui se déroule entièrement à l’intérieur du bois. Pour bien les combattre, il est important de bien les connaître.
+
+LES SIGNES D’UNE CHARPENTE INFESTÉE
+Le capricorne des maisons attaque la structure de la charpente et creuse le bois dans le sens des fibres. Plus généralement les insectes xylophages (capricornes, vrillettes) attaquent profondément le bois, amenuisant le travail de soutien de la charpente, ce qui amène parfois à l’effondrement de la toiture des habitations.<br><br>
 <iframe  src="https://casafrancedata.blob.core.windows.net/video/isolationvideo.mp4" frameborder="0"  allowfullscreen autoplay="false" ></iframe>
 							<a  href="isolationComblesDevis.php" > 
                                      <div class="col-lg-3 col-md-4 col-sm-3 col-xs-6">
