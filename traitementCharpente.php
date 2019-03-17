@@ -27,8 +27,7 @@
     <link href="css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
 
     <!-- Main style sheet -->
-    <link href="css/style.css" rel="stylesheet">   
-    <link rel="stylesheet" href="css/traitementCharpente.css" />     
+    <link href="css/style.css" rel="stylesheet">       
     
 
     <!-- Google Font -->
@@ -228,12 +227,11 @@
         <div class="textIsolationComble">POURQUOI PROTÉGER SA CHARPENTE DES INSECTES XYLOPHAGES ?
         </div>
         <div class="textdetails">
-        
 Le bois est un matériau naturel, vivant et d’une grande longévité s’il est correctement entretenu. Il existe différentes essences de bois :
-<ul>
+<ol>
 <li>Les « Feuillus »  : le chêne / le châtaignier</li>
 <li>Les « résineux » : le pin maritime / le sapin</li>
-</ul>
+</ol>
 Les charpentes subissent les attaques de plusieurs variétés de parasites (champignons, insectes, larves…). Les plus répandus et les plus nocifs sont des insectes xylophages appelés aussi capricornes. Ils détruisent les charpentes petit à petit tout au long de leur cycle de vie qui se déroule entièrement à l’intérieur du bois. Pour bien les combattre, il est important de bien les connaître.
 
 LES SIGNES D’UNE CHARPENTE INFESTÉE
