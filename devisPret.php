@@ -16,7 +16,7 @@ if (isset($_SESSION['surface'])) {
         $budget = $surface *29.90;
         $_SESSION['budget'] = $budget;
     } else {
-        $budget = $surface * 44.90;
+        $budget = $surface * 34.90;
         $_SESSION['budget'] = $budget;
     }
 }
