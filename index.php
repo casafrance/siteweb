@@ -261,7 +261,7 @@ vos projets sont ici !</p>
 								<img data-seq src="img/slider/2.jpg"  />
 							</div>
 							<div class="seq-title">
-								<span data-seq>À partir de 39.90 €/ m2</span>
+								<span data-seq>À partir de 29.90 €/ m2</span>
 								<h2 data-seq>Isolation des combles</h2>
 								<p data-seq>Besoin d'un professionnel pour l'isolation de vos combles ?</p>
 								<a data-seq href="isolation.php" class="aa-shop-now-btn aa-secondary-btn">DEVIS EN LIGNE</a>

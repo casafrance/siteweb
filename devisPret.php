@@ -13,7 +13,7 @@ if (isset($_SESSION['surface'])) {
         $_SESSION['jourdetravail'] = "Un conseiller va vous contacter, veuillez créer votre compte";
 
     if ($_SESSION['enlevement'] == "N") {
-        $budget = $surface * 39.90;
+        $budget = $surface *29.90;
         $_SESSION['budget'] = $budget;
     } else {
         $budget = $surface * 44.90;
