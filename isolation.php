@@ -173,12 +173,12 @@
               </div>
               <!-- / cart box -->
               <!-- search box -->
-              <div class="aa-search-box">
-                <form action="">
-                  <input type="text" name="" id="" placeholder="Effectuez une recherche ici ex. 'isolation' ">
-                  <button type="submit"><span class="fa fa-search"></span></button>
-                </form>
-              </div>
+<!--               <div class="aa-search-box"> -->
+<!--                 <form action=""> -->
+<!--                   <input type="text" name="" id="" placeholder="Effectuez une recherche ici ex. 'isolation' "> -->
+<!--                   <button type="submit"><span class="fa fa-search"></span></button> -->
+<!--                 </form> -->
+<!--               </div> -->
               <!-- / search box -->             
             </div>
           </div>
