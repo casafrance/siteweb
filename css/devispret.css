@@ -21,7 +21,7 @@
 /* Pied */
 .tableau tfoot td {
   color:#fff;
-  background-color:#999690;
+/*   background-color:#999690; */
   border-top:1px solid #5d625c;
   border-bottom:1px solid #5d625c;
   
@@ -29,13 +29,13 @@
 
 /* Colonnes avec classes */
 .tableau col.col1 {
-  background-color:#d6d3ce;
+/*   background-color:#d6d3ce; */
 }
 .tableau col.col2 {
-  background-color:#dddad4;width:100px;
+/*   background-color:#dddad4;width:100px; */
 }
 .tableau col.col3 {
-  background-color:#c6c3bd;color:#fff;width:100px;
+/*   background-color:#c6c3bd;color:#fff;width:100px; */
 }
 
 /* Alignement par colonnes sans classe */
