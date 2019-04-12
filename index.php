@@ -327,7 +327,7 @@ vos projets sont ici !</p>
 							<div class="col-md-5 no-padding">
 								<div class="aa-promo-left">
 									<div class="aa-promo-banner">
-										<img src="img/1euro.png" alt="img" width="450px" height="450px">
+										
 										<div class="aa-prom-content">
 											<span>ISOLATION À partir de 19.90 EURO</span>
 											<h4>
