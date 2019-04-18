@@ -327,6 +327,7 @@ vos projets sont ici !</p>
 							<div class="col-md-5 no-padding">
 								<div class="aa-promo-left">
 									<div class="aa-promo-banner">
+							
 										
 										<div class="aa-prom-content">
 											<span>ISOLATION À partir de 19.90 EURO</span>
@@ -413,7 +414,7 @@ vos projets sont ici !</p>
 								<span class="fa fa-clock-o"></span>
 								<h4>Paiement 100% sécurisé</h4>
 								<P>Vous pouvez régler votre commande par carte bancaire.
-les transactions effectuées sur ce site sont sécurisées par la plateforme de paiement en ligne payzen. 
+les transactions effectuées sur ce site sont sécurisées par la plateforme de paiement en ligne strip. 
 </P>
 							</div>
 						</div>
