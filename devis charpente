@@ -139,7 +139,7 @@ if (isset($_SESSION['surface'])) {
         } else
             echo "Mon compte";
         ?>
-                      
+
                       </a></li>
 								</ul>
 							</div>
@@ -282,14 +282,14 @@ if (isset($_SESSION['surface'])) {
 			<tbody>
 				<tr>
 					<td>- Nous avons estimé la durée des travaux à</td>
-					<td><b><?php echo $_SESSION['jourdetravail'];?> </b> jour.</td>
+				        <td><b><?php echo $_SESSION['jourdetravail'];?> </b> jour.</td>
 					<td></td>
 				</tr>
 				<tr>
 					<td>- Préparation des supports</td>
-				
+
 					<td>- injection des ancrages </td>
-					
+
 					<td>Double Application des surfaces avec produit xilix conforme aux normes cstb </td>
 				</tr>
 				<tr>
@@ -456,7 +456,7 @@ $('#radioBtn a').on('click', function(){
     var sel = $(this).data('title');
     var tog = $(this).data('toggle');
     $('#'+tog).prop('value', sel);
-    
+
     $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
     $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
 })
