@@ -1,3 +1,26 @@
+<?php
+session_start();
+$budget = "";
+$_SESSION['jourdetravail'] = "1";
+
+if (isset($_SESSION['surface'])) {
+    $surface = $_SESSION['surface'];
+    if ($_SESSION['surface'] > 100 && $_SESSION['surface'] < 200) {
+        $_SESSION['jourdetravail'] = "2";
+    } elseif ($_SESSION['surface'] >= 200 && $_SESSION['surface'] < 400) {
+        $_SESSION['jourdetravail'] = "3";
+    } elseif ($_SESSION['surface'] >= 400)
+        $_SESSION['jourdetravail'] = "Un conseiller va vous contacter, veuillez créer votre compte";
+
+    if ($_SESSION['fermette'] == "N") {
+        $budget = $surface *29.90;
+        $_SESSION['budget'] = $budget;
+    } else {
+        $budget = $surface * 9.90;
+        $_SESSION['budget'] = $budget;
+    }
+}
+?>
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
@@ -148,17 +171,15 @@
                     <li>
                       <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
                       <div class="aa-cartbox-info">
-                        <h4><a href="#">Isolation</a></h4>
-                        <p>1 x 250 €</p>
+                        <h4><a href="#">traitement de charpente</a></h4>
                       </div>
                       <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
                     </li>
                     <li>
                       <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg" alt="img"></a>
                       <div class="aa-cartbox-info">
-                        <h4><a href="#">Peinture</a></h4>
-                        <p>1 x 250 €</p>
-                      </div>
+                       
+                     </div>
                       <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
                     </li>                    
                     <li>
@@ -166,24 +187,17 @@
                         Total
                       </span>
                       <span class="aa-cartbox-total-price">
-                        500 €
+					  
+			
+        
                       </span>
                     </li>
                   </ul>
                   <a class="aa-cartbox-checkout aa-primary-btn" href="#">Paiement sécurisé</a>
-                </div>
-              </div>
-              <!-- / cart box -->
-              <!-- search box -->
-<!--               <div class="aa-search-box"> -->
-<!--                 <form action=""> -->
-<!--                   <input type="text" name="" id="" placeholder="Effectuez une recherche ici ex. 'isolation' "> -->
-<!--                   <button type="submit"><span class="fa fa-search"></span></button> -->
-<!--                 </form> -->
-<!--               </div> -->
-              <!-- / search box -->             
-            </div>
-          </div>
+                 </div>
+               </div>
+			   </div>
+         </div>
         </div>
       </div>
     </div>
@@ -240,7 +254,7 @@ Les charpentes subissent les attaques de plusieurs variétés de parasites (cham
 <iframe  src="img/insecte.jpeg" frameborder="0"  allowfullscreen autoplay="false" ></iframe>
 							<a  href="isolationComblesDevis.php" > 
                                      <div class="col-lg-3 col-md-4 col-sm-3 col-xs-6">
-                        <div class="block-picto picto-form picto-hover" data-form-target="category_id" data-form-value="123">
+                        <div class="block-picto picto-form picto-hover" data-form-target="category_id" data-form-value="1230">
                             <div class="textIsolation"><b>Devis en ligne</b></div>
                             <div class="pictoIsolationComble" >
                                 <img src="img/picto_isolation-combles.png" style="width:100%;" class="isolation"/>
