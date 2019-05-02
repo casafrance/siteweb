@@ -105,7 +105,7 @@ session_start();
                 <!-- / currency -->
                 <!-- start cellphone -->
                 <div class="cellphone hidden-xs">
-                  <p><span class="fa fa-phone"></span><b><b>0 806 07 95 21 appel gratuit</b></b></p>
+                  <p><span class="fa fa-phone"></span><b><b>0 806 07 95 21 </b></b></p>
                 </div>
                 <!-- / cellphone -->
               </div>
